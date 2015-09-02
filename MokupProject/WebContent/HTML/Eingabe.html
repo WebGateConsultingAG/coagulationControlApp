@@ -17,14 +17,15 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <title>INR messen</title></head>
 <body>
+
 <div class="container">
     
 <div class="row">
-  <div class="col-xs-6 col-sm-4"><a class="btn btn-default" href="#" role="button">INR messen</a></div>
+  <div class="col-xs-6 col-sm-4"><a class="btn btn-default" href="Messung.html" role="button">INR messen</a></div>
   <div class="col-xs-6 col-sm-4"><h1>Eingaben</h1></div>
   <!-- Optional: clear the XS cols if their content doesn't match in height -->
   <div class="clearfix visible-xs-block"></div>
-  <div class="col-xs-6 col-sm-4"><a class="btn btn-default" href="#" role="button">Medikamenten</a></div>
+  <div class="col-xs-6 col-sm-4"><a class="btn btn-default" href="Medikamenten.html" role="button">Medikamenten</a></div>
 </div>
     <div class="abstand"></div>
     <div class="row">
@@ -41,7 +42,7 @@
     <input type="text" class="form-control" placeholder="Vorname">
   </div>
   <div class="col-xs-2">
-    <input type="text" class="form-control" placeholder="Jahrgang">
+    <input type="date" class="form-control" placeholder="Jahrgang">
   </div>
    
   <div class="col-md-1"><input class="form-control" type="text" placeholder="Von"></div>
@@ -74,23 +75,23 @@
     <div class="abstand"></div>
     
     <div class="row">
-  <div class="col-md-9">
+  <div class="col-md-12">
 <span id="helpBlock" class="help-block">Welche Medikamenten nehmen Sie zur Zeit?</span>
 
 <input class="form-control" type="text" placeholder=" Medikament Nr.1">
-      <fieldset disabled>
           
 <div class="abstand"></div>
           
-      <input type="text" id="disabledTextInput" class="form-control" placeholder="Sie haben Medikament Nr.1 vergessen.">
-          <fieldset disabled>
-  <div class="abstand"></div>
-           <input type="text" id="disabledTextInput" class="form-control" placeholder="Sie haben Medikament Nr.2 vergessen.">
+      <input type="text" id="disabledTextInput" class="form-control" placeholder="Medikament Nr.2">
 
+
+  <div class="abstand"></div>
+           <input type="text" id="disabledTextInput" class="form-control" placeholder="Medikament Nr.3.">
 
    </div>
     </div>
     <div class="abstand"></div>
+    
     <div class="row">
   <div class="col-xs-6 col-sm-6"><button type="submit" class="btn btn-default">Bestätigen</button></div>
  
@@ -99,6 +100,6 @@
   <div class="col-xs-6 col-sm-6"><button type="reset" class="btn btn-default">Zurücksetzen</button></div>
 </div>
     </div>
-    
+
     </body>
 </html>
