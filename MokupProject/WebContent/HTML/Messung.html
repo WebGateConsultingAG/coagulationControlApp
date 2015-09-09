@@ -1,66 +1,82 @@
 <html>
-     <html lang="de">
-         <meta charset="utf-8">
+<html lang="de">
+<meta charset="utf-8">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="css/style.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-     <script src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript" src="js/Script.js"></script>
-    <title>INR messen</title></head>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="js/Script.js"></script>
+<title>INR messen</title>
+</head>
 <body>
 
-<div class="container">
-    
-<div class="row">
-  <div class="col-xs-6 col-sm-4"><a class="btn btn-default" href="eingabe.html" role="button">Eingaben ändern</a></div>
-  <div class="col-xs-6 col-sm-4"><h1>INR messen</h1></div>
-  <!-- Optional: clear the XS cols if their content doesn't match in height -->
-  <div class="clearfix visible-xs-block"></div>
-  <div class="col-xs-6 col-sm-4"><a class="btn btn-default" href="Medikamenten.html" role="button">Medikamenten</a></div>
-</div>
-    <div class="abstand"></div>
-    <div class="row">
-          
-  <div class="col-xs-2">
-    <input type="text" class="form-control" placeholder="INR eingeben">
-  </div>
-  <div class="col-xs-2">
-    <input class="form-control" type="date" >
-  </div>
-  <div class="col-xs-2">
-    <input class="btn btn-default" type="submit" value="Speichern">
-  </div>
-  <div class="col-xs-4">
-        <p>Bei der letzte Messund war Ihre INR: </p><span>52</span>
-      <p>INr ist: <span>   Nicht in Ordnung</span></p>
-        </div>
-        
-</div>
-    
+	<div class="container">
 
-<div class="abstand"></div>
-<div class="row">
-  <div class="col-md-5">
- 
-    <p>Verlaufs Ihres INR in die letzte 3 Wochen: </p>
-<div id="oil" style="width: 60%; height: 40%;"></div>
-    </div>
+		<div class="row">
+			<div class="col-xs-6 col-sm-4">
+				<a class="btn btn-default" href="Eingabe.html" role="button">Eingaben
+					ändern</a>
+			</div>
+			<div class="col-xs-6 col-sm-4">
+				<h1>INR messen</h1>
+			</div>
+			<!-- Optional: clear the XS cols if their content doesn't match in height -->
+			<div class="clearfix visible-xs-block"></div>
+			<div class="col-xs-6 col-sm-4">
+				<a class="btn btn-default" href="Medikamenten.html" role="button">Medikamenten</a>
+			</div>
+		</div>
+		<div class="abstand"></div>
+		<div class="row">
 
-    <div class="col-md-6">
+			<div class="col-xs-2">
+				<input type="text" class="form-control" placeholder="INR eingeben">
+			</div>
+			<div class="col-xs-2">
+				<input class="form-control" type="date">
+			</div>
+			<div class="col-xs-2">
+				<input class="btn btn-default" type="submit" value="Speichern">
+			</div>
+			<div class="col-xs-4">
+				<p>Bei der letzte Messund war Ihre INR:</p>
+				<span>52</span>
+				<p>
+					INr ist: <span> Nicht in Ordnung</span>
+				</p>
+			</div>
 
-
-<p id="demo">Nächstes Spital</p>
-
-<button onclick="getLocation()">Meine position</button>
-
-<div id="mapholder"></div>
+		</div>
 
 
-            </div>
-        </div>
-    </body>
+		<div class="abstand"></div>
+		<div class="row">
+			<div class="col-md-5">
+
+				<p>Verlaufs Ihres INR in die letzte 3 Wochen:</p>
+				<div id="oil" style="width: 60%; height: 40%;"></div>
+			</div>
+
+			<div class="col-md-6">
+
+
+				<p id="demo">Nächstes Spital</p>
+
+				<button onclick="getLocation()">Meine position</button>
+
+				<div id="mapholder"></div>
+
+
+			</div>
+		</div>
+	</div>
+</body>
 </html>
