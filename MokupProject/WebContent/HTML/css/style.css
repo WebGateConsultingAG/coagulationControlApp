@@ -5,3 +5,10 @@ text-align: center;
 .abstand {
 	margin-top: 2%;
 }
+
+.container{
+    border-style: solid;
+    border-radius: 140px;
+    padding: 5%;
+
+}

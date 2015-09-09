@@ -4,38 +4,12 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-   
-        
-    <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-<!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="css/style.css">
-
-<!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
      <script src="https://www.google.com/jsapi"></script>
-  <script>
-   google.load("visualization", "1", {packages:["corechart"]});
-   google.setOnLoadCallback(drawChart);
-   function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-     ['Jahr', 'Ka', 'Ka2'],
-     ['Juni', 1.3, 70],
-     ['Juli', 2000, 3120],
-     ['August', 12170, 9920],
-         ['August', 15170, 9220]
-    ]);
-    var options = {
-     title: 'Dosierungen von die Medikamenten',
-     hAxis: {title: 'Datum'},
-     vAxis: {title: 'Dosierung in Mg'}
-    };
-    var chart = new google.visualization.ColumnChart(document.getElementById('oil'));
-    chart.draw(data, options);
-   }
-  </script>
+    <script type="text/javascript" src="js/Script.js"></script>
     <title>INR messen</title></head>
 <body>
 
@@ -80,46 +54,12 @@
 
 
 <p id="demo">Nächstes Spital</p>
+
 <button onclick="getLocation()">Meine position</button>
 
 <div id="mapholder"></div>
 
-<script>
-var x = document.getElementById("demo");
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-    var latlon = position.coords.latitude + "," + position.coords.longitude;
-
-    var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
-    +latlon+"&zoom=12&size=600x300&sensor=true";
-    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
-}
-
-function showError(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation."
-            break;
-        case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable."
-            break;
-        case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out."
-            break;
-        case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred."
-            break;
-    }
-}
-</script>
             </div>
         </div>
     </body>
