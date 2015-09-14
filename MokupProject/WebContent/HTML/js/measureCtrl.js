@@ -6,16 +6,22 @@ angular.module('coag',['ngResource'])
         $scope.inr = null;
         $scope.inrDate = new Date();
         
-        $scope.inrOutcome = "";
+        $scope.inrOutcome = null;
         $scope.inrOutcomeClass = "";
         
         $scope.saveInr = function(){
-            if ( $scope.inr > 4 ) {
+           
+            if($scope.inr <= 0 || $scope.inr > 6 || $scope.inr == null)  {
+                $scope.inrOutcome = "Ungültige Angabe";
+                $scope.inrOutcomeClass = "noright";
+            }
+            else if ( $scope.inr >= 4 ) {
                 $scope.inrOutcome = "Nicht in Ordnung";
                 $scope.inrOutcomeClass = "danger";
-            } else {
+            }
+            else {
                 $scope.inrOutcome = "In Ordnung";
-                $scope.inrOutcomeClass = "nodanger";
+                $scope.inrOutcomeClass = "nodanger";   
             }
             
             Inr.save({

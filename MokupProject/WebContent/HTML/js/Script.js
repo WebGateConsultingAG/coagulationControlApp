@@ -56,21 +56,6 @@ function showError(error) {
     }
 }
 
-function normshow() {
-    var inrVal = $('#eingebeninr').val();
-    
-    if ( +inrVal > 4 ) {
-        $('#danger').css('visibility','visible').css('display','inline-block');
-        $('#nodanger').css('visibility','hidden').css('display','none');
-        alert("Ihre INR ist zu hoch! ");
-    } 
-    else
-    {
-        $('#danger').css('visibility','hidden').css('display','none');
-        $('#nodanger').css('visibility','visible').css('display','inline-block');
-    }
-
-}
 
 
 
