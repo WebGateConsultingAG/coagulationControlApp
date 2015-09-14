@@ -27,17 +27,19 @@ position: absolute;
 	bottom:1%;
 	   left: 40%;
 }
-#danger{
-color:  FF0000;
-    visibility: hidden;
+.danger{
+    color:  FF0000;
 }
-#nodanger{
-color: 00FF00;
-    visibility: hidden;
+.nodanger{
+    color: 00FF00;
 }
 
 #eingebeninr{
+    
 }
-#date{
-border-color: brown;
+.lastinr{
+
 }
+#mednr{
+}
+

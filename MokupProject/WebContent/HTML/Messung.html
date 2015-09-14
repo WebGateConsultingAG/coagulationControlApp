@@ -11,20 +11,21 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="css/style.css">
 <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-resource.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript" src="js/Script.js"></script>
+<script type="text/javascript" src="js/Script.js"></script>
+<script type="text/javascript" src="js/measureCtrl.js"></script>
     
 <title>INR messen</title>
 </head>
-<body>
-
-	<div class="container">
-
-		<div class="row">
+<body ng-app='coag'>
+	<div class="container" ng-controller='measureCtrl'>
+        {{inr}}{{inrDate}}
+		<div class="row"  >
 			<div class="col-xs-6 col-sm-4">
-				<a class="btn btn-default" href="Eingabe.html" role="button">Eingaben
+				<a class="btn btn-default" href="eingabe.html" role="button">Eingaben
 					ändern</a>
 			</div>
 			<div class="col-xs-6 col-sm-4">
@@ -33,28 +34,27 @@
 			<!-- Optional: clear the XS cols if their content doesn't match in height -->
 			<div class="clearfix visible-xs-block"></div>
 			<div class="col-xs-6 col-sm-4">
-				<a class="btn btn-default" href="Medikamenten.html" role="button">Medikamenten</a>
+				<a class="btn btn-default" href="Medikamenten.html" role="button">Medikamente</a>
 			</div>
+            
 		</div>
 		<div class="abstand"></div>
 		<div class="row">
 
 			<div class="col-xs-2">
-				<input type="text" class="form-control" placeholder="INR eingeben" id="eingebeninr" >
+				<input type="number" ng-model='inr' class="form-control" placeholder="INR eingeben" id="eingebeninr" >
 			</div>
 			<div class="col-xs-2">
-				<input class="form-control" type="date" id="date">
+				<input class="form-control" ng-model='inrDate' type="date" >
 			</div>
 			<div class="col-xs-2">
-				<input class="btn btn-default" type="submit" value="Speichern" onclick="normshow()">
-                
-                
+                <button class="btn btn-default" type="button" ng-click='saveInr()'>Speichern</button>
 			</div>
 			<div class="col-xs-4">
-				<p>Bei der letzte Messund war Ihre INR:</p>
-				<span id="inrdone">52</span>
+				<button class="btn btn-default"  type="button" ng-click='showLast = !showLast'>{{lastButn1}}</button>
+				<p class="" ng-hide='showLast'>Ihre Letzte INR War: </p>
 				<p>
-					INR ist: <span id="danger"> Nicht in Ordnung</span><span id="nodanger"> In Ordnung</span>
+					INR ist: <span id="danger" ng-class="[inrOutcomeClass]"> {{inrOutcome}}</span>
 				</p>
 			</div>
 
@@ -83,7 +83,6 @@
 			<p class="apl" id="mess">
 				Wollen Sie ein App? <a href="#">IOS</a> | <a href="#">Android</a>
 			</p>
-		</div>
 		</div>
 </body>
 </html>
