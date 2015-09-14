@@ -1,18 +1,20 @@
 
    google.load("visualization", "1", {packages:["corechart"]});
    google.setOnLoadCallback(drawChart);
-   function drawChart() {
+
+function drawChart() {
+       
     var data = google.visualization.arrayToDataTable([
-     ['Jahr', 'Ka', 'Ka2'],
+     ['Jahr', 'INR Durchschnitt', 'Anzahl messungen über die Norme'],
      ['Juni', 1.3, 70],
      ['Juli', 2000, 3120],
      ['August', 12170, 9920],
-         ['August', 15170, 9220]
+         ['August', 15170, 9220] 
     ]);
     var options = {
-     title: 'Dosierungen von die Medikamenten',
-     hAxis: {title: 'Datum'},
-     vAxis: {title: 'Dosierung in Mg'}
+     title: 'INR Durchschnitt',
+     hAxis: {title: 'Messungen'},
+     vAxis: {title: 'INR'}
     };
     
     var chart = new google.visualization.ColumnChart(document.getElementById('oil'));
@@ -53,3 +55,48 @@ function showError(error) {
             break;
     }
 }
+
+function normshow() {
+    var inrVal = $('#eingebeninr').val();
+    
+ 
+    
+    if ( +inrVal > 4 ) {
+        $('#danger').css('visibility','visible').css('display','inline-block');
+        $('#nodanger').css('visibility','hidden').css('display','none');
+        alert("Ihre INR ist zu hoch! ");
+    } 
+    else
+    {
+        $('#danger').css('visibility','hidden').css('display','none');
+        $('#nodanger').css('visibility','visible').css('display','inline-block');
+    }
+
+}
+
+
+/*
+mediApp = {
+    INR : {
+         normshow : function () { console.log('hello')} ,
+         maxINR : 5,
+         minINR: 3,
+        arr : [1,2,3,4,5,6,7,8],
+        arr2 : [{1:2},{2:3}]
+            
+    },
+     ABC : {
+         normshow : function () {
+                var inrVal = $('#eingebeninr').val();
+
+                if ( +inrVal > 4 ) {
+                    $('#danger').css('visibility','visible').css('display','inline-block');
+                    $('#nodanger').css('visibility','hidden').css('display','none');
+                } else {
+                    $('#danger').css('visibility','hidden').css('display','none');
+                    $('#nodanger').css('visibility','visible').css('display','inline-block');
+                }
+            }   
+    }
+}
+*/

@@ -19,6 +19,25 @@ font-size: 320%;
 }
 .apl{
 position: absolute;
-    right: 1%;
-    bottom: 1%;
+    left: 45%;
+    bottom:2%;
+
+}
+.apl #mess{
+	bottom:1%;
+	   left: 40%;
+}
+#danger{
+color:  FF0000;
+    visibility: hidden;
+}
+#nodanger{
+color: 00FF00;
+    visibility: hidden;
+}
+
+#eingebeninr{
+}
+#date{
+border-color: brown;
 }
