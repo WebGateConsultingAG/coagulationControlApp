@@ -1,117 +1,167 @@
-<html>
-     <html lang="de">
-         <meta charset="utf-8">
+
+<html lang="de" ng-app='coag'>
+<meta charset="utf-8">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-   
-        
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="css/style.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
 <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    
-      
-    <title>INR messen</title></head>
+    <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script type="text/javascript" src="js/Medi.js"></script>
+
+
+    <title>INR messen</title>
+</head>
 <body>
 
-<div class="container">
-    
-<div class="row">
-  <div class="col-xs-6 col-sm-4"><a class="btn btn-default" href="Messung.html" role="button">INR messen</a></div>
-  <div class="col-xs-6 col-sm-4"><h1>Medikamenten</h1></div>
-  <!-- Optional: clear the XS cols if their content doesn't match in height -->
-  <div class="clearfix visible-xs-block"></div>
-  <div class="col-xs-6 col-sm-4"><a class="btn btn-default" href="Eingabe.html" role="button">Eingaben</a></div>
-</div>
-    <div class="abstand"></div>
-  <div class="row">
-  <div class="col-md-12">
-<span id="helpBlock" class="help-block">Welche Dossirungen nehmen Sie zur Zeit?</span>
-      </div>
-    </div>
-<div class="row">
-  <div class="col-xs-6"><input type="text" id="disabledTextInput" class="form-control" placeholder="Medikament Nr.2"></div>
-  <div class="col-xs-2"><div class="input-group">
-      <input type="number" class="form-control" id="exampleInputAmount" placeholder="">
-      <div class="input-group-addon">Mg</div>
-    </div>
-</div>
-      </div>
-            <div class="abstand"></div>
-<div class="row">
-  <div class="col-xs-6"><input type="text" id="disabledTextInput" class="form-control" placeholder="Medikament Nr.2"></div>
-  <div class="col-xs-2"><div class="input-group">
-      <input type="number" class="form-control" id="exampleInputAmount" placeholder="">
-      <div class="input-group-addon">Mg</div>
-    </div>
-</div>
-      </div>
-   
-      
-        <div class="abstand"></div>
-<div class="row">
-  <div class="col-xs-6"><input type="text" id="disabledTextInput" class="form-control" placeholder="Medikament Nr.2"></div>
-  <div class="col-xs-2"><div class="input-group">
-      <input type="number" class="form-control" id="exampleInputAmount" placeholder="">
-      <div class="input-group-addon">Mg</div>
-    </div>
-</div>
+	<div class="container" ng-controller='mediCtrl'>
+		<div class="row">
+			<div class="col-xs-6 col-sm-4">
+				<a class="btn btn-default" href="Messung.html" role="button">INR
+					messen</a>
+			</div>
+			<div class="col-xs-6 col-sm-4">
+				<h1>Medikamenten</h1>
+			</div>
+			<!-- Optional: clear the XS cols if their content doesn't match in height -->
+			<div class="clearfix visible-xs-block"></div>
+			<div class="col-xs-6 col-sm-4">
+				<a class="btn btn-default" href="Eingabe.html" role="button">Eingaben</a>
+			</div>
+		</div>
+		<div class="abstand"></div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="helpBlock" class="help-block">Welche Dosierungen
+					nehmen Sie zur Zeit?</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-8">
 
+                
+                
+                
+                <div ng-repeat="medi in allMedis" class="row">
+                    
+					<div class="col-xs-9">
+						<input type="text" id="disabledTextInput" class="form-control"
+							placeholder= "{{'Medikament ' + ( $index+1)}}" ng-model="medi.name">
+                        
+                  <div class="abstand"></div>
+                
+					</div>
+					<div class="col-xs-3">
+						<div class="input-group">
+							<input type="number" class="form-control" id="exampleInputAmount"
+								placeholder="" ng-model="medi.mg">
+							<div class="input-group-addon">Mg</div>
+						</div>
+					</div>
 
-
-
-   </div> 
-    
-    
-    <div class="abstand"></div>
-    <input type="button" value="Help" onclick="mediApp,msg()">
-          <script>
+				</div>
+                
               
-              mediApp = {
-    msg : function(){alert("Dosierungen sind in mg zum ausfühlen.")},
-    test: function(str){alert(str)}
-              }
+				<!-- entry -->
+				<div class="row">
+					<div class="col-xs-9">
+						<input type="text" id="disabledTextInput" class="form-control"
+							placeholder="Medikament" ng-model="mediName">
+					</div>
+					<div class="col-xs-3">
+                        
+						<div class="input-group">
+							<input type="number" class="form-control" id="exampleInputAmount"
+								placeholder="Mg" ng-model="mediMg">
+							      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="addMedi()">ADD</button>
+      </span>
+                            
+						</div>
+                        
+					</div>
+				</div>
 
-</script>
-    
-<div class="row">
-  <div class="col-sm-9">
-    <span id="helpBlock" class="help-block">Errinerungen</span>
-    <div class="row">
-          <div class="col-md-2"><label class="radio-inline">
-  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option3"> Keine
-</label>
-        </div>
-  <div class="col-md-2"><label class="radio-inline">
-  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Jeden Tag um <input type="time" >
-</label></div>
-  <div class="col-md-2"><label class="radio-inline">
-  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2"> Nur am  <input type="date" >
-</label></div>
 
-      </div>    
-</div>
-  </div>
-    
-    <div class="abstand"></div>
+			</div>
 
-    
-    <div class="row">
-  <div class="col-xs-6 col-sm-6"><input type="button" value="Bestätigen" onclick="mediApp.test('das ist eine Nachricht!')"></button></div>
- 
-  <!-- Optional: clear the XS cols if their content doesn't match in height -->
-  <div class="clearfix visible-xs-block"></div>
-  <div class="col-xs-6 col-sm-6"><button type="reset" class="btn btn-default">Zurücksetzen</button></div>
-</div>
-    <p class="apl">Wollen Sie ein App?
-<a href="#">IOS</a> | <a href="#">Android</a>  </p>
-    </div>
 
-    </body>
+			
+	   </div>
+		<div class="abstand"></div>
+		<input type="button" value="Help" onclick="mediApp,msg()">
+		<script>
+			mediApp = {
+				msg : function() {
+					alert("Dosierungen sind in mg zum ausfühlen.")
+				},
+				test : function(str) {
+					alert(str)
+				}
+			}
+		</script>
+
+		<div class="row">
+			<div class="col-sm-9">
+				<span id="helpBlock" class="help-block">Errinerungen</span>
+				<div class="row">
+					<div class="col-md-2">
+						<label class="radio-inline"> <input type="radio"
+							name="inlineRadioOptions" id="inlineRadio1" value="option3">
+							Keine
+						</label>
+					</div>
+					<div class="col-md-2">
+						<label class="radio-inline"> <input type="radio"
+							name="inlineRadioOptions" id="inlineRadio1" value="option1">
+							Jeden Tag um <input type="time">
+						</label>
+					</div>
+					<div class="col-md-2">
+						<label class="radio-inline"> <input type="radio"
+							name="inlineRadioOptions" id="inlineRadio1" value="option2">
+							Nur am <input type="date">
+						</label>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="abstand"></div>
+
+
+		<div class="row">
+			<div class="col-xs-6 col-sm-6">
+				<input type="button" value="Bestätigen"
+					onclick="mediApp.test('das ist eine Nachricht!')">
+				</button>
+			</div>
+
+			<!-- Optional: clear the XS cols if their content doesn't match in height -->
+			<div class="clearfix visible-xs-block"></div>
+			<div class="col-xs-6 col-sm-6">
+				<button type="reset" class="btn btn-default">Zurücksetzen</button>
+			</div>
+		</div>
+		<p class="apl">
+			Wollen Sie ein App? <a href="#">IOS</a> | <a href="#">Android</a>
+		</p>
+	</div>
+
+</body>
 </html>

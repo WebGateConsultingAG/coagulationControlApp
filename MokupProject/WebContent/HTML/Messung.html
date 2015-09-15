@@ -24,7 +24,7 @@
 	<div class="container" ng-controller='measureCtrl'>
 		<div class="row">
 			<div class="col-xs-6 col-sm-4">
-				<a class="btn btn-default" href="eingabe.html" role="button">Eingaben ändern</a>
+				<a class="btn btn-default" href="Eingabe.html" role="button">Eingaben ändern</a>
 			</div>
 			<div class="col-xs-6 col-sm-4">
 				<h1>INR messen</h1>
@@ -48,12 +48,15 @@
 			<div class="col-xs-2">
                 <button class="btn btn-default" type="button" ng-click='saveInr()'>Speichern</button>
 			</div>
-			<div class="col-xs-4">
+			<div class="col-xs-2">
 				<button class="btn btn-default"  type="button" ng-click='showLast = !showLast'>{{lastButn1}}</button>
-				<p class="" ng-hide='showLast'>Ihre Letzte INR War: </p>
+				
 				<p>
 					INR ist: <span id="danger" ng-class="[inrOutcomeClass]"> {{inrOutcome}}</span>
 				</p>
+			</div>
+            <div class="col-xs-2">
+                <p class="" ng-hide='showLast'>Ihre Letzte INR War: </p>
 			</div>
 
 		</div>

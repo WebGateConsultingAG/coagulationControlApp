@@ -37,7 +37,9 @@ angular.module('coag',['ngResource'])
           $scope.showLast = function(){
      
       
-        }
+        };
+
         
         
     }]);
+
