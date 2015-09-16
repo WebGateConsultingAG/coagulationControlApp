@@ -35,6 +35,7 @@ angular.module('coag', [ 'ngResource' ]).factory('Inr',
 			$scope.showLast = function() {
 
 			};
+
 			$(function() {
 				$('#container').highcharts({
 

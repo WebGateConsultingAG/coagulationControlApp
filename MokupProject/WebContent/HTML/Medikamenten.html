@@ -26,6 +26,8 @@
 	<div class="container" ng-controller='mediCtrl'>
 		<div class="row">
 			<div class="col-xs-6 col-sm-4">
+
+
 				<a class="btn btn-default" href="Messung.html" role="button">INR
 					messen</a>
 			</div>
@@ -97,7 +99,20 @@
 
 		</div>
 		<div class="abstand"></div>
-		<input type="button" value="Help">
+
+
+
+		<button class="btn btn-default" type="button"
+			ng-click='needHelp = !needHelp'>{{helpBtn}}</button>
+		<p class="" ng-hide='needHelp'>
+			Sie könen ein neus Medikament nur dann einfügen, wenn beide Felder
+			die Werte haben.</br> Das Sie nicht vergessen ihres Medikament zu nehmen -
+			kommt eine benachrichtigung. wählen Sie wenn es am besten passen
+			würde
+
+		</p>
+
+
 
 		<div class="row">
 			<div class="col-sm-12">
