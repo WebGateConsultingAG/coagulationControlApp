@@ -2,29 +2,24 @@
 <html lang="de" ng-app='coag'>
 <meta charset="utf-8">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/style.css">
 <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
-    <script
-        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script
-        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-    <script type="text/javascript" src="js/Medi.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script type="text/javascript" src="js/Medi.js"></script>
 
 
-    <title>INR messen</title>
+<title>INR messen</title>
 </head>
 <body>
 
@@ -37,7 +32,7 @@
 			<div class="col-xs-6 col-sm-4">
 				<h1>Medikamenten</h1>
 			</div>
-			<!-- Optional: clear the XS cols if their content doesn't match in height -->
+
 			<div class="clearfix visible-xs-block"></div>
 			<div class="col-xs-6 col-sm-4">
 				<a class="btn btn-default" href="Eingabe.html" role="button">Eingaben</a>
@@ -53,17 +48,15 @@
 		<div class="row">
 			<div class="col-xs-8">
 
-                
-                
-                
-                <div ng-repeat="medi in allMedis" class="row">
-                    
+				<div ng-repeat="medi in allMedis" class="row">
+
 					<div class="col-xs-9">
 						<input type="text" id="disabledTextInput" class="form-control"
-							placeholder= "{{'Medikament ' + ( $index+1)}}" ng-model="medi.name">
-                        
-                  <div class="abstand"></div>
-                
+							placeholder="{{'Medikament ' + ( $index+1)}}"
+							ng-model="medi.name">
+
+						<div class="abstand"></div>
+
 					</div>
 					<div class="col-xs-3">
 						<div class="input-group">
@@ -74,8 +67,8 @@
 					</div>
 
 				</div>
-                
-              
+
+
 				<!-- entry -->
 				<div class="row">
 					<div class="col-xs-9">
@@ -83,16 +76,17 @@
 							placeholder="Medikament" ng-model="mediName">
 					</div>
 					<div class="col-xs-3">
-                        
+
 						<div class="input-group">
 							<input type="number" class="form-control" id="exampleInputAmount"
-								placeholder="Mg" ng-model="mediMg">
-							      <span class="input-group-btn">
-        <button class="btn btn-default" type="button" ng-click="addMedi()">ADD</button>
-      </span>
-                            
+								placeholder="Mg" ng-model="mediMg"> <span
+								class="input-group-btn">
+								<button class="btn btn-default" type="button"
+									ng-click="addMedi()">ADD</button>
+							</span>
+
 						</div>
-                        
+
 					</div>
 				</div>
 
@@ -100,42 +94,46 @@
 			</div>
 
 
-			
-	   </div>
+
+		</div>
 		<div class="abstand"></div>
-		<input type="button" value="Help" onclick="mediApp,msg()">
-		<script>
-			mediApp = {
-				msg : function() {
-					alert("Dosierungen sind in mg zum ausfühlen.")
-				},
-				test : function(str) {
-					alert(str)
-				}
-			}
-		</script>
+		<input type="button" value="Help">
 
 		<div class="row">
-			<div class="col-sm-9">
+			<div class="col-sm-12">
 				<span id="helpBlock" class="help-block">Errinerungen</span>
 				<div class="row">
 					<div class="col-md-2">
 						<label class="radio-inline"> <input type="radio"
-							name="inlineRadioOptions" id="inlineRadio1" value="option3">
-							Keine
+							name="inlineRadioOptions" id="inlineRadio1" value="option3"
+							ng-model="msgLocked"> Keine
 						</label>
 					</div>
 					<div class="col-md-2">
 						<label class="radio-inline"> <input type="radio"
-							name="inlineRadioOptions" id="inlineRadio1" value="option1">
-							Jeden Tag um <input type="time">
-						</label>
+							name="inlineRadioOptions" id="inlineRadio1" value="mediTime"
+							ng-model="msgLocked"> Jeden Tag um
+						</label> <input type="time" class="form-control"
+							ng-disabled="checkTimeInput()" ng-model="msgLocked">
+
 					</div>
 					<div class="col-md-2">
+
+
+
+
 						<label class="radio-inline"> <input type="radio"
-							name="inlineRadioOptions" id="inlineRadio1" value="option2">
-							Nur am <input type="date">
-						</label>
+							name="inlineRadioOptions" id="inlineRadio1" value="mediDate"
+							ng-model="msgLocked"> Nur am
+						</label><input type="date" class="form-control"
+							ng-disabled="checkDateInput()" ng-model="msgLockedDate">
+
+
+
+
+
+
+
 					</div>
 
 				</div>
@@ -147,12 +145,10 @@
 
 		<div class="row">
 			<div class="col-xs-6 col-sm-6">
-				<input type="button" value="Bestätigen"
-					onclick="mediApp.test('das ist eine Nachricht!')">
-				</button>
+				<button type="reset" class="btn btn-default">Speichern</button>
 			</div>
 
-			<!-- Optional: clear the XS cols if their content doesn't match in height -->
+
 			<div class="clearfix visible-xs-block"></div>
 			<div class="col-xs-6 col-sm-6">
 				<button type="reset" class="btn btn-default">Zurücksetzen</button>
