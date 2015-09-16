@@ -11,23 +11,27 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="css/style.css">
 <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-resource.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-resource.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://www.google.com/jsapi"></script>
 <script type="text/javascript" src="js/Script.js"></script>
 <script type="text/javascript" src="js/measureCtrl.js"></script>
-    <script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 
-    
+
 <title>INR messen</title>
 </head>
 <body ng-app='coag'>
 	<div class="container" ng-controller='measureCtrl'>
 		<div class="row">
 			<div class="col-xs-6 col-sm-4">
-				<a class="btn btn-default" href="Eingabe.html" role="button">Eingaben ändern</a>
+				<a class="btn btn-default" href="Eingabe.html" role="button">Eingaben
+					ändern</a>
 			</div>
 			<div class="col-xs-6 col-sm-4">
 				<h1>INR messen</h1>
@@ -35,62 +39,75 @@
 			<!-- Optional: clear the XS cols if their content doesn't match in height -->
 			<div class="clearfix visible-xs-block"></div>
 			<div class="col-xs-6 col-sm-4">
-				<a class="btn btn-default" href="Medikamenten.html" role="button">Medikamente</a>
+				<a class="btn btn-default" href="Medikamenten.html" role="button" ng-click="error()">Medikamente</a>
 			</div>
-            
+
 		</div>
 		<div class="abstand"></div>
 		<div class="row">
 
 			<div class="col-xs-2">
-				<input type="number" ng-model='inr' class="form-control" placeholder="INR eingeben" id="eingebeninr" max ="7"  min ="0.1">
+				<input type="number" ng-model='inr' class="form-control"
+					placeholder="INR eingeben" id="eingebeninr" max="7" min="0.1">
 			</div>
 			<div class="col-xs-2">
-                
-                
-                
-                
-                
-				<input class="form-control" ng-model='inrDate' type="date" >
+
+
+
+
+
+				<input class="form-control" ng-model='inrDate' type="date">
 			</div>
 			<div class="col-xs-2">
-                <button class="btn btn-default" type="button" ng-click='saveInr()'>Speichern</button>
+				<button class="btn btn-default" type="button" ng-click='saveInr()'>Speichern</button>
 			</div>
-            
-            
-            
-            
-            
+
+
+
+
+
 			<div class="col-xs-2">
-				<button class="btn btn-default"  type="button" ng-click='showLast = !showLast'>{{lastButn1}}</button>
-				
+				<button class="btn btn-default" type="button"
+					ng-click='showLast = !showLast'>{{lastButn1}}</button>
+
 				<p>
-					INR ist: <span id="danger" ng-class="[inrOutcomeClass]"> {{inrOutcome}}</span>
+					INR ist: <span id="danger" ng-class="[inrOutcomeClass]">
+						{{inrOutcome}}</span>
 				</p>
 			</div>
-            <div class="col-xs-2">
-                <p class="" ng-hide='showLast'>Ihre Letzte INR War: </p>
+			<div class="col-xs-2">
+				<p class="" ng-hide='showLast'>Ihre Letzte INR War:</p>
 			</div>
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+            
+           
+            <div class="col-xs-2"><button class="btn btn-default">INR Werte Suchen:</button><select class="form-control" ng-model="moreless" >
+					<option>Mehr als</option>
+					<option>Weniger als</option>
+				</select>
+               
+                <input type="number" placeholder="von 0.1 bis 7" class="form-control" min ="0.1" max ="7"></div>
+            
+			<div id="container"
+				style="min-width: 45%; height: 65%; margin: 5%; auto"></div>
 
 		</div>
 
 
 		<div class="abstand"></div>
-	
-
-
-	
-
-	
-<h4>Nechste Spital</h4>
 
 
 
-			</div>
-			<p class="apl" id="mess">
-				Wollen Sie ein App? <a href="#">IOS</a> | <a href="#">Android</a>
-			</p>
-        </div>
+
+<div class="abstand"></div>
+
+		<h4>Nechstes Spital</h4>
+
+
+
+	</div>
+	<p class="apl" id="mess">
+		Wollen Sie ein App? <a href="#">IOS</a> | <a href="#">Android</a>
+	</p>
+	</div>
 </body>
 </html>

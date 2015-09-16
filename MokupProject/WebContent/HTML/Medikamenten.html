@@ -73,23 +73,31 @@
 
 				<!-- entry -->
 				<div class="row">
-					<div class="col-xs-9">
+					<div class="col-xs-6">
 						<input type="text" id="disabledTextInput" class="form-control"
 							placeholder="Medikament" ng-model="mediName">
 					</div>
-					<div class="col-xs-3">
+					
+                             
+                    <div class="col-xs-4">
 
 						<div class="input-group">
 							<input type="number" class="form-control" id="exampleInputAmount"
-								placeholder="Mg" ng-model="mediMg"> <span
+								placeholder="Mg" ng-model="mediMg"><span
 								class="input-group-btn">
 								<button class="btn btn-default" type="button"
 									ng-click="addMedi()">ADD</button>
+                            
 							</span>
 
 						</div>
 
 					</div>
+                    <div class="col-xs-2">
+                        <button class="btn btn-default" type="button"
+									ng-click="removeMedi()">DELETE</button>
+                    </div>
+                   
 				</div>
 
 
