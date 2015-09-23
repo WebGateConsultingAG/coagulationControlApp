@@ -1,0 +1,160 @@
+<html lang="de" ng-app='coag'>
+<meta charset="utf-8">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/style.css">
+
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-resource.js"></script>
+<script type="text/javascript" src="js/Script.js"></script>
+
+<script type="text/javascript" src="js/Reg.js"></script>
+<title>INR messen</title>
+</head>
+<body>
+
+	<div class="container" ng-controller='regCtrl' >
+
+		<div class="row">
+			<div class="col-xs-6 col-sm-4">
+				<a class="btn btn-default" href="Messung.html" role="button">INR
+					messen</a>
+			</div>
+			<div class="col-xs-6 col-sm-4">
+				<h1>Eingaben</h1>
+			</div>
+			<!-- Optional: clear the XS cols if their content doesn't match in height -->
+			<div class="clearfix visible-xs-block"></div>
+			<div class="col-xs-6 col-sm-4">
+				<a class="btn btn-default" href="Medikamenten.html" role="button">Medikamenten</a>
+			</div>
+		</div>
+		<div class="abstand"></div>
+		<div class="row">
+			<div class="col-xs-2">
+				<select class="form-control" ng-model="regSex">
+					<option>Herr</option>
+					<option>Frau</option>
+				</select>
+			</div>
+
+			<div class="col-xs-2">
+				<input type="text" class="form-control" ng-model="regSurname"
+					placeholder="Surname Requierd" required>
+			</div>
+			<div class="col-xs-2">
+				<input type="text" class="form-control" ng-model="regName"
+					placeholder="Name Requierd" required>
+			</div>
+			<div class="col-xs-3">
+				<input type="date" class="form-control" ng-model="regOld"
+					placeholder="Birthdate" required>
+			</div>
+			<div class="col-xs-2">
+				<button type="submit" class="btn btn-default" ng-click="regMe()">Speichern</button>
+
+			</div>
+
+		</div>
+
+
+
+		<div class="abstand"></div>
+		<div class="row">
+			<span id="helpBlock" class="help-block">Bitte geben Sie Die
+				Bereiche von INR die Sie für Norme halten.</span>
+			<div class="col-md-2">
+				<input class="form-control" type="number" placeholder="Von"
+					ng-model="norm.min" min="0" max="6">
+			</div>
+			<div class="col-md-2">
+				<input class="form-control" type="number" placeholder="Bis"
+					ng-model="norm.max" min="0" max="6">
+			</div>
+
+			<button type="submit" class="btn btn-default" ng-click="saveIt()">Speichern</button>
+		</div>
+
+		<div class="abstand"></div>
+
+		<div class="row">
+			<div class="col-sm-9">
+				<span id="helpBlock" class="help-block">Wollen Sie die
+					Benachrichtigung ihre Vor- oder Nachname Benutzen?</span>
+				<div class="row">
+					<div class="col-md-2">
+						<label class="radio-inline"> <input type="radio"
+							name="inlineRadioOptions" id="inlineRadio1" value="surname"
+							ng-model="msgGreeting"> Nachname
+						</label>
+					</div>
+					<div class="col-md-2">
+						<label class="radio-inline"> <input type="radio"
+							name="inlineRadioOptions" id="inlineRadio1" value="firstname"
+							ng-model="msgGreeting"> Vorname
+						</label>
+					</div>
+					<div class="col-md-2">
+
+
+
+
+
+						<label class="radio-inline"> <input type="radio"
+							name="inlineRadioOptions" id="inlineRadio1" value="nickname"
+							ng-model="msgGreeting"> Spitzname:
+						</label><input class="form-control" ng-disabled="checkNicknameInput()"
+							type="text" ng-model="input" placeholder="Alternative">
+
+
+
+
+					</div>
+					<button type="submit" id="disabledInput" class="btn btn-default">Speichern</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="abstand"></div>
+
+		<div class="abstand"></div>
+
+		<div class="row">
+			<div class="col-xs-6 col-sm-6">
+				<button type="submit" class="btn btn-default">Alles
+					Speichern</button>
+			</div>
+
+			<!-- Optional: clear the XS cols if their content doesn't match in height -->
+			<div class="clearfix visible-xs-block"></div>
+			<div class="col-xs-6 col-sm-6">
+				<button type="reset" class="btn btn-default">Alles
+					zurücksetzen</button>
+			</div>
+		</div>
+		<p class="apl">
+			Wollen Sie ein App? <a href="#">IOS</a> | <a href="#">Android</a>
+		</p>
+         <p class="feedback">
+		What's about  <a href="#">Feedback?<a>
+	</p>
+	</div>
+
+</body>
+</html>

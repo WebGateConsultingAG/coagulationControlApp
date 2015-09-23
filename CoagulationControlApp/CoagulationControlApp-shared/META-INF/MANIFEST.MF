@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: CoagulationControlApp-shared
+Bundle-SymbolicName: biz.webgate.darwino.coag.CoagulationControlApp-shar
+ ed
+Bundle-Version: 0.0.1.201509221159
+DARWINO_VERSION: 0.8.0-SNAPSHOT
+Export-Package: biz.webgate.darwino.coag.app;version="0.0.1"
+Require-Bundle: com.darwino.domino.platform;resolution:=optional
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
