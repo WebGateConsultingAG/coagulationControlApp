@@ -11,6 +11,28 @@ public class InrEntry extends PojoBaseImpl {
 	
 	@JsonEntity(jsonProperty = "inrvalue")
 	private double inrvalue;
+	@JsonEntity(jsonProperty = "inrvaluemin")
+	private double inrvaluemin;
+	@JsonEntity(jsonProperty = "inrvaluemax")
+	private double inrvaluemax;
+	
+	
+	public double getInrvaluemin() {
+		return inrvaluemin;
+	}
+
+	public void setInrvaluemin(double inrvaluemin) {
+		this.inrvaluemin = inrvaluemin;
+	}
+
+	public double getInrvaluemax() {
+		return inrvaluemax;
+	}
+
+	public void setInrvaluemax(double inrvaluemax) {
+		this.inrvaluemax = inrvaluemax;
+	}
+
 	@JsonEntity(jsonProperty = "measuredate")
 	private Date measuredate;
 	@JsonEntity(jsonProperty = "creationdate")

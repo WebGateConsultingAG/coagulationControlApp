@@ -12,13 +12,13 @@ angular.module('coag', [ 'ngResource' ]).factory('Inr',
 			$scope.saveInr = function() {
 
 				if ($scope.inr <= 0 || $scope.inr > 6 || $scope.inr == null) {
-					$scope.inrOutcome = "Ungültige Angabe";
+					$scope.inrOutcome = "Not possible";
 					$scope.inrOutcomeClass = "noright";
 				} else if ($scope.inr >= 4) {
-					$scope.inrOutcome = "Nicht in Ordnung";
+					$scope.inrOutcome = "to high";
 					$scope.inrOutcomeClass = "danger";
 				} else {
-					$scope.inrOutcome = "In Ordnung";
+					$scope.inrOutcome = "Everything allright";
 					$scope.inrOutcomeClass = "nodanger";
 				}
 
@@ -29,7 +29,7 @@ angular.module('coag', [ 'ngResource' ]).factory('Inr',
 				})
 			};
 
-			$scope.lastButn1 = "Letze INR";
+			$scope.lastButn1 = "Last INR";
 
 			$scope.lastTextClass = "";
 			$scope.showLast = function() {
@@ -40,7 +40,7 @@ angular.module('coag', [ 'ngResource' ]).factory('Inr',
 				$('#container').highcharts({
 
 					title : {
-						text : 'Verlaufs Ihres INR in die letzte Monate'
+						text : 'Digram of you last month INRs'
 					},
 
 					xAxis : {

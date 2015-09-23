@@ -24,6 +24,7 @@ angular.module('coag',['ngResource'])
         };
         $scope.checkNicknameInput = function(){
           return $scope.msgGreeting !== 'nickname';  
+            
         };
         
   

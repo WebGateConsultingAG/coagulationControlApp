@@ -24,22 +24,22 @@
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 
 
-<title>INR messen</title>
+<title>INR control</title>
 </head>
 <body ng-app='coag'>
 	<div class="container" ng-controller='measureCtrl'>
 		<div class="row">
 			<div class="col-xs-6 col-sm-4">
-				<a class="btn btn-default" href="Eingabe.html" role="button">Eingaben
-					ändern</a>
+				<a class="btn btn-default" href="Eingabe.html" role="button">Edit profile
+					</a>
 			</div>
 			<div class="col-xs-6 col-sm-4">
-				<h1>INR messen</h1>
+				<h1>INR control</h1>
 			</div>
 			<!-- Optional: clear the XS cols if their content doesn't match in height -->
 			<div class="clearfix visible-xs-block"></div>
 			<div class="col-xs-6 col-sm-4">
-				<a class="btn btn-default" href="Medikamenten.html" role="button" ng-click="error()">Medikamente</a>
+				<a class="btn btn-default" href="Medikamenten.html" role="button" ng-click="error()">Medicine</a>
 			</div>
 
 		</div>
@@ -48,7 +48,7 @@
 
 			<div class="col-xs-2">
 				<input type="number" ng-model='inr' class="form-control"
-					placeholder="INR eingeben" id="eingebeninr" max="7" min="0.1">
+					placeholder="Enter your INR" id="eingebeninr" max="7" min="0.1">
 			</div>
 			<div class="col-xs-2">
 
@@ -59,7 +59,7 @@
 				<input class="form-control" ng-model='inrDate' type="date">
 			</div>
 			<div class="col-xs-2">
-				<button class="btn btn-default" type="button" ng-click='saveInr()'>Speichern</button>
+				<button class="btn btn-default" type="button" ng-click='saveInr()'>Save</button>
 			</div>
 
 
@@ -71,18 +71,18 @@
 					ng-click='showLast = !showLast'>{{lastButn1}}</button>
 
 				<p>
-					INR ist: <span id="danger" ng-class="[inrOutcomeClass]">
+					INR is: <span id="danger" ng-class="[inrOutcomeClass]">
 						{{inrOutcome}}</span>
 				</p>
 			</div>
 			<div class="col-xs-2">
-				<p class="" ng-hide='showLast'>Ihre Letzte INR War:</p>
+				<p class="" ng-hide='showLast'>Your last INR was:</p>
 			</div>
             
            
-            <div class="col-xs-2"><button class="btn btn-default">INR Werte Suchen:</button><select class="form-control" ng-model="moreless" >
-					<option>Mehr als</option>
-					<option>Weniger als</option>
+            <div class="col-xs-2"><button class="btn btn-default">Search for INR</button><select class="form-control" ng-model="moreless" >
+					<option>More then</option>
+					<option>Less then</option>
 				</select>
                
                 <input type="number" placeholder="von 0.1 bis 7" class="form-control" min ="0.1" max ="7"></div>
@@ -100,17 +100,18 @@
 
 <div class="abstand"></div>
 
-		<h4>Nechstes Spital</h4>
+		<h4>Hospital</h4>
 
 
 
 	</div>
-	<p class="apl" id="mess">
-		Wollen Sie ein App? <a href="#">IOS</a> | <a href="#">Android</a>
+		<p class="apl">
+			Do you need an App? <a href="#">IOS</a> | <a href="#">Android</a>
+		</p>
+         <p class="feedback">
+		Let all see your <a href="#">Feedback<a>
 	</p>
-    <p class="feedback">
-		What's about  <a href="#">Feedback?<a>
-	</p>
+
 	</div>
 </body>
 </html>

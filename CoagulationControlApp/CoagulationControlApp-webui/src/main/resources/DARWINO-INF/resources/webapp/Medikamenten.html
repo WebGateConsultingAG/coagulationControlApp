@@ -19,7 +19,7 @@
 <script type="text/javascript" src="js/Medi.js"></script>
 
 
-<title>INR messen</title>
+<title>Medicine</title>
 </head>
 <body>
 
@@ -29,15 +29,15 @@
 
 
 				<a class="btn btn-default" href="Messung.html" role="button">INR
-					messen</a>
+					Control</a>
 			</div>
 			<div class="col-xs-6 col-sm-4">
-				<h1>Medikamenten</h1>
+				<h1>Medicine </h1>
 			</div>
 
 			<div class="clearfix visible-xs-block"></div>
 			<div class="col-xs-6 col-sm-4">
-				<a class="btn btn-default" href="Eingabe.html" role="button">Eingaben</a>
+				<a class="btn btn-default" href="Eingabe.html" role="button">Edit profile</a>
 			</div>
 		</div>
 		<div class="abstand"></div>
@@ -75,7 +75,7 @@
 				<div class="row">
 					<div class="col-xs-6">
 						<input type="text" id="disabledTextInput" class="form-control"
-							placeholder="Medikament" ng-model="mediName">
+							placeholder="Medicine" ng-model="mediName">
 					</div>
 					
                              
@@ -124,18 +124,18 @@
 
 		<div class="row">
 			<div class="col-sm-12">
-				<span id="helpBlock" class="help-block">Errinerungen</span>
+				<span id="helpBlock" class="help-block">Notifications</span>
 				<div class="row">
 					<div class="col-md-2">
 						<label class="radio-inline"> <input type="radio"
 							name="inlineRadioOptions" id="inlineRadio1" value="option3"
-							ng-model="msgLocked"> Keine
+							ng-model="msgLocked"> No thanks
 						</label>
 					</div>
 					<div class="col-md-2">
 						<label class="radio-inline"> <input type="radio"
 							name="inlineRadioOptions" id="inlineRadio1" value="mediTime"
-							ng-model="msgLocked"> Jeden Tag um
+							ng-model="msgLocked"> Every day at
 						</label> <input type="time" class="form-control"
 							ng-disabled="checkTimeInput()" ng-model="msgLocked">
 
@@ -147,7 +147,7 @@
 
 						<label class="radio-inline"> <input type="radio"
 							name="inlineRadioOptions" id="inlineRadio1" value="mediDate"
-							ng-model="msgLocked"> Nur am
+							ng-model="msgLocked"> Only at
 						</label><input type="date" class="form-control"
 							ng-disabled="checkDateInput()" ng-model="msgLockedDate">
 
@@ -168,22 +168,22 @@
 
 		<div class="row">
 			<div class="col-xs-6 col-sm-6">
-				<button type="reset" class="btn btn-default">Speichern</button>
+				<button type="reset" class="btn btn-default">Save</button>
 			</div>
 
 
 			<div class="clearfix visible-xs-block"></div>
 			<div class="col-xs-6 col-sm-6">
-				<button type="reset" class="btn btn-default">Zurücksetzen</button>
+				<button type="reset" class="btn btn-default">Reset</button>
 			</div>
 		</div>
 		
 	</div>
-<p class="apl">
-			Wollen Sie ein App? <a href="#">IOS</a> | <a href="#">Android</a>
+	<p class="apl">
+			Do you need an App? <a href="#">IOS</a> | <a href="#">Android</a>
 		</p>
- <p class="feedback">
-		What's about  <a href="#">Feedback?<a>
+         <p class="feedback">
+		Let all see your <a href="#">Feedback<a>
 	</p>
 
 </body>
