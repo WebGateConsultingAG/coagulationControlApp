@@ -11,6 +11,8 @@
 
 package biz.webgate.darwino.coag.app;
 
+import biz.webgate.darwino.coag.rest.CoagServiceFactory;
+
 import com.darwino.commons.services.HttpServiceFactories;
 import com.darwino.j2ee.application.DarwinoJ2EEServiceDispatcherFilter;
 
@@ -72,5 +74,6 @@ public class DarwinoServiceDispatcher extends DarwinoJ2EEServiceDispatcherFilter
 	protected void addApplicationServiceFactories(HttpServiceFactories factories) {
 		// The service should always executed locally when running on a server
 		factories.add(new AppServiceFactory());
+		factories.add(new CoagServiceFactory());
 	}
 }
