@@ -2,13 +2,9 @@ package biz.webgate.darwino.coag.dao;
 
 import biz.webgate.darwino.coag.app.AppDatabaseDef;
 import biz.webgate.darwino.coag.bo.InrEntry;
-
 import com.darwino.jsonstore.pojo.AbstractPojoStorageService;
 
-import javax.*;;
 public class InrStorageService extends AbstractPojoStorageService<InrEntry> {
-	
-
 
 	@Override
 	protected InrEntry createPlainObject() {

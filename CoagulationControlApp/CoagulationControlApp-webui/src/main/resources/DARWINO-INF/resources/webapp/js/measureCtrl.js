@@ -2,7 +2,7 @@ angular.module('coag', [ 'ngResource' ]).factory('Inr',
 		[ '$resource', function($resource) {
 			return $resource('/inr/:id', null, {});
 		} ]).controller('measureCtrl',
-		[ '$scope', 'Inr', function($scope, Inr) {
+		[ '$scope', 'Inr','$http', function($scope, Inr, $http) {
 			$scope.inr = null;
 			$scope.inrDate = new Date();
 
@@ -10,7 +10,6 @@ angular.module('coag', [ 'ngResource' ]).factory('Inr',
 			$scope.inrOutcomeClass = "";
 
 			$scope.saveInr = function() {
-
 				if ($scope.inr <= 0 || $scope.inr > 6 || $scope.inr == null) {
 					$scope.inrOutcome = "Not possible";
 					$scope.inrOutcomeClass = "noright";
@@ -21,7 +20,18 @@ angular.module('coag', [ 'ngResource' ]).factory('Inr',
 					$scope.inrOutcome = "Everything allright";
 					$scope.inrOutcomeClass = "nodanger";
 				}
-
+				$http.post('../api/coag?type=inr&action=save', {
+					inrvalue : $scope.inr,
+					measuredate : $scope.inrDate,
+					creationdate : new Date(),
+					username : "The Stan"
+				}).
+				
+				  then(function(response) {
+					  alert(response)
+				  }, function(response) {
+					  alert("Error: "+ response)
+				  });
 				Inr.save({
 					inr : $scope.inr,
 					date : $scope.inrDate,

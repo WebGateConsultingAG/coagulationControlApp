@@ -1,4 +1,5 @@
-/*!COPYRIGHT HEADER! - CONFIDENTIAL 
+/*!COPYRIGHT HEADER! - CONFIDENTIAL
+ 
  *
  * Darwino Inc Confidential.
  *
@@ -24,7 +25,6 @@ import com.darwino.platform.DarwinoApplication;
 import com.darwino.platform.DarwinoContext;
 import com.darwino.platform.DarwinoHttpConstants;
 
-
 /**
  * Application Service Factory.
  * 
@@ -33,50 +33,56 @@ import com.darwino.platform.DarwinoHttpConstants;
  * @author Philippe Riand
  */
 public class AppServiceFactory extends RestServiceFactory {
-	
+
 	public class AppInformation extends HttpService {
 		@Override
 		public void service(HttpServiceContext context) {
-			if(context.isGet()) {
+			if (context.isGet()) {
 				JsonObject o = new JsonObject();
 				try {
 					o.put("name", "coag");
-					
+
 					// Access to the app manifest
-					AppManifest mf = (AppManifest)DarwinoApplication.get().getManifest();
-					o.put("application", DarwinoApplication.get().toString() );
+					AppManifest mf = (AppManifest) DarwinoApplication.get()
+							.getManifest();
+					o.put("application", DarwinoApplication.get().toString());
 					o.put("label", mf.getLabel());
 					o.put("description", mf.getDescription());
-					
+
 					// Access to the database session
 					JsonObject jSession = new JsonObject();
 					Session session = DarwinoContext.get().getSession();
 					jSession.put("user", session.getUser().getDn());
 					jSession.put("instanceId", session.getInstanceId());
 					o.put("session", jSession);
-				} catch(Exception ex) {
-					o.put("exception", HttpServiceError.exceptionAsJson(ex, false));
+				} catch (Exception ex) {
+					o.put("exception",
+							HttpServiceError.exceptionAsJson(ex, false));
 				}
 				context.emitJson(o);
 			} else {
-				throw HttpServiceError.errorUnsupportedMethod(context.getMethod());
+				throw HttpServiceError.errorUnsupportedMethod(context
+						.getMethod());
 			}
 		}
 	}
-	
+
 	public AppServiceFactory() {
 		super(DarwinoHttpConstants.APPSERVICES_PATH);
 	}
-	
+
 	@Override
 	protected void createServicesBinders(List<RestServiceBinder> binders) {
-		/////////////////////////////////////////////////////////////////////////////////
+		// ///////////////////////////////////////////////////////////////////////////////
 		// INFORMATION
 		binders.add(new RestServiceBinder() {
 			@Override
-			public HttpService createService(HttpServiceContext context, String[] parts) {
+			public HttpService createService(HttpServiceContext context,
+					String[] parts) {
 				return new AppInformation();
 			}
 		});
-	}	
+		
+		//binders.add(new RestServiceBinder() { ? 
+	}
 }

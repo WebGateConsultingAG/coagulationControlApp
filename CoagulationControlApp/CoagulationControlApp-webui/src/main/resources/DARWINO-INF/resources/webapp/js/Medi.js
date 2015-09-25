@@ -1,6 +1,6 @@
-angular.module('coag', [])
+angular.module('coag',$http [])
 
-.controller('mediCtrl', function($scope) {
+.controller('mediCtrl', function($scope, ) {
 	$scope.allMedis = [];
 	$scope.mediName = "";
 	$scope.mediMg = "";
@@ -17,8 +17,29 @@ angular.module('coag', [])
 			$scope.allMedis.push(medi);
 			$scope.mediName = "";
 			$scope.mediMg = "";
-		}
-	};
+			
+			
+			$http.post('../api/coag?type=medi&action=save', {
+				medivalue : $scope.mediMg,
+				mediname : $scope.mediName
+				
+			}).
+				  then(function(response) {
+				  alert(response)
+			  }, function(response) {
+				  alert("Error: "+ Hallo ich bin wieder da)
+			  });
+			
+						};
+			};
+			
+			
+			
+			
+
+	
+
+	
     
     $scope.removeMedi = function(medi){
     var i = $scope.allMedis.indexOf(medi);
@@ -37,5 +58,6 @@ angular.module('coag', [])
 
 	}
 
+	
 });
-;
+
