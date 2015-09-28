@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: CoagulationControlApp-webui
 Bundle-SymbolicName: biz.webgate.darwino.coag.CoagulationControlApp-webu
  i
-Bundle-Version: 0.0.1.201509221159
+Bundle-Version: 0.0.1.qualifier
 DARWINO_VERSION: 0.8.0-SNAPSHOT
 Include-Resource: DARWINO-INF/resources/mobile/css/style.css=src/main/re
  sources/DARWINO-INF/resources/mobile/css/style.css,DARWINO-INF/resource
@@ -11,5 +11,22 @@ Include-Resource: DARWINO-INF/resources/mobile/css/style.css=src/main/re
  e/img/appicon.png,DARWINO-INF/resources/mobile/index.html=src/main/reso
  urces/DARWINO-INF/resources/mobile/index.html,DARWINO-INF/resources/mob
  ile/js/app.js=src/main/resources/DARWINO-INF/resources/mobile/js/app.js
+ ,DARWINO-INF/resources/webapp/css/style.css=src/main/resources/DARWINO-
+ INF/resources/webapp/css/style.css,DARWINO-INF/resources/webapp/Eingabe
+ .html=src/main/resources/DARWINO-INF/resources/webapp/Eingabe.html,DARW
+ INO-INF/resources/webapp/js/jquery-2.1.4.js=src/main/resources/DARWINO-
+ INF/resources/webapp/js/jquery-2.1.4.js,DARWINO-INF/resources/webapp/js
+ /measureCtrl.js=src/main/resources/DARWINO-INF/resources/webapp/js/meas
+ ureCtrl.js,DARWINO-INF/resources/webapp/js/Medi.js=src/main/resources/D
+ ARWINO-INF/resources/webapp/js/Medi.js,DARWINO-INF/resources/webapp/js/
+ ngFactories.js=src/main/resources/DARWINO-INF/resources/webapp/js/ngFac
+ tories.js,DARWINO-INF/resources/webapp/js/Reg.js=src/main/resources/DAR
+ WINO-INF/resources/webapp/js/Reg.js,DARWINO-INF/resources/webapp/js/Scr
+ ipt.js=src/main/resources/DARWINO-INF/resources/webapp/js/Script.js,DAR
+ WINO-INF/resources/webapp/Medikamenten.html=src/main/resources/DARWINO-
+ INF/resources/webapp/Medikamenten.html,DARWINO-INF/resources/webapp/Mes
+ sung.html=src/main/resources/DARWINO-INF/resources/webapp/Messung.html
 Private-Package: DARWINO-INF.resources.mobile.css,DARWINO-INF.resources.
  mobile.img,DARWINO-INF.resources.mobile,DARWINO-INF.resources.mobile.js
+ ,DARWINO-INF.resources.webapp,DARWINO-INF.resources.webapp.css,DARWINO-
+ INF.resources.webapp.js

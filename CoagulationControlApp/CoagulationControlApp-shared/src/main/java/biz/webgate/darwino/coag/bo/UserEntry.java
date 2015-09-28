@@ -9,8 +9,8 @@ import com.darwino.commons.json.binding.annotations.JsonObject;
 @JsonObject(pojoObjectType = "biz.webgate.darwino.coag.bo.MediEntry")
 public class UserEntry extends PojoBaseImpl {
 
-	@JsonEntity(jsonProperty = "grender")
-	private boolean grender;
+	@JsonEntity(jsonProperty = "gender")
+	private boolean gender;
 	@JsonEntity(jsonProperty = "birthDate")
 	private Date birthdate;
 	@JsonEntity(jsonProperty = "firstName")
@@ -20,12 +20,12 @@ public class UserEntry extends PojoBaseImpl {
 	@JsonEntity(jsonProperty = "welcomemsg")
 	private int welcomemsg;
 
-	public boolean isGrender() {
-		return grender;
+	public boolean isGender() {
+		return gender;
 	}
 
-	public void setGrender(boolean grender) {
-		this.grender = grender;
+	public void setGender(boolean gender) {
+		this.gender = gender;
 	}
 
 	public Date getBirthdate() {

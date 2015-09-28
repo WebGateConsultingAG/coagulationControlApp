@@ -1,6 +1,32 @@
-angular.module('coag',$http [])
+angular.module('coag',  ['ngResource'])
 
-.controller('mediCtrl', function($scope, ) {
+.factory('Medi', [ '$resource', function($resource) {
+	var defaultValues = {
+			type : "medi",
+	};
+	
+	var methods = {
+			save: {	
+				method: 'POST',
+				params: { 
+					action : 'save'}
+			}
+	};
+	return $resource('/coag/api/coag', defaultValues, methods); 
+	
+} ])
+
+.controller('mediCtrl', ['$scope','Medi',function($scope, Medi) {
+	
+	
+	$scope.getOne = function(){
+		// valid id: 9194b8aa-2cb1-4bf4-9733-5060b154f7bb
+		Medi.get({unid: '9194b8aa-2cb1-4bf4-9733-5060b154f7bb'},
+				function(mediResult){
+					console.dir(mediResult);
+				})	
+	}
+	
 	$scope.allMedis = [];
 	$scope.mediName = "";
 	$scope.mediMg = "";
@@ -9,41 +35,31 @@ angular.module('coag',$http [])
 
 	$scope.helpme = "";
 	$scope.helpBtn = "Help";
+	
+	var currentMedi = null;
+	
+	
 	$scope.addMedi = function() {
 		if ($scope.mediName !== "" && $scope.mediMg > 0) {
-			var medi = {};
-			medi.name = $scope.mediName;
-			medi.mg = $scope.mediMg;
-			$scope.allMedis.push(medi);
+			
+			currentMedi = {
+				medivalue : $scope.mediMg,
+				mediname : $scope.mediName,
+				notificationdate : new Date()
+			};
+			
 			$scope.mediName = "";
 			$scope.mediMg = "";
 			
+			Medi.save( currentMedi , function(promise){
+				currentMedi.unid = promise.unid;
+				console.dir($scope.allMedis);
+			});
+		};
+	};
 			
-			$http.post('../api/coag?type=medi&action=save', {
-				medivalue : $scope.mediMg,
-				mediname : $scope.mediName
-				
-			}).
-				  then(function(response) {
-				  alert(response)
-			  }, function(response) {
-				  alert("Error: "+ Hallo ich bin wieder da)
-			  });
-			
-						};
-			};
-			
-			
-			
-			
-
-	
-
-	
-    
-    $scope.removeMedi = function(medi){
-    var i = $scope.allMedis.indexOf(medi);
-        $scope.allMedis.splice(i, 2);
+    $scope.removeMedi = function(idx){
+        $scope.allMedis.splice(idx, 1);
     };
 
 	$scope.checkTimeInput = function() {
@@ -59,5 +75,5 @@ angular.module('coag',$http [])
 	}
 
 	
-});
+}]);
 

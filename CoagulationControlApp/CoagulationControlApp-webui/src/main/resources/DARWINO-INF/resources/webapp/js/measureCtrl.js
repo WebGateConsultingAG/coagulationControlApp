@@ -1,18 +1,49 @@
-angular.module('coag', [ 'ngResource' ]).factory('Inr',
-		[ '$resource', function($resource) {
-			return $resource('/inr/:id', null, {});
-		} ]).controller('measureCtrl',
-		[ '$scope', 'Inr','$http', function($scope, Inr, $http) {
+angular.module('coag', [ 'ngResource' ])
+
+.factory('Inr', [ '$resource', function($resource) {
+	var defaultValues = {
+			type : "inr",
+	};
+	
+	var methods = {
+			save: {	
+				method: 'POST',
+				params: { 
+					action : 'save'}
+			}
+	};
+	
+	return $resource('/coag/api/coag', defaultValues, methods); 
+	
+} ])
+
+.controller('measureCtrl',
+		[ '$scope', 'Inr', function($scope, Inr) {
+			
+			$scope.getOne = function(){
+				// valid id: 68bf1a87-6a6b-49bf-812c-3560a9fb1079
+				Inr.get({unid: '68bf1a87-6a6b-49bf-812c-3560a9fb1079'},
+						function(inrResult){
+							console.dir(inrResult);
+						})	
+			}
+			
+			
 			$scope.inr = null;
 			$scope.inrDate = new Date();
 
 			$scope.inrOutcome = null;
 			$scope.inrOutcomeClass = "";
+			
+			$scope.inrList = [];
+			
+			var currentInr = null;
 
 			$scope.saveInr = function() {
 				if ($scope.inr <= 0 || $scope.inr > 6 || $scope.inr == null) {
 					$scope.inrOutcome = "Not possible";
 					$scope.inrOutcomeClass = "noright";
+					return;
 				} else if ($scope.inr >= 4) {
 					$scope.inrOutcome = "to high";
 					$scope.inrOutcomeClass = "danger";
@@ -20,23 +51,19 @@ angular.module('coag', [ 'ngResource' ]).factory('Inr',
 					$scope.inrOutcome = "Everything allright";
 					$scope.inrOutcomeClass = "nodanger";
 				}
-				$http.post('../api/coag?type=inr&action=save', {
+				
+				currentInr = {
 					inrvalue : $scope.inr,
 					measuredate : $scope.inrDate,
 					creationdate : new Date(),
 					username : "The Stan"
-				}).
+				};
 				
-				  then(function(response) {
-					  alert(response)
-				  }, function(response) {
-					  alert("Error: "+ response)
-				  });
-				Inr.save({
-					inr : $scope.inr,
-					date : $scope.inrDate,
-					id : 12
-				})
+				
+				Inr.save( currentInr , function(promise){
+					currentInr.unid = promise.inrentry.unid;
+					$scope.inrList.push(currentInr);
+				});
 			};
 
 			$scope.lastButn1 = "Last INR";

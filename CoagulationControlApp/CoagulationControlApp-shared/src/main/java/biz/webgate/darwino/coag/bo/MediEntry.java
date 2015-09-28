@@ -43,11 +43,11 @@ public class MediEntry extends PojoBaseImpl {
 		this.notificationdate = notificationdate;
 	}
 
-	public String getMediName() {
+	public String getMediname() {
 		return mediname;
 	}
 
-	public void setMediName(String mediname) {
+	public void setMediname(String mediname) {
 		this.mediname = mediname;
 	}
 

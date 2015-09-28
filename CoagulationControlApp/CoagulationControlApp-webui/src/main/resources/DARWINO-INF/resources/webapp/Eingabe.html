@@ -48,22 +48,22 @@
 		<div class="abstand"></div>
 		<div class="row">
 			<div class="col-xs-2">
-				<select class="form-control" ng-model="regSex">
-					<option>Mr.</option>
-					<option>Mrs.</option>
+				<select class="form-control" ng-model="sex">
+					<option value="true">Mr.</option>
+					<option value="false">Mrs.</option>
 				</select>
 			</div>
 
 			<div class="col-xs-2">
-				<input type="text" class="form-control" ng-model="regSurname"
+				<input type="text" class="form-control" ng-model="surname"
 					placeholder="Surname Requierd" required>
 			</div>
 			<div class="col-xs-2">
-				<input type="text" class="form-control" ng-model="regName"
+				<input type="text" class="form-control" ng-model="name"
 					placeholder="Name Requierd" required>
 			</div>
 			<div class="col-xs-3">
-				<input type="date" class="form-control" ng-model="regOld"
+				<input type="date" class="form-control" ng-model="bday"
 					placeholder="Birthdate" required>
 			</div>
 			<div class="col-xs-2">
@@ -100,13 +100,13 @@
 				<div class="row">
 					<div class="col-md-2">
 						<label class="radio-inline"> <input type="radio"
-							name="inlineRadioOptions" id="inlineRadio1" value="surname"
+							name="inlineRadioOptions" id="inlineRadio1" value="1"
 							ng-model="msgGreeting"> Full name
 						</label>
 					</div>
 					<div class="col-md-2">
 						<label class="radio-inline"> <input type="radio"
-							name="inlineRadioOptions" id="inlineRadio1" value="firstname"
+							name="inlineRadioOptions" id="inlineRadio1" value="2"
 							ng-model="msgGreeting"> Only first name
 						</label>
 					</div>
@@ -117,10 +117,10 @@
 
 
 						<label class="radio-inline"> <input type="radio"
-							name="inlineRadioOptions" id="inlineRadio1" value="nickname"
+							name="inlineRadioOptions" id="inlineRadio1" value="3"
 							ng-model="msgGreeting"> Own name:
 						</label><input class="form-control" ng-disabled="checkNicknameInput()"
-							type="text" ng-model="input" placeholder="Alternative">
+							type="text" ng-model="nickname" placeholder="Alternative">
 
 
                           <p> Hello {{regSex}} {{regSurname}} {{regName}} !</p>
@@ -137,8 +137,9 @@
 
 		<div class="row">
 			<div class="col-xs-6 col-sm-6">
-				<button type="submit" class="btn btn-default">Save all</button>
+				<button type="submit" class="btn btn-default" ng-click="saveUser()">Save all</button>
 			</div>
+			<button class="btn btn-default" type="button" ng-click='getOne()'>loadOne</button>
 
 			<!-- Optional: clear the XS cols if their content doesn't match in height -->
 			<div class="clearfix visible-xs-block"></div>
