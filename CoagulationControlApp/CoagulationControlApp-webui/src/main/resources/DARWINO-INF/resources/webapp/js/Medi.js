@@ -24,7 +24,8 @@ angular.module('coag',  ['ngResource'])
 		Medi.get({unid: '9194b8aa-2cb1-4bf4-9733-5060b154f7bb'},
 				function(mediResult){
 					console.dir(mediResult);
-				})	
+				})
+		
 	}
 	
 	$scope.allMedis = [];
@@ -53,6 +54,7 @@ angular.module('coag',  ['ngResource'])
 			
 			Medi.save( currentMedi , function(promise){
 				currentMedi.unid = promise.unid;
+				$scope.allMedis.push(currentMedi);
 				console.dir($scope.allMedis);
 			});
 		};

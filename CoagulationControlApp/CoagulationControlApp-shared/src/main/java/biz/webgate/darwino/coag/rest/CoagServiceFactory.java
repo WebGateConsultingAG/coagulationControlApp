@@ -46,6 +46,7 @@ public class CoagServiceFactory extends RestServiceFactory {
 	public class CoagRestService extends HttpService {
 		@Override
 		public void service(HttpServiceContext context) {
+			
 			if (context.isGet()) {
 
 				if ("inr".equalsIgnoreCase(context
@@ -58,6 +59,7 @@ public class CoagServiceFactory extends RestServiceFactory {
 						String unid = context.getQueryParameterString("unid");
 
 						InrStorageService service = new InrStorageService();
+						
 						RestResult result = new RestResult();
 						try {
 							entry = service.getObjectByUNID(unid,
@@ -97,9 +99,7 @@ public class CoagServiceFactory extends RestServiceFactory {
 						e.printStackTrace();
 					}
 				}
-			
-			
-			
+
 				if ("user".equalsIgnoreCase(context
 						.getQueryParameterString("type"))) {
 
@@ -125,18 +125,8 @@ public class CoagServiceFactory extends RestServiceFactory {
 						e.printStackTrace();
 					}
 				}
-			
-			
-			
-			
-			
-			
-			
+
 			}
-			
-			
-			
-			
 
 			if (context.isPost()) {
 				if ("inr".equalsIgnoreCase(context
@@ -173,7 +163,8 @@ public class CoagServiceFactory extends RestServiceFactory {
 					}
 				}
 
-				if ("user".equalsIgnoreCase(context.getQueryParameterString("type"))) {
+				if ("user".equalsIgnoreCase(context
+						.getQueryParameterString("type"))) {
 					UserEntry entry = new UserEntry();
 					try {
 						entry = (UserEntry) processFromJson(context, entry);
