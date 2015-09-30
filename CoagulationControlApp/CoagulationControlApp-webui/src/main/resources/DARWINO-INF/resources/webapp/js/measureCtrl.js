@@ -61,7 +61,7 @@ angular.module('coag', [ 'ngResource' ])
 				
 				
 				Inr.save( currentInr , function(promise){
-					currentInr.unid = promise.inrentry.unid;
+					currentInr.unid = promise.unid;
 					$scope.inrList.push(currentInr);
 				});
 			};

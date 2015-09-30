@@ -13,26 +13,14 @@ package biz.webgate.darwino.coag.rest;
 
 import java.util.List;
 
-import biz.webgate.darwino.coag.app.AppManifest;
-import biz.webgate.darwino.coag.bo.InrEntry;
-import biz.webgate.darwino.coag.bo.MediEntry;
-import biz.webgate.darwino.coag.bo.UserEntry;
-import biz.webgate.darwino.coag.dao.InrStorageService;
-import biz.webgate.darwino.coag.dao.MediStorageService;
-import biz.webgate.darwino.coag.dao.UserStorageService;
+import biz.webgate.darwino.coag.rest.controller.InrController;
+import biz.webgate.darwino.coag.rest.controller.MediController;
+import biz.webgate.darwino.coag.rest.controller.UserController;
 
-import com.darwino.commons.json.JsonException;
-import com.darwino.commons.json.JsonObject;
-import com.darwino.commons.json.binding.JsonPojoDeserializer;
-import com.darwino.commons.json.binding.JsonPojoSerializer;
-import com.darwino.commons.json.binding.annotations.JsonEntityScope;
-import com.darwino.commons.json.serialization.JsonWriter;
-import com.darwino.commons.model.PojoJsonIntrospectorAnotationImpl;
 import com.darwino.commons.services.HttpService;
 import com.darwino.commons.services.HttpServiceContext;
 import com.darwino.commons.services.rest.RestServiceBinder;
 import com.darwino.commons.services.rest.RestServiceFactory;
-import com.darwino.jsonstore.JsonDBException;
 
 /**
  * Application Service Factory.
@@ -47,167 +35,58 @@ public class CoagServiceFactory extends RestServiceFactory {
 		@Override
 		public void service(HttpServiceContext context) {
 			
+			String type = context.getQueryParameterString("type");
+
 			if (context.isGet()) {
+				
+				String unid = context.getQueryParameterString("unid");
+				
+				if ( unid != null){
+					// get one
+					if ("inr".equalsIgnoreCase(type)) {
+						InrController ic = new InrController();
+						ic.getOne(context, unid);
+					} else if ("medi".equalsIgnoreCase(type)) {
+						MediController mc = new MediController();
+						mc.getOne(context, unid);
+					} else if ("user".equalsIgnoreCase(type)) {
+						UserController uc = new UserController();
+						uc.getOne(context, unid);
 
-				if ("inr".equalsIgnoreCase(context
-						.getQueryParameterString("type"))) {
-
-					InrEntry entry = null;
-
-					try {
-
-						String unid = context.getQueryParameterString("unid");
-
-						InrStorageService service = new InrStorageService();
-						
-						RestResult result = new RestResult();
-						try {
-							entry = service.getObjectByUNID(unid,
-									AppManifest.getDatabase());
-							result.setInrEntry(entry);
-							result.setStatus("ok");
-						} catch (JsonDBException jex) {
-							result.setStatus("error");
-						}
-						processToJson(context, result);
-
-					} catch (JsonException e) {
-						e.printStackTrace();
 					}
+				} else {
+					//query: get many
+					
+					
+					
 				}
 
-				if ("medi".equalsIgnoreCase(context
-						.getQueryParameterString("type"))) {
+			} else if (context.isPost()) {
+				if ("inr".equalsIgnoreCase(type)) {
 
-					MediEntry entry = null;
+					InrController ic = new InrController();
+					ic.create(context);
 
-					try {
-						String unid = context.getQueryParameterString("unid");
-						MediStorageService service = new MediStorageService();
-						RestResult result = new RestResult();
-						try {
-							entry = service.getObjectByUNID(unid,
-									AppManifest.getDatabase());
-							result.setMediEntry(entry);
-							result.setStatus("ok");
-						} catch (JsonDBException jex) {
-							result.setStatus("error");
-						}
-						processToJson(context, result);
+				} else if ("medi".equalsIgnoreCase(type)) {
 
-					} catch (JsonException e) {
-						e.printStackTrace();
-					}
+					MediController mc = new MediController();
+					mc.create(context);
+
+				} else if ("user".equalsIgnoreCase(type)) {
+
+					UserController uc = new UserController();
+					uc.create(context);
 				}
 
-				if ("user".equalsIgnoreCase(context
-						.getQueryParameterString("type"))) {
-
-					UserEntry entry = null;
-
-					try {
-
-						String unid = context.getQueryParameterString("unid");
-
-						UserStorageService service = new UserStorageService();
-						RestResult result = new RestResult();
-						try {
-							entry = service.getObjectByUNID(unid,
-									AppManifest.getDatabase());
-							result.setUserData(entry);
-							result.setStatus("ok");
-						} catch (JsonDBException jex) {
-							result.setStatus("error");
-						}
-						processToJson(context, result);
-
-					} catch (JsonException e) {
-						e.printStackTrace();
-					}
-				}
-
+			} else if (context.isDelete()){
+				//TODO: implement remove fn on controller and wire up
+				
+				
+			} else if ( context.isPut()){
+				//TODO: implement update fn on controller and wire up
+				
+				
 			}
-
-			if (context.isPost()) {
-				if ("inr".equalsIgnoreCase(context
-						.getQueryParameterString("type"))) {
-					InrEntry entry = new InrEntry();
-					try {
-						entry = (InrEntry) processFromJson(context, entry);
-						InrStorageService service = new InrStorageService();
-						entry.initUnid();
-						service.saveObject(entry, AppManifest.getDatabase());
-						JsonObject result = new JsonObject();
-						result.put("status", "ok");
-						result.put("unid", entry.getUnid());
-						context.emitJson(result);
-					} catch (JsonException e) {
-						e.printStackTrace();
-					}
-				}
-
-				if ("medi".equalsIgnoreCase(context
-						.getQueryParameterString("type"))) {
-					MediEntry entry2 = new MediEntry();
-					try {
-						entry2 = (MediEntry) processFromJson(context, entry2);
-						MediStorageService service2 = new MediStorageService();
-						entry2.initUnid();
-						service2.saveObject(entry2, AppManifest.getDatabase());
-						JsonObject result2 = new JsonObject();
-						result2.put("status", "ok");
-						result2.put("unid", entry2.getUnid());
-						context.emitJson(result2);
-					} catch (JsonException e) {
-						e.printStackTrace();
-					}
-				}
-
-				if ("user".equalsIgnoreCase(context
-						.getQueryParameterString("type"))) {
-					UserEntry entry = new UserEntry();
-					try {
-						entry = (UserEntry) processFromJson(context, entry);
-						UserStorageService service = new UserStorageService();
-						entry.initUnid();
-						service.saveObject(entry, AppManifest.getDatabase());
-						JsonObject result = new JsonObject();
-						result.put("status", "ok");
-						result.put("unid", entry.getUnid());
-						context.emitJson(result);
-					} catch (JsonException e) {
-						e.printStackTrace();
-					}
-				}
-
-			}
-		}
-
-		protected Object processFromJson(HttpServiceContext context,
-				Object targetObject) throws JsonException {
-
-			JsonObject jsonObject = (JsonObject) context.getContentAsJson();
-
-			JsonPojoDeserializer jsonPojoDeserializer = new JsonPojoDeserializer(
-					new PojoJsonIntrospectorAnotationImpl());
-
-			jsonPojoDeserializer.processJson2Object(jsonObject, targetObject,
-					JsonEntityScope.WEB);
-
-			return targetObject;
-		}
-
-		protected void processToJson(HttpServiceContext context,
-				Object targetObject) throws JsonException {
-
-			JsonWriter jsonWriter = context.getJsonWriter();
-
-			JsonPojoSerializer jsonPojoserializer = new JsonPojoSerializer(
-					new PojoJsonIntrospectorAnotationImpl());
-
-			jsonPojoserializer.process2JSON(jsonWriter, targetObject,
-					JsonEntityScope.WEB);
-
 		}
 
 	}
