@@ -14,7 +14,8 @@
 		<module>CoagulationControlApp-j2ee</module>
 		<module>CoagulationControlApp-android-hybrid</module>
 		<module>CoagulationControlApp-robovm-hybrid</module>
-  </modules>
+		<module>CoagulationControlApp-webdev</module>
+	</modules>
 
 	<properties>
 		<DARWINO_VERSION>0.8.0-SNAPSHOT</DARWINO_VERSION>
