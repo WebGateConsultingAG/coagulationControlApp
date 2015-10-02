@@ -62,6 +62,7 @@
 				<configuration>
 					<sdk>
 						<platform>19</platform>
+						<path>D:\android-sdk</path>
 					</sdk>
 				</configuration>
 			</plugin>
