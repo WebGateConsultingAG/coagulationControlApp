@@ -89,7 +89,7 @@
 							<outputDirectory>${basedir}/../CoagulationControlApp-webui/src/main/resources/DARWINO-INF/resources/webapp</outputDirectory>
 							<resources>
 								<resource>
-									<directory>dist</directory>
+									<directory>yo/dist</directory>
 								</resource>
 							</resources>
 						</configuration>
