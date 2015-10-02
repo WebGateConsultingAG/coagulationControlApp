@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: CoagulationControlApp-webui
 Bundle-SymbolicName: biz.webgate.darwino.coag.CoagulationControlApp-webu
  i
-Bundle-Version: 0.0.1.201510021143
+Bundle-Version: 0.0.1.qualifier
 DARWINO_VERSION: 0.8.0-SNAPSHOT
 Include-Resource: DARWINO-INF/resources/mobile/css/style.css=src/main/re
  sources/DARWINO-INF/resources/mobile/css/style.css,DARWINO-INF/resource
@@ -29,9 +29,17 @@ Include-Resource: DARWINO-INF/resources/mobile/css/style.css=src/main/re
  sources/webapp/assets/images/yeoman.png=src/main/resources/DARWINO-INF/
  resources/webapp/assets/images/yeoman.png,DARWINO-INF/resources/webapp/
  favicon.ico=src/main/resources/DARWINO-INF/resources/webapp/favicon.ico
- ,DARWINO-INF/resources/webapp/test.js=src/main/resources/DARWINO-INF/re
- sources/webapp/test.js
+ ,DARWINO-INF/resources/webapp/index.html=src/main/resources/DARWINO-INF
+ /resources/webapp/index.html,DARWINO-INF/resources/webapp/scripts/app-3
+ 4cac489a3.js=src/main/resources/DARWINO-INF/resources/webapp/scripts/ap
+ p-34cac489a3.js,DARWINO-INF/resources/webapp/scripts/vendor-edcc540807.
+ js=src/main/resources/DARWINO-INF/resources/webapp/scripts/vendor-edcc5
+ 40807.js,DARWINO-INF/resources/webapp/styles/app-b54d3a9d0b.css=src/mai
+ n/resources/DARWINO-INF/resources/webapp/styles/app-b54d3a9d0b.css,DARW
+ INO-INF/resources/webapp/styles/vendor-5ed2807b23.css=src/main/resource
+ s/DARWINO-INF/resources/webapp/styles/vendor-5ed2807b23.css
 Private-Package: DARWINO-INF.resources.mobile.css,DARWINO-INF.resources.
  mobile.img,DARWINO-INF.resources.mobile,DARWINO-INF.resources.mobile.js
  ,DARWINO-INF.resources.webapp.assets.images,DARWINO-INF.resources.webap
- p
+ p,DARWINO-INF.resources.webapp.scripts,DARWINO-INF.resources.webapp.sty
+ les
