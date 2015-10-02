@@ -11,22 +11,37 @@ Include-Resource: DARWINO-INF/resources/mobile/css/style.css=src/main/re
  e/img/appicon.png,DARWINO-INF/resources/mobile/index.html=src/main/reso
  urces/DARWINO-INF/resources/mobile/index.html,DARWINO-INF/resources/mob
  ile/js/app.js=src/main/resources/DARWINO-INF/resources/mobile/js/app.js
- ,DARWINO-INF/resources/webapp/css/style.css=src/main/resources/DARWINO-
- INF/resources/webapp/css/style.css,DARWINO-INF/resources/webapp/Eingabe
- .html=src/main/resources/DARWINO-INF/resources/webapp/Eingabe.html,DARW
- INO-INF/resources/webapp/js/jquery-2.1.4.js=src/main/resources/DARWINO-
- INF/resources/webapp/js/jquery-2.1.4.js,DARWINO-INF/resources/webapp/js
- /measureCtrl.js=src/main/resources/DARWINO-INF/resources/webapp/js/meas
- ureCtrl.js,DARWINO-INF/resources/webapp/js/Medi.js=src/main/resources/D
- ARWINO-INF/resources/webapp/js/Medi.js,DARWINO-INF/resources/webapp/js/
- ngFactories.js=src/main/resources/DARWINO-INF/resources/webapp/js/ngFac
- tories.js,DARWINO-INF/resources/webapp/js/Reg.js=src/main/resources/DAR
- WINO-INF/resources/webapp/js/Reg.js,DARWINO-INF/resources/webapp/js/Scr
- ipt.js=src/main/resources/DARWINO-INF/resources/webapp/js/Script.js,DAR
- WINO-INF/resources/webapp/Medikamenten.html=src/main/resources/DARWINO-
- INF/resources/webapp/Medikamenten.html,DARWINO-INF/resources/webapp/Mes
- sung.html=src/main/resources/DARWINO-INF/resources/webapp/Messung.html
+ ,DARWINO-INF/resources/webapp/assets/images/angular.png=src/main/resour
+ ces/DARWINO-INF/resources/webapp/assets/images/angular.png,DARWINO-INF/
+ resources/webapp/assets/images/bootstrap.png=src/main/resources/DARWINO
+ -INF/resources/webapp/assets/images/bootstrap.png,DARWINO-INF/resources
+ /webapp/assets/images/browsersync.png=src/main/resources/DARWINO-INF/re
+ sources/webapp/assets/images/browsersync.png,DARWINO-INF/resources/weba
+ pp/assets/images/gulp.png=src/main/resources/DARWINO-INF/resources/weba
+ pp/assets/images/gulp.png,DARWINO-INF/resources/webapp/assets/images/ja
+ smine.png=src/main/resources/DARWINO-INF/resources/webapp/assets/images
+ /jasmine.png,DARWINO-INF/resources/webapp/assets/images/karma.png=src/m
+ ain/resources/DARWINO-INF/resources/webapp/assets/images/karma.png,DARW
+ INO-INF/resources/webapp/assets/images/protractor.png=src/main/resource
+ s/DARWINO-INF/resources/webapp/assets/images/protractor.png,DARWINO-INF
+ /resources/webapp/assets/images/ui-bootstrap.png=src/main/resources/DAR
+ WINO-INF/resources/webapp/assets/images/ui-bootstrap.png,DARWINO-INF/re
+ sources/webapp/assets/images/yeoman.png=src/main/resources/DARWINO-INF/
+ resources/webapp/assets/images/yeoman.png,DARWINO-INF/resources/webapp/
+ favicon.ico=src/main/resources/DARWINO-INF/resources/webapp/favicon.ico
+ ,DARWINO-INF/resources/webapp/index.html=src/main/resources/DARWINO-INF
+ /resources/webapp/index.html,DARWINO-INF/resources/webapp/scripts/app-b
+ 4fc7b3ac5.js=src/main/resources/DARWINO-INF/resources/webapp/scripts/ap
+ p-b4fc7b3ac5.js,DARWINO-INF/resources/webapp/scripts/vendor-edcc540807.
+ js=src/main/resources/DARWINO-INF/resources/webapp/scripts/vendor-edcc5
+ 40807.js,DARWINO-INF/resources/webapp/styles/app-b54d3a9d0b.css=src/mai
+ n/resources/DARWINO-INF/resources/webapp/styles/app-b54d3a9d0b.css,DARW
+ INO-INF/resources/webapp/styles/app-fa037ff850.css=src/main/resources/D
+ ARWINO-INF/resources/webapp/styles/app-fa037ff850.css,DARWINO-INF/resou
+ rces/webapp/styles/vendor-5ed2807b23.css=src/main/resources/DARWINO-INF
+ /resources/webapp/styles/vendor-5ed2807b23.css
 Private-Package: DARWINO-INF.resources.mobile.css,DARWINO-INF.resources.
  mobile.img,DARWINO-INF.resources.mobile,DARWINO-INF.resources.mobile.js
- ,DARWINO-INF.resources.webapp,DARWINO-INF.resources.webapp.css,DARWINO-
- INF.resources.webapp.js
+ ,DARWINO-INF.resources.webapp.assets.images,DARWINO-INF.resources.webap
+ p,DARWINO-INF.resources.webapp.scripts,DARWINO-INF.resources.webapp.sty
+ les

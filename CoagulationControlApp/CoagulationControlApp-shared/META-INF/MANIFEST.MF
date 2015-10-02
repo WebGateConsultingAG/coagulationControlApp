@@ -8,7 +8,9 @@ DARWINO_VERSION: 0.8.0-SNAPSHOT
 Export-Package: biz.webgate.darwino.coag.app;version="0.0.1",biz.webgate
  .darwino.coag.bo;version="0.0.1",biz.webgate.darwino.coag.dao;uses:="bi
  z.webgate.darwino.coag.bo";version="0.0.1",biz.webgate.darwino.coag.res
- t;uses:="biz.webgate.darwino.coag.bo";version="0.0.1"
+ t;uses:="biz.webgate.darwino.coag.bo";version="0.0.1",biz.webgate.darwi
+ no.coag.rest.controller;uses:="biz.webgate.darwino.coag.bo";version="0.
+ 0.1"
 Include-Resource: darwino-beans.xml=src/main/resources/darwino-beans.xml
 Private-Package: darwino-beans.xml
 Require-Bundle: com.darwino.domino.platform;resolution:=optional
