@@ -3,5 +3,5 @@ Bundle-ManifestVersion: 2
 Bundle-Name: CoagulationControlApp-webdev
 Bundle-SymbolicName: biz.webgate.darwino.coag.CoagulationControlApp-webd
  ev
-Bundle-Version: 0.0.1.201510050817
+Bundle-Version: 0.0.1.201510051309
 DARWINO_VERSION: 0.8.0-SNAPSHOT

@@ -1,0 +1,123 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6 col-sm-4">
+			<a class="btn btn-default" ui-sref="inr" role="button">INR
+				Control</a>
+		</div>
+		<div class="col-xs-6 col-sm-4">
+			<h1>Medicine </h1>
+		</div>
+		<div class="clearfix visible-xs-block"></div>
+		<div class="col-xs-6 col-sm-4">
+			<a class="btn btn-default" ui-sref="user" role="button">Edit profile</a>
+		</div>
+	</div>
+	<div class="abstand"></div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="helpBlock" class="help-block">Welche Dosierungen
+				nehmen Sie zur Zeit?</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-8">
+			<div ng-repeat="medi in MedCtrl.allMedis" class="row">
+				<div class="col-xs-6">
+					<input type="text" id="disabledTextInput" class="form-control"
+						placeholder="{{'Medicine ' + ( $index+1)}}"
+						ng-model="MedCtrl.medi.mediname">
+					<div class="abstand"></div>
+				</div>
+				<div class="col-xs-4">
+					<div class="input-group">
+						<input type="number" class="form-control" id="exampleInputAmount"
+							placeholder="" ng-model="MedCtrl.medi.medivalue">
+						<div class="input-group-addon">Mg</div>
+					</div>
+				</div>
+				<div class="col-xs-2">
+					<button class="btn btn-default" type="button"
+								ng-click="MedCtrl.removeMedi($index)">DELETE</button>
+				</div>
+			</div>
+			<!-- entry -->
+			<div class="row">
+				<div class="col-xs-8">
+					<input type="text" id="disabledTextInput" class="form-control"
+						placeholder="Medicine" ng-model="MedCtrl.mediName">
+				</div>
+				<div class="col-xs-4">
+					<div class="input-group">
+						<input type="number" class="form-control" id="exampleInputAmount"
+							placeholder="Mg" ng-model="MedCtrl.mediMg"><span
+							class="input-group-btn">
+							<button class="btn btn-default" type="button"
+								ng-click="MedCtrl.addMedi()">ADD</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="abstand"></div>
+	<button class="btn btn-default" type="button"
+		ng-click='MedCtrl.needHelp = !MedCtrl.needHelp'>{{MedCtrl.helpBtn}}</button>
+	<p class="" ng-hide='MedCtrl.needHelp'>
+		Sie könen ein neus Medikament nur dann einfügen, wenn beide Felder
+		die Werte haben.</br> Das Sie nicht vergessen ihres Medikament zu nehmen -
+		kommt eine benachrichtigung. wählen Sie wenn es am besten passen
+		würde
+
+	</p>
+
+
+
+	<div class="row">
+		<div class="col-sm-12">
+			<span id="helpBlock" class="help-block">Notifications</span>
+			<div class="row">
+				<div class="col-md-2">
+					<label class="radio-inline"> <input type="radio"
+						name="inlineRadioOptions" id="inlineRadio1" value="option3"
+						ng-model="MedCtrl.msgLocked"> No thanks
+					</label>
+				</div>
+				<div class="col-md-2">
+					<label class="radio-inline"> <input type="radio"
+						name="inlineRadioOptions" id="inlineRadio1" value="mediTime"
+						ng-model="MedCtrl.msgLocked"> Every day at
+					</label> <input type="time" class="form-control"
+						ng-disabled="MedCtrl.checkTimeInput()" ng-model="MedCtrl.msgLocked">
+
+				</div>
+				<div class="col-md-2">
+
+				<label class="radio-inline"> <input type="radio"
+						name="inlineRadioOptions" id="inlineRadio1" value="mediDate"
+						ng-model="MedCtrl.msgLocked"> Only at
+					</label><input type="date" class="form-control"
+						ng-disabled="MedCtrl.checkDateInput()" ng-model="MedCtrl.msgLockedDate">
+
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="abstand"></div>
+
+
+	<div class="row">
+		<div class="col-xs-6 col-sm-6">
+			<button type="submit" class="btn btn-default" ng-click="MedCtrl.mediSave()">Save</button>
+		</div>
+	<button class="btn btn-default" type="button" ng-click='MedCtrl.getOne()'>loadOne</button>
+
+		<div class="clearfix visible-xs-block"></div>
+		<div class="col-xs-6 col-sm-6">
+			<button type="reset" class="btn btn-default">Reset</button>
+		</div>
+	</div>
+	
+</div>
