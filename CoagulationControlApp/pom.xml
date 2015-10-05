@@ -8,13 +8,13 @@
 
 	<packaging>pom</packaging>
 	<modules>
+		<module>CoagulationControlApp-webdev</module>
 		<module>CoagulationControlApp-shared</module>
 		<module>CoagulationControlApp-webui</module>
 		<module>CoagulationControlApp-mobile</module>
 		<module>CoagulationControlApp-j2ee</module>
 		<module>CoagulationControlApp-android-hybrid</module>
 		<module>CoagulationControlApp-robovm-hybrid</module>
-		<module>CoagulationControlApp-webdev</module>
 	</modules>
 
 	<properties>
