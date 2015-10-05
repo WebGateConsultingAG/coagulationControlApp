@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: CoagulationControlApp-webui
 Bundle-SymbolicName: biz.webgate.darwino.coag.CoagulationControlApp-webu
  i
-Bundle-Version: 0.0.1.201510021355
+Bundle-Version: 0.0.1.201510050817
 DARWINO_VERSION: 0.8.0-SNAPSHOT
 Include-Resource: DARWINO-INF/resources/mobile/css/style.css=src/main/re
  sources/DARWINO-INF/resources/mobile/css/style.css,DARWINO-INF/resource
@@ -30,20 +30,16 @@ Include-Resource: DARWINO-INF/resources/mobile/css/style.css=src/main/re
  resources/webapp/assets/images/yeoman.png,DARWINO-INF/resources/webapp/
  favicon.ico=src/main/resources/DARWINO-INF/resources/webapp/favicon.ico
  ,DARWINO-INF/resources/webapp/index.html=src/main/resources/DARWINO-INF
- /resources/webapp/index.html,DARWINO-INF/resources/webapp/scripts/app-0
- 2da6072fb.js=src/main/resources/DARWINO-INF/resources/webapp/scripts/ap
- p-02da6072fb.js,DARWINO-INF/resources/webapp/scripts/app-34cac489a3.js=
- src/main/resources/DARWINO-INF/resources/webapp/scripts/app-34cac489a3.
- js,DARWINO-INF/resources/webapp/scripts/app-9bce21d0d1.js=src/main/reso
- urces/DARWINO-INF/resources/webapp/scripts/app-9bce21d0d1.js,DARWINO-IN
- F/resources/webapp/scripts/vendor-edcc540807.js=src/main/resources/DARW
- INO-INF/resources/webapp/scripts/vendor-edcc540807.js,DARWINO-INF/resou
- rces/webapp/styles/app-b54d3a9d0b.css=src/main/resources/DARWINO-INF/re
- sources/webapp/styles/app-b54d3a9d0b.css,DARWINO-INF/resources/webapp/s
- tyles/app-fa037ff850.css=src/main/resources/DARWINO-INF/resources/webap
- p/styles/app-fa037ff850.css,DARWINO-INF/resources/webapp/styles/vendor-
- 5ed2807b23.css=src/main/resources/DARWINO-INF/resources/webapp/styles/v
- endor-5ed2807b23.css
+ /resources/webapp/index.html,DARWINO-INF/resources/webapp/scripts/app-2
+ c0c5acf47.js=src/main/resources/DARWINO-INF/resources/webapp/scripts/ap
+ p-2c0c5acf47.js,DARWINO-INF/resources/webapp/scripts/app-723f1f9981.js=
+ src/main/resources/DARWINO-INF/resources/webapp/scripts/app-723f1f9981.
+ js,DARWINO-INF/resources/webapp/scripts/vendor-edcc540807.js=src/main/r
+ esources/DARWINO-INF/resources/webapp/scripts/vendor-edcc540807.js,DARW
+ INO-INF/resources/webapp/styles/app-d7c2e1fa5e.css=src/main/resources/D
+ ARWINO-INF/resources/webapp/styles/app-d7c2e1fa5e.css,DARWINO-INF/resou
+ rces/webapp/styles/vendor-5ed2807b23.css=src/main/resources/DARWINO-INF
+ /resources/webapp/styles/vendor-5ed2807b23.css
 Private-Package: DARWINO-INF.resources.mobile.css,DARWINO-INF.resources.
  mobile.img,DARWINO-INF.resources.mobile,DARWINO-INF.resources.mobile.js
  ,DARWINO-INF.resources.webapp.assets.images,DARWINO-INF.resources.webap
