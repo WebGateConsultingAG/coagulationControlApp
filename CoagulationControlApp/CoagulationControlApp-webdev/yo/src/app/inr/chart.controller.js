@@ -8,20 +8,20 @@
 
   /** @ngInject */
   function ChartController() {
-	  
+	  var self = this;
 	  //hole INR
 	  var testInrs = [	{date: new Date(), value: 12},
 						{date: new Date(new Date().setDate(4)), value: 9},
 						{date: new Date(new Date().setDate(2)), value: 3}]
 	  
-	  this.labels = testInrs.map(function(val){
+	  self.labels = testInrs.map(function(val){
 		  return dateFormatter(val.date);
 		});
-	  this.series = ['INR value'];
-	  this.data = [
+	  self.series = ['INR value'];
+	  self.data = [
 		testInrs.map(function(val){return val.value})
 	  ];
-	  this.onClick = function (points, evt) {
+	  self.onClick = function (points, evt) {
 		console.log(points, evt);
 	  };
 	  

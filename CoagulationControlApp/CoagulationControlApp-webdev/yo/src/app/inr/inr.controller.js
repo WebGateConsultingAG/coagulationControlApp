@@ -9,15 +9,17 @@
   /** @ngInject */
   function InrController(inr) {
 	  
-		this.inr = null;
-		this.inrDate = new Date();
-		this.inrOutcome = null;
-		this.inrOutcomeClass = "";
-		this.inrList = [];
+	  	var self = this;
+	  
+		self.inr = null;
+		self.inrDate = new Date();
+		self.inrOutcome = null;
+		self.inrOutcomeClass = "";
+		self.inrList = [];
 		
 		var currentInr = null;
 	  
-		this.getOne = function(){
+		self.getOne = function(){
 			// valid id: 68bf1a87-6a6b-49bf-812c-3560a9fb1079
 			inr.get({unid: '68bf1a87-6a6b-49bf-812c-3560a9fb1079'},
 					function(inrResult){
@@ -25,36 +27,37 @@
 					});
 		};
 
-		this.saveInr = function() {
-			if (this.inr <= 0 || this.inr > 6 || this.inr === null || this.inr === void 0) {
-				this.inrOutcome = "Not possible";
-				this.inrOutcomeClass = "noright";
-				this.inr = 0;
+		self.saveInr = function() {
+			if (self.inr <= 0 || self.inr > 6 || self.inr === null || self.inr === void 0) {
+				self.inrOutcome = "Not possible";
+				self.inrOutcomeClass = "noright";
+				self.inr = 0;
 				return;
-			} else if (this.inr >= 4) {
-				this.inrOutcome = "to high";
-				this.inrOutcomeClass = "danger";
+			} else if (self.inr >= 4) {
+				self.inrOutcome = "to high";
+				self.inrOutcomeClass = "danger";
 			} else {
-				this.inrOutcome = "Everything allright";
-				this.inrOutcomeClass = "nodanger";
+				self.inrOutcome = "Everything allright";
+				self.inrOutcomeClass = "nodanger";
 			}
 			
 			currentInr = {
-				inrvalue : this.inr,
-				measuredate : this.inrDate,
+				inrvalue : self.inr,
+				measuredate : self.inrDate,
 				creationdate : new Date(),
 				username : "The Stan"
 			};
 			
-			var _that = this;
-			
 			inr.save( currentInr , function(promise){
 				currentInr.unid = promise.unid;
-				_that.inrList.push(currentInr);
+				self.inrList.push(currentInr);
+			}, function(error){
+				console.log("error");
 			});
+			
 		};
 
-		this.showLast = function() {
+		self.showLast = function() {
 
 		};
 	}

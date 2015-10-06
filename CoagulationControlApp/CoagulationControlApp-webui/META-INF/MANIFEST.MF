@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: CoagulationControlApp-webui
 Bundle-SymbolicName: biz.webgate.darwino.coag.CoagulationControlApp-webu
  i
-Bundle-Version: 0.0.1.201510051356
+Bundle-Version: 0.0.1.201510060627
 DARWINO_VERSION: 0.8.0-SNAPSHOT
 Include-Resource: DARWINO-INF/resources/mobile/css/style.css=src/main/re
  sources/DARWINO-INF/resources/mobile/css/style.css,DARWINO-INF/resource
@@ -28,8 +28,75 @@ Include-Resource: DARWINO-INF/resources/mobile/css/style.css=src/main/re
  WINO-INF/resources/webapp/assets/images/ui-bootstrap.png,DARWINO-INF/re
  sources/webapp/assets/images/yeoman.png=src/main/resources/DARWINO-INF/
  resources/webapp/assets/images/yeoman.png,DARWINO-INF/resources/webapp/
- favicon.ico=src/main/resources/DARWINO-INF/resources/webapp/favicon.ico
+ bower_components/angular/angular.min.js.gzip=src/main/resources/DARWINO
+ -INF/resources/webapp/bower_components/angular/angular.min.js.gzip,DARW
+ INO-INF/resources/webapp/bower_components/angular/angular.min.js.map=sr
+ c/main/resources/DARWINO-INF/resources/webapp/bower_components/angular/
+ angular.min.js.map,DARWINO-INF/resources/webapp/bower_components/angula
+ r/bower.json=src/main/resources/DARWINO-INF/resources/webapp/bower_comp
+ onents/angular/bower.json,DARWINO-INF/resources/webapp/bower_components
+ /angular/package.json=src/main/resources/DARWINO-INF/resources/webapp/b
+ ower_components/angular/package.json,DARWINO-INF/resources/webapp/bower
+ _components/angular/README.md=src/main/resources/DARWINO-INF/resources/
+ webapp/bower_components/angular/README.md,DARWINO-INF/resources/webapp/
+ bower_components/angular-chart.js/angular-chart.less=src/main/resources
+ /DARWINO-INF/resources/webapp/bower_components/angular-chart.js/angular
+ -chart.less,DARWINO-INF/resources/webapp/bower_components/angular-chart
+ .js/bower.json=src/main/resources/DARWINO-INF/resources/webapp/bower_co
+ mponents/angular-chart.js/bower.json,DARWINO-INF/resources/webapp/bower
+ _components/angular-chart.js/dist/angular-chart.js.tar.gz=src/main/reso
+ urces/DARWINO-INF/resources/webapp/bower_components/angular-chart.js/di
+ st/angular-chart.js.tar.gz,DARWINO-INF/resources/webapp/bower_component
+ s/angular-chart.js/dist/angular-chart.min.css.map=src/main/resources/DA
+ RWINO-INF/resources/webapp/bower_components/angular-chart.js/dist/angul
+ ar-chart.min.css.map,DARWINO-INF/resources/webapp/bower_components/angu
+ lar-chart.js/dist/angular-chart.min.js.map=src/main/resources/DARWINO-I
+ NF/resources/webapp/bower_components/angular-chart.js/dist/angular-char
+ t.min.js.map,DARWINO-INF/resources/webapp/bower_components/angular-char
+ t.js/LICENSE=src/main/resources/DARWINO-INF/resources/webapp/bower_comp
+ onents/angular-chart.js/LICENSE,DARWINO-INF/resources/webapp/bower_comp
+ onents/angular-chart.js/package.json=src/main/resources/DARWINO-INF/res
+ ources/webapp/bower_components/angular-chart.js/package.json,DARWINO-IN
+ F/resources/webapp/bower_components/angular-chart.js/README.md=src/main
+ /resources/DARWINO-INF/resources/webapp/bower_components/angular-chart.
+ js/README.md,DARWINO-INF/resources/webapp/bower_components/Chart.js/bow
+ er.json=src/main/resources/DARWINO-INF/resources/webapp/bower_component
+ s/Chart.js/bower.json,DARWINO-INF/resources/webapp/bower_components/Cha
+ rt.js/CONTRIBUTING.md=src/main/resources/DARWINO-INF/resources/webapp/b
+ ower_components/Chart.js/CONTRIBUTING.md,DARWINO-INF/resources/webapp/b
+ ower_components/Chart.js/docs/00-Getting-Started.md=src/main/resources/
+ DARWINO-INF/resources/webapp/bower_components/Chart.js/docs/00-Getting-
+ Started.md,DARWINO-INF/resources/webapp/bower_components/Chart.js/docs/
+ 01-Line-Chart.md=src/main/resources/DARWINO-INF/resources/webapp/bower_
+ components/Chart.js/docs/01-Line-Chart.md,DARWINO-INF/resources/webapp/
+ bower_components/Chart.js/docs/02-Bar-Chart.md=src/main/resources/DARWI
+ NO-INF/resources/webapp/bower_components/Chart.js/docs/02-Bar-Chart.md,
+ DARWINO-INF/resources/webapp/bower_components/Chart.js/docs/03-Radar-Ch
+ art.md=src/main/resources/DARWINO-INF/resources/webapp/bower_components
+ /Chart.js/docs/03-Radar-Chart.md,DARWINO-INF/resources/webapp/bower_com
+ ponents/Chart.js/docs/04-Polar-Area-Chart.md=src/main/resources/DARWINO
+ -INF/resources/webapp/bower_components/Chart.js/docs/04-Polar-Area-Char
+ t.md,DARWINO-INF/resources/webapp/bower_components/Chart.js/docs/05-Pie
+ -Doughnut-Chart.md=src/main/resources/DARWINO-INF/resources/webapp/bowe
+ r_components/Chart.js/docs/05-Pie-Doughnut-Chart.md,DARWINO-INF/resourc
+ es/webapp/bower_components/Chart.js/docs/06-Advanced.md=src/main/resour
+ ces/DARWINO-INF/resources/webapp/bower_components/Chart.js/docs/06-Adva
+ nced.md,DARWINO-INF/resources/webapp/bower_components/Chart.js/docs/07-
+ Notes.md=src/main/resources/DARWINO-INF/resources/webapp/bower_componen
+ ts/Chart.js/docs/07-Notes.md,DARWINO-INF/resources/webapp/bower_compone
+ nts/Chart.js/LICENSE.md=src/main/resources/DARWINO-INF/resources/webapp
+ /bower_components/Chart.js/LICENSE.md,DARWINO-INF/resources/webapp/bowe
+ r_components/Chart.js/package.json=src/main/resources/DARWINO-INF/resou
+ rces/webapp/bower_components/Chart.js/package.json,DARWINO-INF/resource
+ s/webapp/bower_components/Chart.js/README.md=src/main/resources/DARWINO
+ -INF/resources/webapp/bower_components/Chart.js/README.md,DARWINO-INF/r
+ esources/webapp/favicon.ico=src/main/resources/DARWINO-INF/resources/we
+ bapp/favicon.ico
 Private-Package: DARWINO-INF.resources.mobile.css,DARWINO-INF.resources.
  mobile.img,DARWINO-INF.resources.mobile,DARWINO-INF.resources.mobile.js
  ,DARWINO-INF.resources.webapp.assets.images,DARWINO-INF.resources.webap
- p
+ p.bower_components.Chart.js,DARWINO-INF.resources.webapp.bower_componen
+ ts.Chart.js.docs,DARWINO-INF.resources.webapp.bower_components.angular-
+ chart.js,DARWINO-INF.resources.webapp.bower_components.angular-chart.js
+ .dist,DARWINO-INF.resources.webapp.bower_components.angular,DARWINO-INF
+ .resources.webapp
