@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('coagulationControlAppWebdev')
+    .module('coagAngular')
     .run(runBlock);
 
   /** @ngInject */

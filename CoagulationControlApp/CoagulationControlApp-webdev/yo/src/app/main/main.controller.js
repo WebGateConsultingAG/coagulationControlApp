@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('coagulationControlAppWebdev')
+    .module('coagAngular')
     .controller('MainController', MainController);
 
   /** @ngInject */
@@ -11,7 +11,7 @@
 
     vm.awesomeThings = [];
     vm.classAnimation = '';
-    vm.creationDate = 1443786449297;
+    vm.creationDate = 1443601570187;
     vm.showToastr = showToastr;
 
     activate();

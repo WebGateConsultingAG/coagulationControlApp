@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('coagulationControlAppWebdev')
+    .module('coagAngular')
     .constant('malarkey', malarkey)
     .constant('toastr', toastr)
     .constant('moment', moment);
