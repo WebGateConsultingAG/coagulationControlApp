@@ -26,6 +26,14 @@
 						console.dir(inrResult);
 					});
 		};
+		
+		self.getMany = function(){
+			console.log("getting many...");
+			inr.query({inrvalue: 4.1}, function(inrs){
+				console.dir(inrs);
+			},function(err){console.log(err)});
+			
+		};
 
 		self.saveInr = function() {
 			if (self.inr <= 0 || self.inr > 6 || self.inr === null || self.inr === void 0) {
@@ -52,6 +60,7 @@
 				currentInr.unid = promise.unid;
 				self.inrList.push(currentInr);
 			}, function(error){
+			}, function(error){
 				console.log("error");
 			});
 			
@@ -60,6 +69,7 @@
 		self.showLast = function() {
 
 		};
+		
 	}
 }
 )();

@@ -1,34 +1,44 @@
+body
+{
+  margin:0px;
+  padding:0px;
+	font-family: "Open Sans", arial;
+    
 
-.test {
-	height : 100px;
-	width : 100px;
-	background-color: red;
+	}
 
+.menuheader{
+  display:inline-block;
 }
 
 
+.main-menu {
+    position:absolute;
+    width:50%;
+ z-index: 1;
+ }
 
 
-body {
-	margin-top: 5%;
-    margin-bottom: 5%;
-	text-align: center;
-	font-size: 120%;
+nav ul,nav li {
+padding:1%;
+margin:0%;
 }
 
-h1 {
-	font-size: 320%;
+.information{
+margin: 3% 20%;
+width: 100%;
+width: 100%;
+    text-align: center;
+
 }
 
-.abstand {
-	margin-top: 2%;
+.content{
+width: auto;
+    margin-left: 3%;
+margin-right: 3%;
+
 }
 
-.container {
-	border-style: solid;
-	border-radius: 140px;
-	padding: 5%;
-}
 
 .apl {
 	position: absolute;
@@ -72,3 +82,10 @@ right: 1%;
 .helpme {
 	
 }
+.abstand{
+    margin-top: 5%;
+}
+#indx{
+z-index: 100;
+}
+

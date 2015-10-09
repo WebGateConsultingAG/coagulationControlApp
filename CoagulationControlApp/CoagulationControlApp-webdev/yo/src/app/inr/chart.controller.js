@@ -7,20 +7,28 @@
     .controller('ChartController', ChartController);
 
   /** @ngInject */
-  function ChartController() {
+  function ChartController( inr ) {
 	  var self = this;
 	  //hole INR
-	  var testInrs = [	{date: new Date(), value: 12},
-						{date: new Date(new Date().setDate(4)), value: 9},
-						{date: new Date(new Date().setDate(2)), value: 3}]
+	  var displayInrs = [];
+	  var allInrs = [];
+	  self.labels = [];
+	  self.data = [];
 	  
-	  self.labels = testInrs.map(function(val){
-		  return dateFormatter(val.date);
-		});
+	  inr.query({}, function(inrs){
+			allInrs = inrs.inrentries;
+			displayInrs = allInrs.splice(0, 6);
+			
+			self.labels = displayInrs.map(function(val){
+				  return dateFormatter(new Date(val.measuredate));
+				});
+
+			self.data.push(displayInrs.map(function(val){return val.inrvalue}));
+			
+		},function(err){console.log(err)});
+	  
+	  
 	  self.series = ['INR value'];
-	  self.data = [
-		testInrs.map(function(val){return val.value})
-	  ];
 	  self.onClick = function (points, evt) {
 		console.log(points, evt);
 	  };
@@ -33,5 +41,8 @@
 		var year = d.getFullYear();
 		return  day + "." + monthIndex + "." + year;
 	}
+    
+    
+    
 }
 )();

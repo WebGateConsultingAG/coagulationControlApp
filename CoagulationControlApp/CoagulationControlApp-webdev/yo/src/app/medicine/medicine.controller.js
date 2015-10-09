@@ -17,15 +17,20 @@
 			
 		}
 		
+		this.getMany = function(){
+			console.log("getting many...");
+			medicine.query({mediname: "asdfcff"}, function(meds){
+				console.dir(meds);
+			},function(err){console.log(err)})
+			
+		}
+		
 		this.allMedis = [];
 		this.mediName = "";
 		this.mediMg = "";
-
 		this.msgLocked = null;
-
 		this.helpme = "";
 		this.helpBtn = "Help";
-		
 		var currentMedi = null;
 		
 		
@@ -34,7 +39,7 @@
 				currentMedi = {
 					medivalue : this.mediMg,
 					mediname : this.mediName,
-					notificationdate : new Date()
+					notificationdate : new Date(),
 				};
 				
 				this.mediName = "";
@@ -53,13 +58,8 @@
 			this.allMedis.splice(idx, 1);
 		};
 
-		this.checkTimeInput = function() {
-			return this.msgLocked !== 'mediTime';
-		};
-
-		this.checkDateInput = function() {
-			return this.msgLocked !== 'mediDate';
-		};
+      this.showdati = function() {
+  };
 
 		this.needHelp = function() {
 

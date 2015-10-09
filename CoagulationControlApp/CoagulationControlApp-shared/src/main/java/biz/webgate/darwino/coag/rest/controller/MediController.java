@@ -1,5 +1,8 @@
 package biz.webgate.darwino.coag.rest.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import biz.webgate.darwino.coag.app.AppManifest;
 import biz.webgate.darwino.coag.bo.MediEntry;
 import biz.webgate.darwino.coag.dao.MediStorageService;
@@ -42,7 +45,31 @@ public class MediController extends EndpointController<MediEntry> {
 	@Override
 	public void getMany(HttpServiceContext context) {
 		
-		
+		try{
+			Map<String, String> params = removeDefaultParams(context.getQueryParameterMap());
+			
+			List<MediEntry> medList = null;
+			RestResult result = new RestResult();
+			try{
+				
+				String query = buildQueryFromParams(params);
+				
+				medList = service.selectObject(AppManifest.getDatabase(), query, null, 200);
+				
+				result.setStatus("ok");
+				result.setMediEntries(medList);
+				
+			} catch ( JsonException jex){
+				jex.printStackTrace();
+				result.setStatus("error");
+				result.setTrace(jex.toString());
+			}
+			
+			
+			processToJson(context, result);
+		} catch( JsonException ex) {
+			ex.printStackTrace();
+		}
 	}
 
 	@Override

@@ -52,11 +52,20 @@ public class CoagServiceFactory extends RestServiceFactory {
 					} else if ("user".equalsIgnoreCase(type)) {
 						UserController uc = new UserController();
 						uc.getOne(context, unid);
-
 					}
 				} else {
-					//query: get many
-					
+					//query
+					if ("inr".equalsIgnoreCase(type)) {
+						System.out.println("query INR");
+						InrController ic = new InrController();
+						ic.getMany(context);
+					} else if ("medi".equalsIgnoreCase(type)) {
+						MediController mc = new MediController();
+						mc.getMany(context);
+					} else if ("user".equalsIgnoreCase(type)) {
+						UserController uc = new UserController();
+						uc.getMany(context);
+					}
 					
 					
 				}

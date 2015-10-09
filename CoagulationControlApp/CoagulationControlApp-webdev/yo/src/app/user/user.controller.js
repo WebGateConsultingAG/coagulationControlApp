@@ -13,25 +13,21 @@
     		user.get({unid: 'd2d1f534-f174-4c5a-9a52-01291e7f2dab'},
     				function(result){
     					console.dir(result);
-    				})	
+    				});	
     	}
     	
         this.name = "";
         this.surname = "";
         this.bday = null;
         this.sex = true;
-        
-        this.norm = {
+                this.norm = {
             min : 0,
             max : 6
         };
         
        this.msgGreeting = null;
        this.nickname = null;
-       
        var currentUser = null;
-          
-          
        this.saveUser = function(){
     	   
         	currentUser = {
@@ -55,7 +51,11 @@
             
         };
         
-  
+  this.isEmpty = function (obj) {
+    for (var i in obj) if (obj.hasOwnProperty(i)) return false;
+    return true;
+};
+      
        
     }
 })();

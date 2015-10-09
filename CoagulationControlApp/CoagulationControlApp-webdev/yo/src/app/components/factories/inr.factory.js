@@ -17,6 +17,9 @@
 				method: 'POST',
 				params: { 
 					action : 'save'}
+			},
+			query: {
+				isArray: false
 			}
 	};
 	

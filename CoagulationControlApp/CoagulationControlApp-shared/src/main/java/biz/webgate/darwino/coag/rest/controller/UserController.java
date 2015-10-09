@@ -1,7 +1,5 @@
 package biz.webgate.darwino.coag.rest.controller;
 
-import java.util.List;
-
 import biz.webgate.darwino.coag.app.AppManifest;
 import biz.webgate.darwino.coag.bo.UserEntry;
 import biz.webgate.darwino.coag.dao.UserStorageService;
@@ -45,8 +43,16 @@ public class UserController extends EndpointController<UserEntry> {
 
 	@Override
 	public void getMany(HttpServiceContext context) {
-		
-		
+		try{
+			RestResult result = new RestResult();
+			
+			result.setStatus("error");
+			result.setError("User does not support query requests");
+			
+			processToJson(context, result);
+		} catch( JsonException ex) {
+			ex.printStackTrace();
+		}
 	}
 
 	@Override
@@ -56,7 +62,6 @@ public class UserController extends EndpointController<UserEntry> {
 		try {
 			entry = (UserEntry) processFromJson(context, entry);
 			entry.initUnid();
-			
 			
 			service.saveObject(entry, AppManifest.getDatabase());
 			result.put("status", "ok");
@@ -68,7 +73,6 @@ public class UserController extends EndpointController<UserEntry> {
 		}
 		
 		context.emitJson(result);
-		
 	}
 
 	@Override
