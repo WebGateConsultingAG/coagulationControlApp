@@ -7,29 +7,50 @@
     .controller('ChartController', ChartController);
 
   /** @ngInject */
-  function ChartController( inr ) {
+  function ChartController( inr, $scope) {
 	  var self = this;
 	  //hole INR
 	  var displayInrs = [];
 	  var allInrs = [];
-	  self.labels = [];
-	  self.data = [];
+	  var dataDisplayCap = 6;
 	  
-	  inr.query({}, function(inrs){
-			allInrs = inrs.inrentries;
-			displayInrs = allInrs.splice(0, 6);
-			
-			self.labels = displayInrs.map(function(val){
-				  return dateFormatter(new Date(val.measuredate));
-				});
-
-			self.data.push(displayInrs.map(function(val){return val.inrvalue}));
-			
-		},function(err){console.log(err)});
+	  $scope.labels = [];
+	  $scope.data = [];
+	  
+	  $scope.$on('newInr', function(evt, data){
+		 console.log("new inr event!");
+		  console.log(data); 
+		  addValue(data);
+	  });
 	  
 	  
-	  self.series = ['INR value'];
-	  self.onClick = function (points, evt) {
+	  $scope.update = function () {
+		  inr.query({}, function(inrs){
+			  	transformData(inrs.inrentries ,0);
+			},function(err){console.log(err)});
+	  };
+	  
+	  function addValue( inr) {
+		  allInrs.unshift(inr);
+		  transformData(allInrs, 0);
+	  };
+	  
+	  function transformData(inrArr, layer){
+		  if ( layer == null){
+			  layer = 0;
+		  }
+		  allInrs = inrArr;
+		  displayInrs = inrArr.slice(0, dataDisplayCap);
+		  
+		  $scope.labels = displayInrs.map(function(val){
+			  return dateFormatter(new Date(val.measuredate));
+			});
+		  $scope.data[layer] = displayInrs.map(function(val){return val.inrvalue});
+	  }
+	  
+	  $scope.update();
+	  $scope.series = ['INR value'];
+	  $scope.onClick = function (points, evt) {
 		console.log(points, evt);
 	  };
 	  

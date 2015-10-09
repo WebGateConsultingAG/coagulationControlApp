@@ -7,7 +7,7 @@
     .controller('InrController', InrController);
 
   /** @ngInject */
-  function InrController(inr) {
+  function InrController(inr, $scope) {
 	  
 	  	var self = this;
 	  
@@ -59,6 +59,7 @@
 			inr.save( currentInr , function(promise){
 				currentInr.unid = promise.unid;
 				self.inrList.push(currentInr);
+				$scope.$broadcast('newInr', currentInr);
 			}, function(error){
 			}, function(error){
 				console.log("error");

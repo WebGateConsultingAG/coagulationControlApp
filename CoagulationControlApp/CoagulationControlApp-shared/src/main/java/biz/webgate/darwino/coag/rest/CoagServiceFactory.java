@@ -56,7 +56,6 @@ public class CoagServiceFactory extends RestServiceFactory {
 				} else {
 					//query
 					if ("inr".equalsIgnoreCase(type)) {
-						System.out.println("query INR");
 						InrController ic = new InrController();
 						ic.getMany(context);
 					} else if ("medi".equalsIgnoreCase(type)) {

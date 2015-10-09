@@ -58,7 +58,18 @@
     
 		<div class="abstand"></div>
 <div class="row">
-  <div class="col-xs-12 col-md-5">
+  
+    <div class="col-xs-12 col-md-5">
+ 		<h4>INR graph last month</h4>
+				<div ng-controller="ChartController">
+					<canvas id="line" class="chart chart-line"
+						chart-data="data" chart-labels="labels"
+						chart-legend="true" chart-series="series"
+						chart-click="onClick">
+            </canvas>
+				</div>
+        </div>
+        <div class="col-xs-12 col-md-5">
     <div class="input-group">
       
       <input type="number" class="form-control" placeholder="when was my INR...">
@@ -67,19 +78,11 @@
         <i class="glyphicon glyphicon-eye-open"></i>
        </button>
       </span>
+   
       </div>
-       
+		<!-- Daten platz  -->
+
     </div>
-    <div class="col-xs-12 col-md-7">
-  <h4>INR graph last month</h4>
-				<div ng-controller="ChartController as chartCtrl">
-					<canvas id="line" class="chart chart-line"
-						chart-data="chartCtrl.data" chart-labels="chartCtrl.labels"
-						chart-legend="true" chart-series="chartCtrl.series"
-						chart-click="chartCtrl.onClick">
-            </canvas>
-				</div>
-        </div>
 	</div>
 </div>
 </div>

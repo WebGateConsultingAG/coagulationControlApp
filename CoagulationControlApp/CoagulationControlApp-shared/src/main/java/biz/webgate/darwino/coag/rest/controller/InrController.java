@@ -52,7 +52,6 @@ public class InrController extends EndpointController<InrEntry>{
 			try{
 				
 				String query = buildQueryFromParams(params);
-				System.out.println(query);
 				inrList = service.selectObject(AppManifest.getDatabase(), query, null, 200);
 				
 				result.setStatus("ok");
