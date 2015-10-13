@@ -15,6 +15,10 @@
 		self.inrDate = new Date();
 		self.inrOutcome = null;
 		self.inrOutcomeClass = "";
+      
+      	self.searchOutcome = false;
+      
+		self.searchOutcomeClass = "glyphicon glyphicon-eye-open";
 		self.inrList = [];
 		
 		var currentInr = null;
@@ -37,16 +41,16 @@
 
 		self.saveInr = function() {
 			if (self.inr <= 0 || self.inr > 6 || self.inr === null || self.inr === void 0) {
-				self.inrOutcome = "Not possible";
-				self.inrOutcomeClass = "noright";
+				self.inrOutcome = "";
+				self.inrOutcomeClass = "glyphicon glyphicon-remove-sign";
 				self.inr = 0;
 				return;
 			} else if (self.inr >= 4) {
-				self.inrOutcome = "to high";
-				self.inrOutcomeClass = "danger";
+				self.inrOutcome = "";
+				self.inrOutcomeClass = "glyphicon glyphicon-info-sign";
 			} else {
-				self.inrOutcome = "Everything allright";
-				self.inrOutcomeClass = "nodanger";
+				self.inrOutcome = "";
+				self.inrOutcomeClass = "glyphicon glyphicon-ok-sign";
 			}
 			
 			currentInr = {
@@ -70,6 +74,15 @@
 		self.showLast = function() {
 
 		};
+      
+      self.searchShow =function() {
+          if( self.searchOutcome ){
+            self.searchOutcomeClass ="glyphicon glyphicon-eye-open";
+          } else{
+              self.searchOutcomeClass ="glyphicon glyphicon-eye-close";
+          };
+          self.searchOutcome = !self.searchOutcome;
+      }
 		
 	}
 }

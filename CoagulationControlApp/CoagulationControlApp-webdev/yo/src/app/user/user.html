@@ -1,19 +1,4 @@
-<nav class="main-menu">
-	
- 
-    <ul>
-            <li ui-sref="inr"><button type="button" class="btn btn-default" aria-label="Left Align"				>
-				<span class="glyphicon glyphicon-tint" aria-hidden="true"> </span>
-			</button></li>
-             <li ui-sref="medicine"><button type="button" class="btn btn-default" aria-label="Left Align"				>
-				<span class="glyphicon glyphicon-erase" aria-hidden="true"> </span>
-			</button></li>
-               <li ui-sref="user"><button type="button" class="btn btn-default" aria-label="Left Align"				>
-				<span class="glyphicon glyphicon-user" aria-hidden="true"> </span>
-			</button></li>
-          </ul>
-
-</nav>
+<div navi-bar></div>
 
 <div class="container-fluid" id="indx">
 	<div class="row">
@@ -28,7 +13,7 @@
 
 		<div class="abstand"></div>
 		<div class="row">
-			<div class="col-xs-7 col-md-1">
+			<div class="col-xs-7 col-md-2">
 				<select class="form-control" ng-model="UserCtrl.sex">
 					<option value="true">Mr.</option>
 					<option value="false">Mrs.</option>
@@ -49,7 +34,7 @@
 		<div class="abstand"></div>
 		<div class="row">
             <div class="col-xs-12 col-md-12">
-                <span id="helpBlock" class="help-block">Please enter your Birthdate here:</span></div>
+                <span><p>Please enter your Birthdate here:</p></span></div>
 			<div class="col-xs-12 col-md-2">
 				<input type="date" class="form-control" ng-model="UserCtrl.bday"
 					placeholder="Birthdate" required>
@@ -68,16 +53,16 @@
 		<div class="abstand"></div>
 		<div class="row">
 			<div class="col-xs-12">
-				<span id="helpBlock" class="help-block">Bitte geben Sie Die
-					Bereiche von INR die Sie für Norme halten.</span>
+				<span><p>Bitte geben Sie Die
+					Bereiche von INR die Sie für Norme halten.</p></span>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-4">
+			<div class="col-xs-4 col-md-5">
 				<input class="form-control" type="number"
 					ng-model="UserCtrl.norm.min" min="0" max="6">
 			</div>
-			<div class="col-xs-4">
+			<div class="col-xs-4 col-md-5">
 				<input class="form-control" type="number"
 					ng-model="UserCtrl.norm.max" min="0" max="6">
 
@@ -91,45 +76,39 @@
 
 		<div class="row">
 			<div class="col-sm-9">
-				<span id="helpBlock" class="help-block">Wollen Sie die
-					Benachrichtigung ihre Vor- oder Nachname Benutzen?</span>
+				<span><p>Wollen Sie die
+					Benachrichtigung ihre Vor- oder Nachname Benutzen?</p></span>
+
+                </div>
+                </div>
+                
+                        
 				<div class="row">
-					<div class="col-xs-3">
-						<label class="radio-inline"> <input type="radio"
-							name="inlineRadioOptions" id="inlineRadio1" value="1"
-							ng-model="UserCtrl.msgGreeting"> Full name
-						</label>
-					</div>
-					<div class="col-xs-4">
-						<label class="radio-inline"> <input type="radio"
-							name="inlineRadioOptions" id="inlineRadio1" value="2"
-							ng-model="UserCtrl.msgGreeting"> Only first name
-						</label>
-					</div>
-					<div class="col-xs-4">
+                    <div class="col-xs-12 col-md-5">
+                <select class="form-control" name="des" ng-model="notification.des" ng-dropdown required ng-change="ownname()" >
+					<option ng-option value="FuName">Full name</option>
+					<option ng-option value="FiName" >First name</option>
+                        <option ng-option value="OwnName" >Own name:</option>
+				</select>
+                    </div>
 
-						<label class="radio-inline"> <input type="radio"
-							name="inlineRadioOptions" id="inlineRadio1" value="3"
-							ng-model="UserCtrl.msgGreeting"> Own name:
-						</label><input class="form-control"	ng-disabled="UserCtrl.checkNicknameInput()" type="text"
-							ng-model="UserCtrl.nickname" placeholder="Alternative">
-
+                <div ng-if="notification.des == 'OwnName'">
+					<div class="col-xs-12 col-md-5">
+					<input class="form-control"	 type="text" placeholder="Alternative" ng-model="ownName.own">
 					</div>
-				</div>
+					</div>
+                </div>
+
+                <div class="abstand"></div>            
+                
+                
 				<div class="row">
 					<div class="col-xs-4">
 						<button type="submit" id="disabledInput" class="btn btn-default">Save</button>
 					</div>
 				</div>
-			</div>
+			
 		</div>
 
-		<div class="abstand"></div>
-
-		<div class="abstand"></div>
-
-		<div class="row"></div>
-
+<div calss="abstand"></div>	
 	</div>
-
-	</html>

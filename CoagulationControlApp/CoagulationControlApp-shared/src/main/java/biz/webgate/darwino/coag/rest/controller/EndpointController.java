@@ -62,7 +62,7 @@ public abstract class EndpointController<T> {
 		
 		return params;
 	}
-
+	
 	protected String buildQueryFromParams(Map<String, String> params){
 		StringBuilder query = new StringBuilder();
 		String result = null;
@@ -89,7 +89,6 @@ public abstract class EndpointController<T> {
 					query.append(",");
 				}
 			}
-			
 			query.append("}");
 			result = query.toString();
 		

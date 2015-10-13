@@ -1,123 +1,105 @@
-<nav class="main-menu">
-	<ul>
-		<li>
-			<button type="button" class="btn btn-default" aria-label="Left Align" ui-sref="inr">
-				<span class="glyphicon glyphicon-tint" aria-hidden="true"> </span>
-			</button>
-		</li>
-		<li>
-			<button type="button" class="btn btn-default" aria-label="Left Align" ui-sref="medicine">
-				<span class=" glyphicon glyphicon-erase" aria-hidden="true">
-				</span>
-			</button>
-		</li>
-		<li>
-			<button type="button" class="btn btn-default" aria-label="Left Align" ui-sref="user">
-				<span class="glyphicon glyphicon-user" aria-hidden="true"> </span>
-
-			</button>
-		</li>
-	</ul>
-</nav>
+<div navi-bar></div>
 <div class="container-fluid" id="indx">
 	<div class="row">
 		<div class="col-xs-2"></div>
 		<div class="col-xs-10">
 			<h1>My Medicine</h1>
-			<p>Here you can record all of yours medicaments, it'll be editable, so you can make changes every time.</p>
+			<p>Here you can record all of yours medicaments, it'll be
+				editable, so you can make changes every time.</p>
 		</div>
 	</div>
 	<div class="content">
-        <div class="abstand"></div>
+		<div class="abstand"></div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="helpBlock" class="help-block">Welche Dosierungen nehmen Sie zur Zeit?</span>
+				<span><p>Welche Dosierungen nehmen Sie zur Zeit?</p></span>
 			</div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-12">
+			<div class="col-xs-12 col-md-12">
 				<div ng-repeat="medi in MedCtrl.allMedis">
-					<div class="col-xs-4">
+					<div class="col-xs-12 col-md-5">
 						<input type="text" id="disabledTextInput" class="form-control"
 							placeholder="{{'Medicine ' + ( $index+1)}}"
 							ng-model="MedCtrl.medi.mediname">
 					</div>
-					<div class="col-xs-4">
+					<div class="col-xs-10 col-md-3">
 						<div class="input-group">
 							<input type="number" class="form-control" id="exampleInputAmount"
 								placeholder="" ng-model="MedCtrl.medi.medivalue">
 							<div class="input-group-addon">Mg</div>
 						</div>
 					</div>
-					<div class="col-xs-4">
-						<button class="btn btn-default" type="button" ng-click="MedCtrl.removeMedi($index)">
-							<span class="glyphicon glyphicon-remove" aria-hidden="true">
-							</span>
+					<div class="col-xs-2 col-md-2">
+						<button class="btn btn-default" type="button"
+							ng-click="MedCtrl.removeMedi($index)">
+							<span class="glyphicon glyphicon-minus"></span> </span>
 						</button>
 					</div>
 				</div>
-				</div>
-				</div>
-				<!-- entry -->
-				<div class="row">
-					<div class="col-xs-6">
-						<input type="text" id="disabledTextInput" class="form-control"
-							placeholder="Medicine" ng-model="MedCtrl.mediName">
-					</div>
-					<div class="col-xs-6">
-						<div class="input-group">
-							<input type="number" class="form-control" id="exampleInputAmount"
-								placeholder="Mg" ng-model="MedCtrl.mediMg"><span
-								class="input-group-btn">
-								<button class="btn btn-default" type="button"
-									ng-click="MedCtrl.addMedi()">
-									<span class="glyphicon glyphicon-ok" aria-hidden="true">
-									</span>
-								</button>
-							</span>
-						</div>
-					</div>
-				</div>
+			</div>
 			<div class="abstand"></div>
+		</div>
+
+		<!-- entry -->
+		<div class="row">
+			<div class="col-xs-12 col-md-5">
+				<input type="text" id="disabledTextInput" class="form-control"
+					placeholder="Medicine" ng-model="MedCtrl.mediName">
+			</div>
+			<div class="col-xs-12 col-md-5">
+				<div class="input-group">
+					<input type="number" class="form-control" id="exampleInputAmount"
+						placeholder="Mg" ng-model="MedCtrl.mediMg"><span
+						class="input-group-btn">
+						<button class="btn btn-default" type="button"
+							ng-click="MedCtrl.addMedi()">
+							<span class="glyphicon glyphicon-plus"></span>
+					</span>
+					</button>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="abstand"></div>
 
 		<div class="row">
 			<div class="col-xs-12">
-				<span id="helpBlock" class="help-block">Do you want to get Notifications?</span>
-                 </div>
-                    </div>
-        
-        
-        
-        
-        
-        
-				<div class="row">
-                    <div class="col-xs-12">
-                <select class="form-control" name="type" ng-model="notification.type" ng-dropdown required ng-change="showdati()" >
-					<option ng-option value="none">No notifications</option>
-					<option ng-option value="time" >Every day at</option>
-                        <option ng-option value="date" >Only on</option>
-				</select>
-                    </div>
-                    </div>
-        <div class="abstand"></div>
-                <div class="row" id="time" ng-if="notification.type == 'time'">
-					<div class="col-md-12">
-					<input type="time" class="form-control"  ng-model="notification.time"   />
-					</div>
-					</div>
-        <div class="row" id="date" ng-if="notification.type == 'date'">
-					<div class="col-md-12" >
-						 <input type="date" class="form-control"  ng-model="notification.date"   />
-					</div>
-				</div>
-    
+				<span><p>Do you want to get Notifications?</p></span>
+			</div>
+		</div>
 
-        
-        
-        
-        
+
+
+
+
+
+		<div class="row">
+			<div class="col-xs-12 col-md-5">
+				<select class="form-control" name="type"
+					ng-model="notification.type" ng-dropdown required
+					ng-change="showdati()">
+					<option ng-option value="none">No notifications</option>
+					<option ng-option value="time">Every day at</option>
+					<option ng-option value="date">Only on</option>
+				</select>
+			</div>
+
+			<div id="time" ng-if="notification.type == 'time'">
+				<div class="col-xs-12 col-md-5">
+					<input type="time" class="form-control"
+						ng-model="notification.time" />
+				</div>
+			</div>
+			<div id="date" ng-if="notification.type == 'date'">
+				<div class="col-xs-12 col-md-5">
+					<input type="date" class="form-control"
+						ng-model="notification.date" />
+				</div>
+			</div>
+		</div>
+
 
 		<div class="abstand"></div>
 		<div class="row">
@@ -126,8 +108,6 @@
 					ng-click="MedCtrl.mediSave()">Save</button>
 				<button class="btn btn-default" type="button"
 					ng-click='MedCtrl.needHelp = !MedCtrl.needHelp'>{{MedCtrl.helpBtn}}</button>
-					<button class="btn btn-default" type="button"
-					ng-click='MedCtrl.getMany()'>many</button>
 				<p class="" ng-hide='MedCtrl.needHelp'>
 					You can only add a new medicamet, if you field all of the input
 					fields (Name and Mg) </br> You also can make a notification. If you
@@ -135,10 +115,10 @@
 					to choose best time and day.
 
 				</p>
-
+				<span><i class="iconRound" src="../icons/099.png"></i></span>
 			</div>
 		</div>
-		</div>
-		
-			
-		</div>
+	</div>
+	<div calss="abstand"></div>
+
+</div>

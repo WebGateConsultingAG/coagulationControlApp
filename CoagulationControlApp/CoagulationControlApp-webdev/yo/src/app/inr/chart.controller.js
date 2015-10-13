@@ -61,8 +61,8 @@
 		var monthIndex = d.getMonth();
 		var year = d.getFullYear();
 		return  day + "." + monthIndex + "." + year;
-	}
-    
+	};
+   
     
     
 }
