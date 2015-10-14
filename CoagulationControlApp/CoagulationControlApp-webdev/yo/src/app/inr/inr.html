@@ -9,38 +9,42 @@
 				time you'll need it</p>
 		</div>
 	</div>
-   
+
 	<div class="content">
-<div class="row">
-		<div class="col-xs-12 col-md-3">
+		<div class="row">
+			<div class="col-xs-12 col-md-3">
 
-                <div class="input-group">
-                    <span class="input-group-btn">
-<button class="btn btn-default" type="button" disabled><span class="glyphicon glyphicon-asterisk"  ng-class="[inrCtrl.inrOutcomeClass]"> </span></button>
-      </span>
-
-				<input type="number" ng-model='inrCtrl.inr' class="form-control"  placeholder="Enter your INR" id="eingebeninr" max="7" min="0.1">
-			</div>
+				<div class="input-group">
+                    
+                     <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-asterisk"
+								ng-class="[inrCtrl.inrOutcomeClass]"></span></span>
+					<input type="number" ng-model='inrCtrl.inr' class="form-control"
+						placeholder="Enter your INR" id="eingebeninr" max="7" min="0.1">
+				</div>
 			</div>
 
 
 			<div class="col-xs-12 col-md-3">
-                <div class="input-group">
-				<input class="form-control" ng-model='inrCtrl.inrDate' type="date">
-                                          <span class="input-group-btn">
-<button class="btn btn-default" type="button" ng-click='inrCtrl.saveInr()'><span class="glyphicon glyphicon-send"></span></button>
-      </span>
-						
-                    		</div>
-		</div>
-       
-<div class="col-xs-12 col-md-3">
+				<div class="input-group">
+					<input class="form-control" ng-model='inrCtrl.inrDate' type="date">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button"
+							ng-click='inrCtrl.saveInr()'>
+							<span class="glyphicon glyphicon-send"></span>
+						</button>
+					</span>
+
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-md-3">
 				<div class="input-group">
 
 					<input type="number" class="form-control"
 						placeholder="when was my INR..."> <span
 						class="input-group-btn">
-						<button class="btn btn-default" type="button" ng-click="inrCtrl.searchShow()">
+						<button class="btn btn-default" type="button"
+							ng-click="inrCtrl.searchShow()">
 							<i ng-class="[inrCtrl.searchOutcomeClass]"></i>
 						</button>
 					</span>
@@ -48,35 +52,25 @@
 				</div>
 				<!-- Daten platz  -->
 
-    
-    
-    
-    
-    </div>
-  
-
-    
- </div>
+			</div>
+		</div>
 		<div class="row">
-
-			
-		
-            <div class="col-xs-12 col-md-6">
+			<div class="col-xs-12 col-md-6">
 				<h4>INR graph last month</h4>
 				<div ng-controller="ChartController">
 					<canvas id="line" class="chart chart-line" chart-data="data"
 						chart-labels="labels" chart-legend="true" chart-series="series"
 						chart-click="onClick">
-            </canvas>
-                    
-                    {{allInrs}}
+                    </canvas>
+                     <div>
+                    <h3>{{allInrs}}</h3>
+                    </div>
+                   
 				</div>
+
 			</div>
-             <div class="col-xs-12 col-md-6">
-                
-			</div>
-            
 		</div>
-         </div>
-	<div calss="abstand"></div>
- </div>
+	</div>
+
+
+</div>

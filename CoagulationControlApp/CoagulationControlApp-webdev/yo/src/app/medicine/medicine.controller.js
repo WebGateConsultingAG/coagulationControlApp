@@ -15,15 +15,15 @@
 					console.dir(mediResult);
 				})
 			
-		}
+		};
 		
 		this.getMany = function(){
 			console.log("getting many...");
-			medicine.query({mediname: "asdfcff"}, function(meds){
+			medicine.query({mediname: 2}, function(meds){
 				console.dir(meds);
 			},function(err){console.log(err)})
 			
-		}
+		};
 		
 		this.allMedis = [];
 		this.mediName = "";
@@ -32,6 +32,7 @@
 		this.helpme = "";
 		this.helpBtn = "Help";
 		var currentMedi = null;
+      this.displayMedis = 10;
 		
 		
 		this.addMedi = function() {
@@ -51,7 +52,7 @@
 					currentMedi.unid = promise.unid;
 					_that.allMedis.push(currentMedi);
 				}, function(){console.log("EROR")});
-			};
+			}
 		};
 				
 		this.removeMedi = function(idx){
@@ -63,6 +64,9 @@
 
 		this.needHelp = function() {
 
-		}
+		};
+
+          
+          
 	}
   })();

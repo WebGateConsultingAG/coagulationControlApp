@@ -13,6 +13,9 @@ p{
     font-size: 22;
 }
 
+h1{
+    color:black;
+}
 .menuheader{
   display:inline-block;
 }
@@ -44,6 +47,11 @@ width: auto;
 margin-top: 3%;
 
 }
+.login{
+width: auto;
+    margin-left: 40%;
+margin-top: 20%;
+}
 
 
 .apl {
@@ -57,10 +65,6 @@ margin-top: 3%;
 	left: 40%;
 }
 
-.feedback{
-bottom: 1%;
-right: 1%;
-}
 
 #eingebeninr {
 	
@@ -73,8 +77,6 @@ right: 1%;
 #mednr {
 	
 }
-
-
 
 .helpme {
 	
@@ -106,3 +108,8 @@ height: 1%;
 .noright {
 	color: darkorange;
 }
+#loginspan{
+    background-color: white;
+}
+
+
