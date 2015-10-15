@@ -16,6 +16,8 @@ p{
 h1{
     color:black;
 }
+
+
 .menuheader{
   display:inline-block;
 }
@@ -111,5 +113,4 @@ height: 1%;
 #loginspan{
     background-color: white;
 }
-
 

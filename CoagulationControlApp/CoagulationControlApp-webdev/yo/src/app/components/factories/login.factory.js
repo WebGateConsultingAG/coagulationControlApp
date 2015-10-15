@@ -1,12 +1,12 @@
 (function() {
-  'use strict';
+	  'use strict';
 
-  angular
+	angular
       .module('coagulationControlAppWebdev')
       .factory('login', loginFactory);
 
   /** @ngInject */
-  function inrFactory($resource) {
+  function loginFactory($resource) {
 	  
     var defaultValues = {
 			type : "login",

@@ -10,8 +10,7 @@
   function InrController(inr, $scope) {
 	  
 	  	var self = this;
-	  
-		self.inr = null;
+	  	self.inr = null;
 		self.inrDate = new Date();
 		self.inrOutcome = null;
 		self.inrOutcomeClass = "";
@@ -58,7 +57,9 @@
 				measuredate : self.inrDate,
 				creationdate : new Date(),
 				username : "The Stan"
+								
 			};
+			
 			
 			inr.save( currentInr , function(promise){
 				currentInr.unid = promise.unid;
@@ -68,21 +69,23 @@
 			}, function(error){
 				console.log("error");
 			});
-			
 		};
 
-		self.showLast = function() {
 
-		};
       
       self.searchShow =function() {
+
           if( self.searchOutcome ){
             self.searchOutcomeClass ="glyphicon glyphicon-eye-open";
           } else{
               self.searchOutcomeClass ="glyphicon glyphicon-eye-close";
           };
           self.searchOutcome = !self.searchOutcome;
+        
       }
+      
+     
+      
 		
 	}
 }

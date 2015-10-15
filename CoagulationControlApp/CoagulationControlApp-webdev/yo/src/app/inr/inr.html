@@ -19,7 +19,7 @@
                      <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-asterisk"
 								ng-class="[inrCtrl.inrOutcomeClass]"></span></span>
 					<input type="number" ng-model='inrCtrl.inr' class="form-control"
-						placeholder="Enter your INR" id="eingebeninr" max="7" min="0.1">
+						placeholder="Enter your INR" id="eingebeninr" max="7" min="0.1" required="" autofocus="">
 				</div>
 			</div>
 
@@ -28,7 +28,7 @@
 				<div class="input-group">
 					<input class="form-control" ng-model='inrCtrl.inrDate' type="date">
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button"
+						<button class="btn btn-default green" type="button"
 							ng-click='inrCtrl.saveInr()'>
 							<span class="glyphicon glyphicon-send"></span>
 						</button>
@@ -62,14 +62,19 @@
 						chart-labels="labels" chart-legend="true" chart-series="series"
 						chart-click="onClick">
                     </canvas>
-                     <div>
-                    <h3>{{allInrs}}</h3>
-                    </div>
-                   
+                 
+             <h2 id="werte">{{inrCtrl.inrList}}</h2>
+            
 				</div>
 
 			</div>
 		</div>
+		 <div class="row">
+             <div>
+                     
+
+                      </div>
+                  </div>
 	</div>
 
 
