@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: CoagulationControlApp-shared
 Bundle-SymbolicName: biz.webgate.darwino.coag.CoagulationControlApp-shar
  ed
-Bundle-Version: 0.0.1.201510151322
+Bundle-Version: 0.0.1.201510161020
 DARWINO_VERSION: 0.8.0-SNAPSHOT
 Export-Package: biz.webgate.darwino.coag.app;version="0.0.1",biz.webgate
  .darwino.coag.bo;version="0.0.1",biz.webgate.darwino.coag.dao;uses:="bi

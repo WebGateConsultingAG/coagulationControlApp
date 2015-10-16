@@ -26,7 +26,7 @@
 		$scope.update = function() {
 			console.log("ganz alt");
 			inr.query({}, function(inrs) {
-				transformData(inrs.inrentries, 0);
+				transformData(inrs.inrentries, 0); // geht ins $scope.$on
 			}, function(err) {
 				console.log(err);
 			});
@@ -35,7 +35,7 @@
 		function addValue(inr) {
 			allInrs.unshift(inr);
 			transformData(allInrs, 0);
-			showAll = allInrs;
+			$scope.showAll = allInrs;
 		};
 
 		function transformData(inrArr, layer) {

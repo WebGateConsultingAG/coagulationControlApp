@@ -14,7 +14,7 @@
 		self.inrDate = new Date();
 		self.inrOutcome = null;
 		self.inrOutcomeClass = "";
-      
+      $scope.inrSearch = "";
       	self.searchOutcome = false;
       
 		self.searchOutcomeClass = "glyphicon glyphicon-eye-open";
@@ -30,13 +30,13 @@
 					});
 		};
 		
-		self.getMany = function(){
-			console.log("getting many...");
-			inr.query({inrvalue: 4.1}, function(inrs){
-				console.dir(inrs);
-			},function(err){console.log(err)});
+	//	self.getMany = function(){
+	//		console.log("getting many...");
+	//		inr.query({inrvalue: inrSearch}, function(inrs){
+	//			console.dir(inrs);
+	//		},function(err){console.log(err)});
 			
-		};
+	//	};
 
 		self.saveInr = function() {
 			if (self.inr <= 0 || self.inr > 6 || self.inr === null || self.inr === void 0) {
@@ -81,6 +81,10 @@
               self.searchOutcomeClass ="glyphicon glyphicon-eye-close";
           };
           self.searchOutcome = !self.searchOutcome;
+          console.log("getting many...");
+			inr.query({inrvalue: $scope.inrSearch}, function(inrs){ //schickt die funktion ins Chart.controller update();
+				console.dir(inrs);
+			},function(err){console.log(err)});
         
       }
       

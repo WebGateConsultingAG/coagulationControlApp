@@ -41,7 +41,7 @@
 				<div class="input-group">
 
 					<input type="number" class="form-control"
-						placeholder="when was my INR..."> <span
+						placeholder="when was my INR..." ng-model="inrCtrl.inrSearch"> <span
 						class="input-group-btn">
 						<button class="btn btn-default" type="button"
 							ng-click="inrCtrl.searchShow()">
@@ -63,15 +63,29 @@
 						chart-click="onClick">
                     </canvas>
                  
-             <h2 id="werte">{{inrCtrl.inrList}}</h2>
-            
+             <p ng-repeat="inrVal in inrCtrl.inrList">
+             
+             {{inrVal.inrvalue}}
+             <span class="form-control"> {{inrVal.measuredate}}</span>
+             
+             </p>
+             
+             
+             
+             <p ng-repeat="inrAll in ChartController.allInrs">
+             
+             {{inrAll.inrvalue}}
+             <span class="form-control"> {{inrAll.measuredate}}</span>
+             
+             </p>
+           
 				</div>
 
 			</div>
 		</div>
 		 <div class="row">
              <div>
-                     
+                      <button ng-click="inrCtrl.getMany()">Get many</button>
 
                       </div>
                   </div>
