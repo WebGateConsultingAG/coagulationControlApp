@@ -13,10 +13,12 @@ package biz.webgate.darwino.coag.rest;
 
 import java.util.List;
 
+import biz.webgate.darwino.coag.rest.controller.EndpointController;
 import biz.webgate.darwino.coag.rest.controller.InrController;
 import biz.webgate.darwino.coag.rest.controller.MediController;
 import biz.webgate.darwino.coag.rest.controller.UserController;
 
+import com.darwino.commons.json.binding.PojoBaseImpl;
 import com.darwino.commons.services.HttpService;
 import com.darwino.commons.services.HttpServiceContext;
 import com.darwino.commons.services.rest.RestServiceBinder;
@@ -34,66 +36,35 @@ public class CoagServiceFactory extends RestServiceFactory {
 	public class CoagRestService extends HttpService {
 		@Override
 		public void service(HttpServiceContext context) {
-			
+
 			String type = context.getQueryParameterString("type");
+			String action = context.getQueryParameterString("action");
+			String unid = context.getQueryParameterString("unid");
 
-			if (context.isGet()) {
-				
-				String unid = context.getQueryParameterString("unid");
-				
-				if ( unid != null){
-					// get one
-					if ("inr".equalsIgnoreCase(type)) {
-						InrController ic = new InrController();
-						ic.getOne(context, unid);
-					} else if ("medi".equalsIgnoreCase(type)) {
-						MediController mc = new MediController();
-						mc.getOne(context, unid);
-					} else if ("user".equalsIgnoreCase(type)) {
-						UserController uc = new UserController();
-						uc.getOne(context, unid);
-					}
+			EndpointController<? extends PojoBaseImpl> ctrl = null;
+
+			if ("inr".equalsIgnoreCase(type)) {
+				ctrl = new InrController();
+			} else if ("medi".equalsIgnoreCase(type)) {
+				ctrl = new MediController();
+			} else if ("user".equalsIgnoreCase(type)) {
+				ctrl = new UserController();
+			}
+
+			if (action != null && !action.isEmpty()) {
+				if (action.equals("delete")) {
+					ctrl.remove(context, unid);
+				} else if (action.equals("update")) {
+					ctrl.update(context, unid);
+				}
+			} else if (context.isGet()) {
+				if (unid != null) {
+					ctrl.getOne(context, unid);
 				} else {
-					//query
-					if ("inr".equalsIgnoreCase(type)) {
-						InrController ic = new InrController();
-						ic.getMany(context);
-					} else if ("medi".equalsIgnoreCase(type)) {
-						MediController mc = new MediController();
-						mc.getMany(context);
-					} else if ("user".equalsIgnoreCase(type)) {
-						UserController uc = new UserController();
-						uc.getMany(context);
-					}
-					
-					
+					ctrl.getMany(context);
 				}
-
 			} else if (context.isPost()) {
-				if ("inr".equalsIgnoreCase(type)) {
-
-					InrController ic = new InrController();
-					ic.create(context);
-
-				} else if ("medi".equalsIgnoreCase(type)) {
-
-					MediController mc = new MediController();
-					mc.create(context);
-
-				} else if ("user".equalsIgnoreCase(type)) {
-
-					UserController uc = new UserController();
-					uc.create(context);
-				}
-
-			} else if (context.isDelete()){
-				//TODO: implement remove fn on controller and wire up
-				
-				
-			} else if ( context.isPut()){
-				//TODO: implement update fn on controller and wire up
-				
-				
+				ctrl.create(context);
 			}
 		}
 
@@ -109,8 +80,7 @@ public class CoagServiceFactory extends RestServiceFactory {
 		// INFORMATION
 		binders.add(new RestServiceBinder() {
 			@Override
-			public HttpService createService(HttpServiceContext context,
-					String[] parts) {
+			public HttpService createService(HttpServiceContext context, String[] parts) {
 				return new CoagRestService();
 			}
 		});

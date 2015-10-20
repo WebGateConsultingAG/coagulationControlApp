@@ -100,7 +100,7 @@ public class MediController extends EndpointController<MediEntry> {
 	}
 
 	@Override
-	public void update(HttpServiceContext context) {
+	public void update(HttpServiceContext context, String unid) {
 		// TODO Auto-generated method stub
 		
 	}

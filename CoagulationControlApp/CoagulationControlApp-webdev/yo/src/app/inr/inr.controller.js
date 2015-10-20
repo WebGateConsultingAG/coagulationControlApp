@@ -10,6 +10,48 @@
   function InrController(inr, $scope) {
 	  
 	  	var self = this;
+	  	
+	  	//beispiel für löschen
+	  	self.testdelete = function( deineID ){
+	  		inr.remove(
+	  			{unid: deineID },
+				function(result){
+	  				console.dir(result);
+	  			}, function(error){
+	  				console.log(error);
+				}, function(error){
+					console.log("error");
+				}
+	  		);
+	  		
+	  		
+	  	}
+	  	
+	  	//beispiel für update
+	  	self.updateOne = function(){
+	  		testInr = {
+				inrvalue : self.inr,
+				measuredate : self.inrDate,
+				creationdate : new Date(),
+				username : "The Stan"
+				//hier unid mitgeben			
+			};
+			
+			// unid wird durch object mitgegeben
+			inr.save( testInr , function(promise){
+				console.log("after update test");
+				console.log(promise);
+			}, function(error){
+				console.log(error);
+			}, function(error){
+				console.log("error");
+			});
+	  		
+	  		
+	  	}
+	  	
+	  	
+	  	
 	  	self.inr = null;
 		self.inrDate = new Date();
 		self.inrOutcome = null;
@@ -58,6 +100,7 @@
 				currentInr.unid = promise.unid;
 				$scope.$broadcast('newInr', currentInr);
 			}, function(error){
+				console.log(error);
 			}, function(error){
 				console.log("error");
 			});

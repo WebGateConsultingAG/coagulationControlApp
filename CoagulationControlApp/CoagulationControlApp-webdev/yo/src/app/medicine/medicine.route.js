@@ -13,6 +13,7 @@
         templateUrl: 'app/medicine/medicine.html',
         controller: 'MedicineController',
         controllerAs: 'MedCtrl'
+        	
       });
   }
 

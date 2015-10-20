@@ -82,7 +82,7 @@ public class UserController extends EndpointController<UserEntry> {
 	}
 
 	@Override
-	public void update(HttpServiceContext context) {
+	public void update(HttpServiceContext context, String unid) {
 		// TODO Auto-generated method stub
 		
 	}

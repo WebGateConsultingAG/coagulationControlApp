@@ -6,7 +6,7 @@
 
 	/** @ngInject */
 	function MedController(medicine) {
-		
+
 		var self = this;
 
 		this.getOne = function() {
@@ -28,6 +28,8 @@
 		this.helpBtn = "Help";
 		var currentMedi = null;
 		this.displayMedis = 10;
+		
+
 
 		this.addMedi = function() {
 			if (this.mediName !== "" && this.mediMg > 0) {
@@ -60,16 +62,17 @@
 
 		this.getMany = function() {
 			console.log("getting many...");
-			medicine.query({
-				medivalue : 2
-			}, function(meds) {
+			medicine.query({}, function(meds) {
 				console.dir(meds);
-				self.mediList = meds.medientries;
+				self.allMedis = meds.medientries;
 			}, function(err) {
 				console.log(err)
 			})
 
 		};
+		
+		this.getMany();
+		
 		this.needHelp = function() {
 
 		};

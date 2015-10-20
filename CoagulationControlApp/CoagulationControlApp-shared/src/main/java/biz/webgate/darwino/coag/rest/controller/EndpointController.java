@@ -23,7 +23,7 @@ public abstract class EndpointController<T> {
 	
 	public abstract void remove( HttpServiceContext context, String unid);
 	
-	public abstract void update( HttpServiceContext context);
+	public abstract void update( HttpServiceContext context, String unid);
 	
 	protected Object processFromJson(HttpServiceContext context, Object targetObject) throws JsonException {
 
