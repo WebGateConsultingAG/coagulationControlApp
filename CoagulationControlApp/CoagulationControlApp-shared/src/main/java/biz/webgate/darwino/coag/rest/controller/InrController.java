@@ -52,6 +52,7 @@ public class InrController extends EndpointController<InrEntry>{
 			try{
 				
 				String query = buildQueryFromParams(params);
+				System.out.println("Query:" + query);
 				inrList = service.selectObject(AppManifest.getDatabase(), query, "measuredate desc", 200);
 
 				

@@ -113,4 +113,13 @@ height: 1%;
 #loginspan{
     background-color: white;
 }
+.showInr{
+	color: black;
+	background-color: White;
+	border-radius: 10px;
+	font-size: 18px;
+	font-family: Arial Black;
+	text-align:center;
+	margin-top:10%;
+}
 

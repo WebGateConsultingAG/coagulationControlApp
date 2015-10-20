@@ -16,7 +16,7 @@
 			</div>
 		</div>
 
-	
+
 
 		<!-- entry -->
 		<div class="row">
@@ -72,45 +72,45 @@
 			</div>
 		</div>
 		<div class="abstand"></div>
-			<div class="row">
+		<div class="row">
 
-				<div ng-repeat="medi in MedCtrl.allMedis">
-					<div class="col-xs-12 col-md-5">
-						<input type="text" id="disabledTextInput" class="form-control"
-							placeholder="{{'Medicine ' + ( $index+1)}}"
-							ng-model="MedCtrl.medi.mediname">
+			<div ng-repeat="medi in MedCtrl.allMedis">
+				<div class="col-xs-12 col-md-5">
+					<input type="text" id="disabledTextInput" class="form-control"
+						placeholder="{{'Medicine ' + ( $index+1)}}"
+						ng-model="MedCtrl.medi.mediname">
+				</div>
+				<div class="abstand"></div>
+				<div class="col-xs-12 col-md-5">
+					<div class="input-group">
+						<input type="number" class="form-control" id="exampleInputAmount"
+							placeholder="" ng-model="MedCtrl.medi.medivalue">
+						<div class="input-group-addon">Mg</div>
 					</div>
+				</div>
+				<div class="col-xs-12 col-md-2">
 					<div class="abstand"></div>
-					<div class="col-xs-12 col-md-5">
-						<div class="input-group">
-							<input type="number" class="form-control" id="exampleInputAmount"
-								placeholder="" ng-model="MedCtrl.medi.medivalue">
-							<div class="input-group-addon">Mg</div>
-						</div>
-						</div>
-						<div class="col-xs-12 col-md-2">
-							<div class="abstand"></div>
-						<div class="col-xs-5 col-md-12">
+					<div class="col-xs-5 col-md-12">
 						<button class="btn btn-default" type="button"
 							ng-click="MedCtrl.removeMedi($index)">
 							<span>Edit</span> </span>
 						</button>
-						</div>
-						</div>
 					</div>
-					</div>
-			
-				
-					
+				</div>
+			</div>
+		</div>
 
-	
-		
+
+
+
+
+
 
 
 		<div class="abstand"></div>
 		<div class="row">
 			<div class="col-xs-12">
-				<button type="submit" class="btn btn-default">Save</button>
+				<button type="submit" class="btn btn-default" ng-click="MedCtrl.getMany()">Save</button>
 				<button class="btn btn-default" type="button"
 					ng-click='MedCtrl.needHelp = !MedCtrl.needHelp'>{{MedCtrl.helpBtn}}</button>
 				<p class="" ng-hide='MedCtrl.needHelp'>

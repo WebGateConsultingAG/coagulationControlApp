@@ -14,9 +14,9 @@
 		self.inrDate = new Date();
 		self.inrOutcome = null;
 		self.inrOutcomeClass = "";
-      $scope.inrSearch = "";
+		self.inrSearch = "";
       	self.searchOutcome = false;
-      
+
 		self.searchOutcomeClass = "glyphicon glyphicon-eye-open";
 		self.inrList = [];
 		
@@ -30,13 +30,6 @@
 					});
 		};
 		
-	//	self.getMany = function(){
-	//		console.log("getting many...");
-	//		inr.query({inrvalue: inrSearch}, function(inrs){
-	//			console.dir(inrs);
-	//		},function(err){console.log(err)});
-			
-	//	};
 
 		self.saveInr = function() {
 			if (self.inr <= 0 || self.inr > 6 || self.inr === null || self.inr === void 0) {
@@ -63,7 +56,6 @@
 			
 			inr.save( currentInr , function(promise){
 				currentInr.unid = promise.unid;
-				self.inrList.push(currentInr);
 				$scope.$broadcast('newInr', currentInr);
 			}, function(error){
 			}, function(error){
@@ -71,22 +63,26 @@
 			});
 		};
 
-
+		
       
-      self.searchShow =function() {
+      self.searchShow = function() {
 
-          if( self.searchOutcome ){
-            self.searchOutcomeClass ="glyphicon glyphicon-eye-open";
-          } else{
-              self.searchOutcomeClass ="glyphicon glyphicon-eye-close";
-          };
-          self.searchOutcome = !self.searchOutcome;
-          console.log("getting many...");
-			inr.query({inrvalue: $scope.inrSearch}, function(inrs){ //schickt die funktion ins Chart.controller update();
-				console.dir(inrs);
-			},function(err){console.log(err)});
-        
-      }
+    	  if( self.searchOutcome ){
+              self.searchOutcomeClass ="glyphicon glyphicon-eye-open";
+            } else{
+                self.searchOutcomeClass ="glyphicon glyphicon-eye-close";
+            };
+            self.searchOutcome = !self.searchOutcome;
+            console.log("getting many...");
+  			inr.query({inrvalue: self.inrSearch}, function(inrs){ //schickt die funktion ins Chart.controller update();
+
+  				
+  				self.inrList = inrs.inrentries;
+  			},function(err){console.log(err)});
+    	  
+      };
+   
+      
       
      
       
