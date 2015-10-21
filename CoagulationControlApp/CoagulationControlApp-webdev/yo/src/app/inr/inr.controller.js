@@ -12,9 +12,9 @@
 	  	var self = this;
 	  	
 	  	//beispiel für löschen
-	  	self.testdelete = function( deineID ){
+	  	self.testdelete = function(deineinr){
 	  		inr.remove(
-	  			{unid: deineID },
+	  			{unid: '349c7686-8230-45e9-9b46-6b1843933401'},
 				function(result){
 	  				console.dir(result);
 	  			}, function(error){
@@ -58,7 +58,6 @@
 		self.inrOutcomeClass = "";
 		self.inrSearch = "";
       	self.searchOutcome = false;
-
 		self.searchOutcomeClass = "glyphicon glyphicon-eye-open";
 		self.inrList = [];
 		
@@ -91,7 +90,8 @@
 				inrvalue : self.inr,
 				measuredate : self.inrDate,
 				creationdate : new Date(),
-				username : "The Stan"
+				username : "The Stan",
+			
 								
 			};
 			
@@ -109,7 +109,6 @@
 		
       
       self.searchShow = function() {
-
     	  if( self.searchOutcome ){
               self.searchOutcomeClass ="glyphicon glyphicon-eye-open";
             } else{
@@ -122,6 +121,7 @@
   				
   				self.inrList = inrs.inrentries;
   			},function(err){console.log(err)});
+  		
     	  
       };
    

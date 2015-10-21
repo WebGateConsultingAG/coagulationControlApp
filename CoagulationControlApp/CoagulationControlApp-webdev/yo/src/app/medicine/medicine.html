@@ -72,34 +72,34 @@
 			</div>
 		</div>
 		<div class="abstand"></div>
-		<div class="row">
 
-			<div ng-repeat="medi in MedCtrl.allMedis.slice(0, 6)">
 
-				<div class="col-xs-12 col-md-3">
+		<div ng-repeat="medi in MedCtrl.allMedis.slice(0, 6)">
+			<div class="row">
+				<div class="col-xs-12 col-md-5">
 					<input type="text" id="disabledTextInput" class="form-control"
 						ng-model="medi.mediname">
 				</div>
-				<div class="col-xs-5 col-md-1">
+				<div class="col-xs-5 col-md-2">
 					<div class="input-group">
 						<input type="number" class="form-control" id="exampleInputAmount"
 							placeholder="" ng-model="medi.medivalue">
 						<div class="input-group-addon">Mg</div>
 					</div>
 				</div>
-				<div class="col-xs-6 col-md-2">
-				<div class="btn-group" role="group" aria-label="...">
-				
-					<button ng-show="true">
-						<span class="glyphicon glyphicon-remove-circle">	</span>
-					</button>
-					<button ng-show="true">
-					<span class="glyphicon glyphicon-ok-circle"></span>
-					</button>
-					<!-- <button class="btn btn-default" type="button" ng-click="MedCtrl.removeMedi($index)"><span>Edit</span> </span></button>-->
-				</div>
+				<div class="col-xs-6 col-md-3">
+					<div class="btn-group" role="group" aria-label="...">
+						<button>
+							<span class="glyphicon glyphicon-remove-circle"> </span>
+						</button>
+						<button>
+							<span class="glyphicon glyphicon-ok-circle"></span>
+						</button>
+						<!-- <button class="btn btn-default" type="button" ng-click="MedCtrl.removeMedi($index)"><span>Edit</span> </span></button>-->
+					</div>
 				</div>
 			</div>
+			<div class="abstand"></div>
 		</div>
 
 		<div class="abstand"></div>

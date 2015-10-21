@@ -7,10 +7,7 @@
 			<h1>My INR</h1>
 			<p>Here you can measure your INR value. You can look for it every
 				time you'll need it</p>
-				<button class="btn btn-default green" type="button"
-							ng-click='inrCtrl.testdelete()'>
-							<span class="glyphicon glyphicon-send"></span>
-						</button>
+
 		</div>
 	</div>
 
@@ -45,9 +42,11 @@
 			<div class="col-xs-12 col-md-3">
 				<div class="input-group">
 
-					<input type="number" class="form-control" placeholder="when was my INR..." ng-model="inrCtrl.inrSearch">
+					<input type="number" class="form-control"
+						placeholder="when was my INR..." ng-model="inrCtrl.inrSearch">
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button" ng-click="inrCtrl.searchShow()">
+						<button class="btn btn-default" type="button"
+							ng-click="inrCtrl.searchShow()">
 							<i ng-class="[inrCtrl.searchOutcomeClass]"></i>
 						</button>
 					</span>
@@ -55,11 +54,12 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-12 col-md-6">
+			<div class="col-xs-12 col-md-6" ng-show="!inrCtrl.searchOutcome">
 				<h4>INR graph last month</h4>
 				<div ng-controller="ChartController">
-					<canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series" 
-					chart-click="onClick">
+					<canvas id="line" class="chart chart-line" chart-data="data"
+						chart-labels="labels" chart-legend="true" chart-series="series"
+						chart-click="onClick">
                     </canvas>
 
 
@@ -67,25 +67,27 @@
 
 				</div>
 
-			</div>
-			<div class="col-xs-10 col-md-3">
-				<h4>Last 6 Inr Value {{inrEntry.inrvalue}}</h4>
-				<div ng-repeat="inrEntry in inrCtrl.inrList.slice(0, 6)">
 
-					<div class="showInr">
-						<span> Value: {{inrEntry.inrvalue}}</span> <span>{{inrEntry.measuredate
-							| date:"MM/dd/yyyy 'at ' h:mma"}}</span>
+			</div>
+			<div class="col-xs-10 col-md-10">
+				<div class="row">
+					<div class="col-xs-10 col-md-3">
+						<div ng-repeat="inrEntry in inrCtrl.inrList.slice(0, 6)">
+
+							<div class="showInr" ng-show="inrCtrl.searchOutcome">
+								<span> Your Inr was: {{inrEntry.inrvalue}}</span> <span>
+									On {{inrEntry.measuredate | date:"MM/dd/yyyy 'at ' h:mma"}}</span>
+							</div>
+						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
-
-
 	</div>
+	<button class="btn btn-default green" type="button"
+		ng-click='inrCtrl.testdelete()'>
+		<span class="glyphicon glyphicon-send"></span>
+	</button>
 </div>
 
-</div>
 
-
-</div>
