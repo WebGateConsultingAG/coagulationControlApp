@@ -111,6 +111,8 @@ public class InrController extends EndpointController<InrEntry> {
 			
 			Store st = AppManifest.getDatabase().getStore("InrStore");
 			
+			System.out.println("unid is: " + unid);
+			
 			if (st.documentExists(unid)) {
 				
 				st.deleteDocument(unid);
@@ -133,8 +135,8 @@ public class InrController extends EndpointController<InrEntry> {
 		context.emitJson(result);
 
 	}
-
 	@Override
+
 	public void update(HttpServiceContext context, String unid) {
 		InrEntry entry = new InrEntry();
 		JsonObject result = new JsonObject();

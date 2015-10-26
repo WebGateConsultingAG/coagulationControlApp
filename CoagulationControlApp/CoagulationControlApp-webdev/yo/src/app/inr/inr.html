@@ -54,7 +54,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-12 col-md-6" ng-show="!inrCtrl.searchOutcome">
+			<div class="col-xs-12 col-md-9" ng-show="!inrCtrl.searchOutcome">
 				<h4>INR graph last month</h4>
 				<div ng-controller="ChartController">
 					<canvas id="line" class="chart chart-line" chart-data="data"
@@ -62,32 +62,32 @@
 						chart-click="onClick">
                     </canvas>
 
-
-
-
 				</div>
-
-
 			</div>
-			<div class="col-xs-10 col-md-10">
-				<div class="row">
-					<div class="col-xs-10 col-md-3">
-						<div ng-repeat="inrEntry in inrCtrl.inrList.slice(0, 6)">
 
-							<div class="showInr" ng-show="inrCtrl.searchOutcome">
-								<span> Your Inr was: {{inrEntry.inrvalue}}</span> <span>
-									On {{inrEntry.measuredate | date:"MM/dd/yyyy 'at ' h:mma"}}</span>
-							</div>
+		</div>
+		<div class="row">
+
+			<div class="col-md-9">
+				<div ng-repeat="inrEntry in inrCtrl.inrList.slice(0, 9)">
+
+					<div class="col-md-4">
+
+						<div class="showInr" ng-show="inrCtrl.searchOutcome">
+							<span> Your Inr was: {{inrEntry.inrvalue}}</span> <span>
+								On {{inrEntry.measuredate | date:"MM/dd/yyyy 'at ' h:mma"}}</span>
 						</div>
 					</div>
+
 				</div>
+
 			</div>
 		</div>
+
+		<div class="col-md-3"></div>
 	</div>
-	<button class="btn btn-default green" type="button"
-		ng-click='inrCtrl.testdelete()'>
-		<span class="glyphicon glyphicon-send"></span>
-	</button>
+</div>
+
 </div>
 
 

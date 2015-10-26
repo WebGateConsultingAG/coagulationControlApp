@@ -18,6 +18,7 @@ import biz.webgate.darwino.coag.rest.controller.InrController;
 import biz.webgate.darwino.coag.rest.controller.MediController;
 import biz.webgate.darwino.coag.rest.controller.UserController;
 
+import com.darwino.commons.json.JsonObject;
 import com.darwino.commons.json.binding.PojoBaseImpl;
 import com.darwino.commons.services.HttpService;
 import com.darwino.commons.services.HttpServiceContext;

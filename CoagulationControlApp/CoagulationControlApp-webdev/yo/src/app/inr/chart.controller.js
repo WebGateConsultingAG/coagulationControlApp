@@ -6,7 +6,6 @@
 
 	/** @ngInject */
 	function ChartController(inr, $scope) {
-		var self = this;
 		// hole INR
 		var displayInrs = [];
 		var allInrs = [];
@@ -36,10 +35,10 @@
 			allInrs.unshift(inr);
 			transformData(allInrs, 0);
 			$scope.showAll = allInrs;
-		};
+		}
 
 		function transformData(inrArr, layer) {
-			if (layer == null) {
+			if (layer === null) {
 				layer = 0;
 			}
 			allInrs = inrArr;
@@ -49,7 +48,7 @@
 				return dateFormatter(new Date(val.measuredate));
 			});
 			$scope.data[layer] = displayInrs.map(function(val) {
-				return val.inrvalue
+				return val.inrvalue;
 			});
 		}
 		
@@ -67,5 +66,5 @@
 		var monthIndex = d.getMonth();
 		var year = d.getFullYear();
 		return day + "." + monthIndex + "." + year;
-	};
+	}
 })();

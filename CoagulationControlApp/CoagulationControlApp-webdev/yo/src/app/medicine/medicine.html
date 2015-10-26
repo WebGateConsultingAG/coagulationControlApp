@@ -51,7 +51,7 @@
 			<div class="col-xs-12 col-md-5">
 				<select class="form-control" name="type"
 					ng-model="notification.type" ng-dropdown required
-					ng-change="showdati()">
+					ng-change="function(){}>
 					<option ng-option value="none">No notifications</option>
 					<option ng-option value="time">Every day at</option>
 					<option ng-option value="date">Only on</option>
@@ -89,13 +89,12 @@
 				</div>
 				<div class="col-xs-6 col-md-3">
 					<div class="btn-group" role="group" aria-label="...">
-						<button>
+						<button ng-click='MedCtrl.medDelete(medi.unid, $index)'>
 							<span class="glyphicon glyphicon-remove-circle"> </span>
 						</button>
-						<button>
+						<button ng-click='MedCtrl.updateMedicine(medi, $index)'>
 							<span class="glyphicon glyphicon-ok-circle"></span>
 						</button>
-						<!-- <button class="btn btn-default" type="button" ng-click="MedCtrl.removeMedi($index)"><span>Edit</span> </span></button>-->
 					</div>
 				</div>
 			</div>

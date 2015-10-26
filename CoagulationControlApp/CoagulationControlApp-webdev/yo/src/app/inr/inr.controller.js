@@ -12,20 +12,20 @@
 	  	var self = this;
 	  	
 	  	//beispiel für löschen
-	  	self.testdelete = function(deineinr){
+	  	self.testdelete = function(){
 	  		inr.remove(
-	  			{unid: '349c7686-8230-45e9-9b46-6b1843933401'},
+	  			{unid: '7f2bca97-d044-419b-9b42-8924c2e34718'},
 				function(result){
 	  				console.dir(result);
 	  			}, function(error){
 	  				console.log(error);
-				}, function(error){
+				}, function(){
 					console.log("error");
 				}
 	  		);
 	  		
 	  		
-	  	}
+	  	};
 	  	
 	  	//beispiel für update
 	  	self.updateOne = function(){
@@ -43,12 +43,12 @@
 				console.log(promise);
 			}, function(error){
 				console.log(error);
-			}, function(error){
+			}, function(){
 				console.log("error");
 			});
 	  		
 	  		
-	  	}
+	  	};
 	  	
 	  	
 	  	
@@ -101,7 +101,7 @@
 				$scope.$broadcast('newInr', currentInr);
 			}, function(error){
 				console.log(error);
-			}, function(error){
+			}, function(){
 				console.log("error");
 			});
 		};
@@ -113,16 +113,12 @@
               self.searchOutcomeClass ="glyphicon glyphicon-eye-open";
             } else{
                 self.searchOutcomeClass ="glyphicon glyphicon-eye-close";
-            };
+            }
             self.searchOutcome = !self.searchOutcome;
             console.log("getting many...");
   			inr.query({inrvalue: self.inrSearch}, function(inrs){ //schickt die funktion ins Chart.controller update();
-
-  				
   				self.inrList = inrs.inrentries;
-  			},function(err){console.log(err)});
-  		
-    	  
+  			},function(err){console.log(err)});   	  
       };
    
       

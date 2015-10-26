@@ -14,7 +14,7 @@
     				function(result){
     					console.dir(result);
     				});	
-    	}
+    	};
     	
         this.name = "";
         this.surname = "";
