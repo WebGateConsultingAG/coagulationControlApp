@@ -16,15 +16,6 @@ h1 {
 	color: black;
 }
 
-.menuheader {
-	display: inline-block;
-}
-
-.main-menu {
-	position: absolute;
-	width: 20%;
-	z-index: 1;
-}
 
 nav ul, nav li {
 	padding: 1%;
@@ -41,7 +32,7 @@ nav ul, nav li {
 .content {
 	width: auto;
 	margin-left: 7%;
-	margin-top: 3%;
+	margin-top: 5%;
 }
 
 .login {
@@ -121,3 +112,11 @@ nav ul, nav li {
 	text-align: center;
 	margin-top: 10%;
 }
+
+
+
+
+
+
+
+

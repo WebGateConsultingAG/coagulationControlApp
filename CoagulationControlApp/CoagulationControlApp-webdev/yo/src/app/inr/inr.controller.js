@@ -29,7 +29,7 @@
 	  	
 	  	//beispiel für update
 	  	self.updateOne = function(){
-	  		testInr = {
+	  		var testInr = {
 				inrvalue : self.inr,
 				measuredate : self.inrDate,
 				creationdate : new Date(),
@@ -118,7 +118,7 @@
             console.log("getting many...");
   			inr.query({inrvalue: self.inrSearch}, function(inrs){ //schickt die funktion ins Chart.controller update();
   				self.inrList = inrs.inrentries;
-  			},function(err){console.log(err)});   	  
+  			},function(err){console.log(err);});   	  
       };
    
       

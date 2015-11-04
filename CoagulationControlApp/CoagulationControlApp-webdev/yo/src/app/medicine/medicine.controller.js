@@ -89,11 +89,22 @@
 				}, function() {
 					console.log("EROR");
 				});
-			}
+			};
 		};
 
 		self.removeMedi = function(idx) {
-			this.allMedis.splice(idx, 1);
+              return {
+                link: function (scope, element, attr) {
+                    var msg = attr.ngConfirmClick || "Are you sure?";
+                    var clickAction = attr.confirmedClick;
+                    element.bind('click',function (event) {
+                        if ( window.confirm(msg) ) {
+                           this.allMedis.splice(idx, 1);
+                        }
+                    });
+                }
+            };
+
 		};
 
 		self.showdati = function() {
@@ -111,7 +122,6 @@
 		};
 		
 		self.getMany();
-		
-		
+
 	}
 })();

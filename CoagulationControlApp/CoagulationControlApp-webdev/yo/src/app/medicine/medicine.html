@@ -51,10 +51,11 @@
 			<div class="col-xs-12 col-md-5">
 				<select class="form-control" name="type"
 					ng-model="notification.type" ng-dropdown required
-					ng-change="function(){}>
+					ng-change="function(){}">
 					<option ng-option value="none">No notifications</option>
 					<option ng-option value="time">Every day at</option>
 					<option ng-option value="date">Only on</option>
+                    <option ng-option value="week">Weekly</option>
 				</select>
 			</div>
 
@@ -70,12 +71,25 @@
 						ng-model="notification.date" />
 				</div>
 			</div>
+            <div id="week" ng-if="notification.type == 'week'">
+				<div class="col-xs-12 col-md-5">
+					<select class="form-control" name="weekcheck">
+                    <option ng-option value="Monday">Monday</option>
+					<option ng-option value="Tuesday">Tuesday</option>
+					<option ng-option value="Wednesday">Wednesday</option>
+                    <option ng-option value="Thursday">Thursday</option>
+                       <option ng-option value="Friday">Friday</option>
+                        <option ng-option value="Saturday">Saturday</option>
+                        <option ng-option value="Sunday">Sunday</option>
+                    </select>
+				</div>
+			</div>
 		</div>
 		<div class="abstand"></div>
 
 
 		<div ng-repeat="medi in MedCtrl.allMedis.slice(0, 6)">
-			<div class="row">
+			<div class="row" ng-hide="notdeleted">
 				<div class="col-xs-12 col-md-5">
 					<input type="text" id="disabledTextInput" class="form-control"
 						ng-model="medi.mediname">
@@ -89,7 +103,7 @@
 				</div>
 				<div class="col-xs-6 col-md-3">
 					<div class="btn-group" role="group" aria-label="...">
-						<button ng-click='MedCtrl.medDelete(medi.unid, $index)'>
+						<button ng-click="deleteSure = ! deleteSure">
 							<span class="glyphicon glyphicon-remove-circle"> </span>
 						</button>
 						<button ng-click='MedCtrl.updateMedicine(medi, $index)'>
@@ -98,26 +112,19 @@
 					</div>
 				</div>
 			</div>
-			<div class="abstand"></div>
+			
+            <div class="row"  ng-show="deleteSure">
+                <div class="col-xs-6 col-md-3">
+                <p>Are you sure?</p>
+                  <button class="btn btn-default" ng-click='MedCtrl.medDelete(medi.unid, $index)'>Delete</button> 
+                <button class="btn btn-default" ng-click="deleteSure = ! deleteSure">Cancel</button>
+        
+            </div>
+		</div>
+            <div class="abstand"></div>
+		</div>
+		
 		</div>
 
-		<div class="abstand"></div>
-		<div class="row">
-			<div class="col-xs-12">
-				<button type="submit" class="btn btn-default"
-					ng-click="MedCtrl.getMany()">Save</button>
-				<button class="btn btn-default" type="button"
-					ng-click='MedCtrl.needHelp = !MedCtrl.needHelp'>{{MedCtrl.helpBtn}}</button>
-				<p class="" ng-hide='MedCtrl.needHelp'>
-					You can only add a new medicamet, if you field all of the input
-					fields (Name and Mg) </br> You also can make a notification. If you
-					don't want to forget, when you should take you medicine make sure
-					to choose best time and day.
-
-				</p>
-			</div>
-		</div>
-		<div class="row"></div>
-	</div>
 
 </div>
