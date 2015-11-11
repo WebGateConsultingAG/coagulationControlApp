@@ -9,52 +9,68 @@
 		
 		
 		var self = this;
-		
 		self.mediList = [];
 		self.allMedis = [];
-		
 		self.mediName = "";
 		self.mediMg = "";
-		
 		self.msgLocked = null;
-		
-		self.needHelp = false;
-		self.helpme = "";
-		self.helpBtn = "Help";
-		
 		var currentMedi = null;
-		
-		self.medDelete = function(unid, idx){
-			medicine.remove(
-				{'unid':unid},
-				function(){
-					self.removeMedi(idx);
-				}, function(error){
-					console.dir(error);
-				},function(error){
-					console.dir(error);
-				}
-			);
-		};
-		
+	   self.deleteSure = true;
+		self.notification = {
+             repeatSelectType: null,
+             repeatSelectWeek: null,
+    type: [
+      {id: 'no', name: 'None'},
+      {id: 'week', name: 'Weekly'},
+      {id: 'time', name: 'Only at:'},
+      {id: 'date', name: 'Only on:'}
+    ],
+             day: [
+      {id: '1', name: 'Monday'},
+      {id: '2', name: 'Tuesday'},
+      {id: '3', name: 'Wednesday'},
+      {id: '4', name: 'Thursday'},
+      {id: '5', name: 'Friday'},
+      {id: '6', name: 'Saturday'},
+      {id: '7', name: 'Sunday'}
+    ],
+   };
+        
+        
+        
 		
 		//beispiel für update
 	  	self.updateMedicine = function(mediData){
 			// unid wird durch object mitgegeben
 	  		medicine.update( mediData , function(promise){
-				console.log("after update test");
+				console.log("update success");
 				console.log(promise);
 			}, function(error){
 				console.log(error);
 			}, function(){
 				console.log("error");
-				console.log("TestMedi");
 				
 			});
-	  		
-	  		
 	  	};
 		
+		self.medDelete = function(unid, idx){ 
+            medicine.remove(
+				{'unid':unid},function(promise){
+                    //löschen erfolgreich, aus anzeige löschen
+                    self.allMedis.splice(idx,1);
+                    
+                },
+				 function(error){
+                     // error handler 1
+					console.dir(error);
+				},function(error){
+                    //error handler 2
+					console.dir(error);
+				}
+               
+			);
+		};
+        
 		
 		
 	  	self.getOne = function() {
@@ -69,20 +85,16 @@
 
 		
 
-
 		self.addMedi = function() {
 			if (this.mediName !== "" && this.mediMg > 0) {
 				currentMedi = {
 					medivalue : this.mediMg,
 					mediname : this.mediName,
-					notificationdate : new Date(),
+             		notification : new Date(),
 				};
-
 				this.mediName = "";
 				this.mediMg = "";
-
 				var _that = this;
-
 				medicine.save(currentMedi, function(promise) {
 					currentMedi.unid = promise.unid;
 					_that.allMedis.push(currentMedi);
@@ -92,29 +104,14 @@
 			};
 		};
 
-		self.removeMedi = function(idx) {
-              return {
-                link: function (scope, element, attr) {
-                    var msg = attr.ngConfirmClick || "Are you sure?";
-                    var clickAction = attr.confirmedClick;
-                    element.bind('click',function (event) {
-                        if ( window.confirm(msg) ) {
-                           this.allMedis.splice(idx, 1);
-                        }
-                    });
-                }
-            };
 
-		};
-
-		self.showdati = function() {
-		};
 
 		self.getMany = function() {
-			console.log("getting many...");
 			medicine.query({}, function(meds) {
 				console.dir(meds);
-				self.allMedis = meds.medientries;
+                if ( meds.medientries != void 0){
+				    self.allMedis = meds.medientries;
+                }
 			}, function(err) {
 				console.log(err);
 			});

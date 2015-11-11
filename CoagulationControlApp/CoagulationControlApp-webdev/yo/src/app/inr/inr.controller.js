@@ -76,7 +76,6 @@
 			if (self.inr <= 0 || self.inr > 6 || self.inr === null || self.inr === void 0) {
 				self.inrOutcome = "";
 				self.inrOutcomeClass = "glyphicon glyphicon-remove-sign";
-				self.inr = 0;
 				return;
 			} else if (self.inr >= 4) {
 				self.inrOutcome = "";
@@ -120,10 +119,7 @@
   				self.inrList = inrs.inrentries;
   			},function(err){console.log(err);});   	  
       };
-   
-      
-      
-     
+
       
 		
 	}

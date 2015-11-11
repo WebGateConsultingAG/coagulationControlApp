@@ -20,7 +20,7 @@ public class RestResult {
 	@JsonEntity(jsonProperty="trace")
 	private String trace;
 	
-	@JsonEntity(jsonProperty="inrentries")
+	@JsonEntity(jsonProperty="inrentries", showEmptyValue=true)
 	private List<InrEntry> inrEntries;
 	
 	@JsonEntity(jsonProperty="inrentry")

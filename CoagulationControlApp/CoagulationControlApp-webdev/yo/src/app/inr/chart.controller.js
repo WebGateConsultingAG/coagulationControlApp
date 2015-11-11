@@ -23,7 +23,6 @@
 
 
 		$scope.update = function() {
-			console.log("ganz alt");
 			inr.query({}, function(inrs) {
 				transformData(inrs.inrentries, 0); // geht ins $scope.$on
 			}, function(err) {
@@ -42,11 +41,12 @@
 				layer = 0;
 			}
 			allInrs = inrArr;
-			displayInrs = inrArr.slice(0, dataDisplayCap);
-
+			displayInrs = inrArr.slice(0, dataDisplayCap).reverse();
+            
 			$scope.labels = displayInrs.map(function(val) {
 				return dateFormatter(new Date(val.measuredate));
 			});
+            
 			$scope.data[layer] = displayInrs.map(function(val) {
 				return val.inrvalue;
 			});
@@ -54,6 +54,8 @@
 		
 		$scope.update();
 		$scope.series = [ 'INR value' ];
+        
+        //TODO: Delete function if unused!
 		$scope.onClick = function(points, evt) {
 			
 			console.log(points, evt);
