@@ -18,6 +18,10 @@ public class MediEntry extends PojoBaseImpl {
 	private Date notificationdate;
 	@JsonEntity(jsonProperty = "mediname")
 	private String mediname;
+	@JsonEntity(jsonProperty = "notificationtype")
+	private String notificationtype;
+	@JsonEntity(jsonProperty = "notificationday")
+	private String notificationday;
 
 	public double getMedivalue() {
 		return medivalue;
@@ -49,6 +53,22 @@ public class MediEntry extends PojoBaseImpl {
 
 	public void setMediname(String mediname) {
 		this.mediname = mediname;
+	}
+
+	public String getNotificationtype() {
+		return notificationtype;
+	}
+
+	public void setNotificationtype(String notificationtype) {
+		this.notificationtype = notificationtype;
+	}
+
+	public String getNotificationday() {
+		return notificationday;
+	}
+
+	public void setNotificationday(String notificationday) {
+		this.notificationday = notificationday;
 	}
 
 }

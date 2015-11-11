@@ -13,6 +13,9 @@
 		self.allMedis = [];
 		self.mediName = "";
 		self.mediMg = "";
+		self.mediDate = "";
+		self.notificationType = "";
+		self.notificationDay = "";
 		self.msgLocked = null;
 		var currentMedi = null;
 	   self.deleteSure = true;
@@ -90,7 +93,10 @@
 				currentMedi = {
 					medivalue : this.mediMg,
 					mediname : this.mediName,
-             		notification : new Date(),
+					notificationdate: new Date(),
+					notificationday: this.notificationDay,
+					notificationtype: this.notificationType
+					
 				};
 				this.mediName = "";
 				this.mediMg = "";
@@ -102,6 +108,9 @@
 					console.log("EROR");
 				});
 			};
+			if (this.mediName !== "" || this.mediMg > 0){
+				
+			}
 		};
 
 
