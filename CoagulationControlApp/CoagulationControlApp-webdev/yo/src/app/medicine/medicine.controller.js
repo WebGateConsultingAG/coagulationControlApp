@@ -13,12 +13,69 @@
 		self.allMedis = [];
 		self.mediName = "";
 		self.mediMg = "";
+		self.notificationOptionTime;
+		self.notificationOptionDate;
 		self.mediDate = "";
 		self.notificationType = "";
-		self.notificationDay = "";
+
 		self.msgLocked = null;
 		var currentMedi = null;
 	   self.deleteSure = true;
+	   self.dateTime = {
+		        value: new Date()
+		      };	   
+	   
+	   self.myOptions = [{
+           "id": "mon",
+           "group": "Day",
+           "label": "Monday"
+       },{
+           "id": "thu",
+           "group": "Day",
+           "label": "Tuesday"
+       },{
+           "id": "wen",
+           "group": "Day",
+           "label": "Wendesday"
+       },{
+           "id": "thu",
+           "group": "Day",
+           "label": "Thursday"
+       },{
+           "id": "fri",
+           "group": "Day",
+           "label": "Friday"
+       },{
+           "id": "sat",
+           "group": "Day",
+           "label": "Saturday"
+       },{
+           "id": "sun",
+           "group": "Day",
+           "label": "Sunday"
+       },{
+           "id": "all",
+           "group": "Other",
+           "label": "Every day"
+       },{
+           "id": "tdy",
+           "group": "Other",
+           "label": "Only today at"
+       },{
+           "id": "oth",
+           "group": "Other",
+           "label": "Only on:"
+       },{
+           "id": "non",
+           "group": "Other",
+           "label": "No notifications:"
+       }
+       ];
+	   
+	   
+	   
+	   
+	   
 		self.notification = {
              repeatSelectType: null,
              repeatSelectWeek: null,
@@ -93,13 +150,13 @@
 				currentMedi = {
 					medivalue : this.mediMg,
 					mediname : this.mediName,
-					notificationdate: new Date(),
-					notificationday: this.notificationDay,
-					notificationtype: this.notificationType
-					
+					notificationday: this.notificationOptionTime,
+					notificationtype: this.myOption,
+					notificationdate: new Date()
 				};
 				this.mediName = "";
 				this.mediMg = "";
+				this.myOption = "non";
 				var _that = this;
 				medicine.save(currentMedi, function(promise) {
 					currentMedi.unid = promise.unid;
