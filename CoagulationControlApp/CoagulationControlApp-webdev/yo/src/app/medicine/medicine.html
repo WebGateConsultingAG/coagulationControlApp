@@ -1,131 +1,128 @@
 <div navi-bar></div>
 <div class="container-fluid" id="indx">
-	<div class="row">
-		<div class="col-xs-2"></div>
-		<div class="col-xs-10">
-			<h1>My Medicine</h1>
-			<p>Here you can record all of yours medicaments, it'll be
-				editable, so you can make changes every time.</p>
-		</div>
-	</div>
-	<div class="content">
-		<div class="abstand"></div>
+	
 		<div class="row">
-			<div class="col-md-12">
-				<span><p>Welche Dosierungen nehmen Sie zur Zeit?</p></span>
+			<div class="col-xs-2"></div>
+			<div class="col-xs-10">
+				<h1>My Medicine</h1>
+				<p>Here you can record all of yours medicaments, it'll be
+					editable, so you can make changes every time.</p>
 			</div>
 		</div>
+		<div class="content">
+			<div class="abstand"></div>
+			<div class="row">
+				<div class="col-md-12">
+					<span><p>Welche Dosierungen nehmen Sie zur Zeit?</p></span>
+				</div>
+			</div>
 
 
 
 
 
 
-		<!-- entry -->
-		<div class="row">
+			<!-- entry -->
+			<div class="row">
+<form>
 
-			<form>
 				<div class="col-xs-12 col-md-2">
 
 					<input type="number" class="form-control" id="exampleInputAmount"
-						placeholder="Mg" ng-model="MedCtrl.mediMg" required=""
-						autofocus="" required>
-
-					</button>
-					</span>
+						placeholder="Mg" ng-model="MedCtrl.mediMg" required>
 				</div>
 
 				<div class="col-xs-12 col-md-3">
-
 					<input type="text" id="disabledTextInput" class="form-control"
-						placeholder="Medicine" ng-model="MedCtrl.mediName" required=""
-						autofocus="" required>
-
-
+						placeholder="Medicine" ng-model="MedCtrl.mediName" required>
 				</div>
 
 
 				<div class="col-xs-12 col-md-2">
-			<div class="input-group">
+					<div class="input-group">
 						<select class="form-control" ng-model="MedCtrl.myOption"
-							ng-options="value.id as value.label group by value.group for value in MedCtrl.myOptions">
-							<option ng-model="MedCtrl.notificationType" required></option>
+							ng-options="value.id as value.label group by value.group for value in MedCtrl.myOptions"
+							required>
+							<option></option>
 						</select> <span class="input-group-btn">
 							<button class="btn btn-default" type="submit"
 								ng-click="MedCtrl.addMedi()">
-						 <span class="glyphicon glyphicon-plus"></span></button>
-</span>
+								<span class="glyphicon glyphicon-plus"></span>
+							</button>
+						</span>
 					</div>
-	</div>
+				</div>
+
+				<div class="col-xs-12 col-md-2">
+					<input type="time" class="form-control"
+						ng-model="MedCtrl.notificationOptionTime" />
+				</div>
+				<div class="col-xs-12 col-md-2">
+					<input type="date" class="form-control"
+						ng-model="MedCtrl.notificationOptionDate" />
+				</div>
+
 </form>
-	<div class="col-xs-12 col-md-2" >
-		<input type="time" class="form-control"	ng-model="MedCtrl.notificationOptionTime" />
-	</div>
-	<div class="col-xs-12 col-md-2">
-		<input type="date" class="form-control"	ng-model="MedCtrl.notificationOptionDate" />
-	</div>
+			</div>
 
 
-</div>
+			<div class="abstand"></div>
 
-
-<div class="abstand"></div>
-
-<div class="row">
-	<div class="col-xs-12">
-		<span><p>Do you want to get Notifications?</p></span>
-	</div>
-</div>
-
-
-<div class="abstand"></div>
-
-
-<div ng-repeat="medi in MedCtrl.allMedis">
-	<div class="row">
-		<form>
-			<div class="col-xs-5 col-md-2">
-				<div class="input-group">
-					<input type="number" class="form-control" id="exampleInputAmount"
-						placeholder="" ng-model="medi.medivalue" ng-disabled="!editMe"
-						required>
-					<div class="input-group-addon">Mg</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<span><p>Do you want to get Notifications?</p></span>
 				</div>
 			</div>
-			<div class="col-xs-7 col-md-3">
-				<input type="text" id="disabledTextInput" class="form-control"
-					ng-model="medi.mediname" ng-disabled="!editMe" required>
-			</div>
-
-			<div class="col-xs-6 col-md-2">
-				<div class="btn-group" role="group" aria-label="...">
 
 
+			<div class="abstand"></div>
 
-					<button class="btn btn-default"
-						ng-click="deleteSure = ! deleteSure">
-						<span class="glyphicon glyphicon-remove"> </span>
-					</button>
-					<button class="btn btn-default" ng-click="editMe = !editMe"
-						ng-hide="editMe">
-						<span class="glyphicon glyphicon-pencil"></span>
-					</button>
 
-					<button class="btn btn-default"
-						ng-click='MedCtrl.updateMedicine(medi, $index); editMe = !editMe'
-						ng-hide="!editMe" type="submit">
-						<span class="glyphicon glyphicon-ok"></span>
-					</button>
+			<div ng-repeat="medi in MedCtrl.allMedis">
+				<div class="row">
+
+						<div class="col-xs-5 col-md-2">
+							<div class="input-group">
+								<input type="number" class="form-control"
+									id="exampleInputAmount" placeholder=""
+									ng-model="medi.medivalue" ng-disabled="!editMe" required>
+								<div class="input-group-addon">Mg</div>
+							</div>
+						</div>
+						<div class="col-xs-7 col-md-3">
+							<input type="text" id="disabledTextInput" class="form-control"
+								ng-model="medi.mediname" ng-disabled="!editMe" required>
+						</div>
+
+						<div class="col-xs-6 col-md-2">
+							<div class="btn-group" role="group" aria-label="...">
+
+
+
+								<button class="btn btn-default"
+									ng-click="deleteSure = ! deleteSure">
+									<span class="glyphicon glyphicon-remove"> </span>
+								</button>
+								<button class="btn btn-default" ng-click="editMe = !editMe"
+									ng-hide="editMe">
+									<span class="glyphicon glyphicon-pencil"></span>
+								</button>
+
+								<button class="btn btn-default"
+									ng-click='MedCtrl.updateMedicine(medi, $index); editMe = !editMe'
+									ng-hide="!editMe" type="submit">
+									<span class="glyphicon glyphicon-ok"></span>
+								</button>
+
+							</div>
+
+							<button ng-show="deleteSure" class="btn btn-default"
+								ng-click='MedCtrl.medDelete(medi.unid, $index)'>Delete</button>
+							<button ng-show="deleteSure" class="btn btn-default"
+								ng-click="deleteSure = ! deleteSure">Cancel</button>
+
+						</div>
 				</div>
-
-				<button ng-show="deleteSure" class="btn btn-default"
-					ng-click='MedCtrl.medDelete(medi.unid, $index)'>Delete</button>
-				<button ng-show="deleteSure" class="btn btn-default"
-					ng-click="deleteSure = ! deleteSure">Cancel</button>
-
-			</div>
-	</div>
-	</form>
 	<div class="abstand"></div>
 </div>
 

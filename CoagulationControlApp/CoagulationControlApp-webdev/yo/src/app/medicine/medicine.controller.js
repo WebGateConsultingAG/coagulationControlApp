@@ -12,12 +12,10 @@
 		self.allMedis = [];
 		self.mediName = "";
 		self.mediMg = "";
-		self.editable = false;
+		self.editSave = false;
 		self.notificationOptionTime;
 		self.notificationOptionDate;
 		self.mediDate = "";
-		self.notificationType = "";
-
 		self.msgLocked = null;
 		var currentMedi = null;
 		self.deleteSure = true;
@@ -113,7 +111,7 @@
 		};
 
 		self.addMedi = function() {
-			if (this.mediName !== "" && this.mediMg > 0) {
+			if (this.mediName !== "" && this.mediMg > 0 && this.myOption != "") {
 				currentMedi = {
 					medivalue : this.mediMg,
 					mediname : this.mediName,
@@ -131,11 +129,8 @@
 				}, function() {
 					console.log("EROR");
 				});
-			}
-			;
-			if (this.mediName !== "" || this.mediMg > 0) {
-
-			}
+			};
+		
 		};
 
 		self.getMany = function() {
@@ -152,7 +147,14 @@
 
 		self.getMany();
 
-		
+		self.canSave = function(idx){
+			if(self.allMedis(idx) !== ""){
+				self.editSave = ! self.editSave;
+				updateMedicine(medi, $index);
+			}else{
+				alert("Something's missing!")
+			}
+		};
 		
 	}
 })();
