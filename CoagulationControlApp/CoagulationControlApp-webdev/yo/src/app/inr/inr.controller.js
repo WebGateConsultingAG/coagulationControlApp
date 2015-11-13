@@ -50,8 +50,6 @@
 	  		
 	  	};
 	  	
-	  	
-	  	
 	  	self.inr = null;
 		self.inrDate = new Date();
 		self.inrOutcome = null;
@@ -74,24 +72,14 @@
 
 		self.saveInr = function() {
 			if (self.inr <= 0 || self.inr > 6 || self.inr === null || self.inr === void 0) {
-				self.inrOutcome = "";
-				self.inrOutcomeClass = "glyphicon glyphicon-remove-sign";
+				self.inrOutcome = "0";
 				return;
-			} else if (self.inr >= 4) {
-				self.inrOutcome = "";
-				self.inrOutcomeClass = "glyphicon glyphicon-info-sign";
-			} else {
-				self.inrOutcome = "";
-				self.inrOutcomeClass = "glyphicon glyphicon-ok-sign";
 			}
-			
 			currentInr = {
 				inrvalue : self.inr,
 				measuredate : self.inrDate,
 				creationdate : new Date(),
 				username : "The Stan",
-			
-								
 			};
 			
 			
@@ -114,7 +102,6 @@
                 self.searchOutcomeClass ="glyphicon glyphicon-eye-close";
             }
             self.searchOutcome = !self.searchOutcome;
-            console.log("getting many...");
   			inr.query({inrvalue: self.inrSearch}, function(inrs){ //schickt die funktion ins Chart.controller update();
   				self.inrList = inrs.inrentries;
   			},function(err){console.log(err);});   	  
