@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: CoagulationControlApp-webui
 Bundle-SymbolicName: biz.webgate.darwino.coag.CoagulationControlApp-webu
  i
-Bundle-Version: 0.0.1.201511131421
+Bundle-Version: 0.0.1.201511161432
 DARWINO_VERSION: 0.8.0-SNAPSHOT
 Include-Resource: DARWINO-INF/resources/mobile/css/style.css=src/main/re
  sources/DARWINO-INF/resources/mobile/css/style.css,DARWINO-INF/resource

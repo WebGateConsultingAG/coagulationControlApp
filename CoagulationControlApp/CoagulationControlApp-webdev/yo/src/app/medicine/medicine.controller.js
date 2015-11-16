@@ -12,31 +12,82 @@
 		self.allMedis = [];
 		self.mediName = "";
 		self.mediMg = "";
+
 		self.editSave = false;
+
+		self.editableMedi = -1;
+
+		self.editMedi = function(index) {
+			if (self.editableMedi == -1) {
+				self.editableMedi = index;
+			} else {
+				// ein anderes medikament wird gerade bearbeitet, nicht
+				// umschalten
+				alert("da ist schon ein medi in bearbeitung");
+			}
+		};
+
+		self.lockMedi = function(index) {
+			if (index === self.editableMedi) {
+				self.editableMedi = -1;
+			} else {
+				// ein anderes medikament wird gerade bearbeitet, nicht
+				// umschalten
+				alert("da ist schon ein medi in bearbeitung");
+			}
+		};
+
+		self.isEditableMedi = function(index) {
+			return index === self.editableMedi;
+		};
+
 		self.notificationOptionTime = "";
 		self.notificationOptionDate = "";
 		self.mediDate = "";
 		self.msgLocked = null;
 		var currentMedi = null;
 		self.deleteSure = true;
-		self.options = [
-		{name:'mon', value : "Monday"},
-		{name:'thu', value : "Tuesday"},
-		{name:'wen', value : "Wendesday"}, 
-		{name:'thu', value: "Thursday"}, 
-		{name:'fri', value: "Friday"}, 
-		{name:'sat', value: "Saturday"}, 
-		{name:'sun', value : "Sunday"}, 
-		{name:'all',value : "Every day"}, 
-		{name:'tdy',value : "Only today at"}, 
-		{name:'oth',value : "Only on:"},
-		{name:'non', value : "No notifications:"}
-		];
-		self.defaultOption = self.options[10]; 
+		self.options = [ {
+			name : 'mon',
+			value : "Monday"
+		}, {
+			name : 'thu',
+			value : "Tuesday"
+		}, {
+			name : 'wen',
+			value : "Wendesday"
+		}, {
+			name : 'thu',
+			value : "Thursday"
+		}, {
+			name : 'fri',
+			value : "Friday"
+		}, {
+			name : 'sat',
+			value : "Saturday"
+		}, {
+			name : 'sun',
+			value : "Sunday"
+		}, {
+			name : 'all',
+			value : "Every day"
+		}, {
+			name : 'tdy',
+			value : "Only today at"
+		}, {
+			name : 'oly',
+			value : "Only on:"
+		}, {
+			name : 'non',
+			value : "No notifications:"
+		} ];
+		self.defaultOption = self.options[10];
 
 		// beispiel für update
-		self.updateMedicine = function(mediData) {
-if(mediData != ""){
+		self.updateMedicine = function(mediData, idx) {
+
+			if (mediData.medivalue !== "" && mediData.medivalue != null
+					&& mediData.mediname !== "" && mediData.mediname != null && mediData.notificationtype != null && mediData.notificationtype != "") {
 				medicine.update(mediData, function(promise) {
 					console.log("update success");
 					console.log(promise);
@@ -44,36 +95,36 @@ if(mediData != ""){
 					console.log(error);
 				}, function() {
 					console.log("error");
-
 				});
-}else{
-	alert("")
-}
-			};
-
+				self.lockMedi(idx);
+			} else {
+				// kann nicht updaten, felder sind leer
+				alert("no update: fields empty!");
+			}
+		};
 
 		self.medDelete = function(unid, idx) {
-            var r = confirm("Do you really want to delete this entry?");
-if (r == true) {
-			medicine.remove({
-				'unid' : unid
-			}, function() {
-				// löschen erfolgreich, aus anzeige löschen
-				self.allMedis.splice(idx, 1);
-			}, function(error) {
-				// error handler 1
-				console.dir(error);
-			}, function(error) {
-				// error handler 2
-				console.dir(error);
-			}
+			var r = confirm("Do you really want to delete this entry?");
+			if (r == true) {
+				medicine.remove({
+					'unid' : unid
+				}, function() {
+					// löschen erfolgreich, aus anzeige löschen
+					self.allMedis.splice(idx, 1);
+				}, function(error) {
+					// error handler 1
+					console.dir(error);
+				}, function(error) {
+					// error handler 2
+					console.dir(error);
+				}
 
-			);
-		}
-else {
-    
-}
-};
+				);
+				self.editableMedi = -1;
+			} else {
+
+			}
+		};
 		self.getOne = function() {
 			// valid id: 9194b8aa-2cb1-4bf4-9733-5060b154f7bb
 			medicine.get({
@@ -104,7 +155,7 @@ else {
 					console.log("EROR");
 				});
 			}
-		
+
 		};
 
 		self.getMany = function() {
@@ -121,10 +172,5 @@ else {
 
 		self.getMany();
 
-		
-	
-		
-		
-		
 	}
 })();
