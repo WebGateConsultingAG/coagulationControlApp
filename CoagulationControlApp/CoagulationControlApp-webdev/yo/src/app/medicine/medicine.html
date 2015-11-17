@@ -28,23 +28,22 @@
 			<form name="formSave">
 				<div class="col-xs-12 col-md-2">
 
-					<input type="number" class="form-control" id="exampleInputAmount"
+					<input type="number" class="form-control"  
 						placeholder="Mg" ng-model="MedCtrl.mediMg" ng-required="true">
 				</div>
 
 				<div class="col-xs-12 col-md-3">
-					<input type="text" id="disabledTextInput" class="form-control"
+					<input type="text" id="disabledTextInput" class="form-control" 
 						placeholder="Medicine" ng-model="MedCtrl.mediName"
 						ng-required="true">
 				</div>
 
 				<div class="col-xs-12 col-md-2">
 					<div class="input-group">
-						<select class="form-control" ng-model="MedCtrl.defaultOption"
+						<select class="form-control" ng-model="MedCtrl.defaultOption" 
 							ng-options="c.value for c in MedCtrl.options" ng-required="true">
-							<option></option>
 
-						</select> <span class="input-group-btn">
+						</select> <span class="input-group-btn"  > 
 							<button class="btn btn-default" type="submit"
 								ng-click="MedCtrl.addMedi()">
 								<span class="glyphicon glyphicon-plus"></span>
@@ -55,13 +54,13 @@
 
 				<div class="col-xs-12 col-md-2"
 					ng-show="MedCtrl.defaultOption.name == 'oth'">
-					<input type="date" class="form-control"
+					<input type="date" class="form-control" 
 						ng-model="MedCtrl.notificationtypeOptionDate" ng-required="true" />
 				</div>
 
 				<div class="col-xs-12 col-md-2"
 					ng-show="MedCtrl.defaultOption.name != 'non'">
-					<input type="time" class="form-control"
+					<input type="time" class="form-control" 
 						ng-model="MedCtrl.notificationOptionTime" ng-required="true" />
 				</div>
 
@@ -88,20 +87,28 @@
 					<div class="col-xs-5 col-md-2">
 						<div class="input-group">
 							<input type="number" class="form-control" 
-								placeholder="" ng-model="medi.medivalue"
+								placeholder="" ng-model="medi.medivalue" 
 								ng-disabled="!MedCtrl.isEditableMedi($index)" required>
 							<div class="input-group-addon">Mg</div>
 						</div>
 					</div>
 					<div class="col-xs-7 col-md-3">
-						<input type="text" class="form-control"
+						<input type="text" class="form-control"  
 							ng-model="medi.mediname"
 							ng-disabled="!MedCtrl.isEditableMedi($index)" required>
 					</div>
-                    <div class="col-xs-7 col-md-2" ng-show="!MedCtrl.isEditableMedi($index)">
+                    <div class="col-xs-7 col-md-2" ng-show="!MedCtrl.isEditableMedi($index)" >
+                        <div class="form-control">
 						{{MedCtrl.resolveNotification(medi.notificationtype)}}
 					</div>
-				
+					</div>
+                    
+                    <div class="col-xs-7 col-md-2" ng-show="MedCtrl.isEditableMedi($index)">
+                    <select class="form-control"                              ng-model="MedCtrl.editOption"
+							ng-options="c.value for c in MedCtrl.options" ng-required="true">
+	
+						</select> 
+                    </div>
 
 					<div class="col-xs-6 col-md-2">
 						<div class="btn-group" role="group">
@@ -110,7 +117,7 @@
 								<span class="glyphicon glyphicon-remove"> </span>
 							</button>
 							<button class="btn btn-default"
-								ng-click="MedCtrl.editMedi($index)"
+								ng-click="MedCtrl.editMedi(medi, $index)"
 								ng-hide="MedCtrl.isEditableMedi($index)" type>
 								<span class="glyphicon glyphicon-pencil"></span>
 							</button>
