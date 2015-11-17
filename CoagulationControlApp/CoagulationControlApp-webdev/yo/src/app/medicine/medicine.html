@@ -100,12 +100,12 @@
 					</div>
                     <div class="col-xs-7 col-md-2" ng-show="!MedCtrl.isEditableMedi($index)">
 						<input type="text" class="form-control"
-							ng-model="MedCtrl.defaultOption.value"
+							ng-model="medi.notificationtype"
 							ng-disabled="true">
 					</div>
 					<div class="col-xs-7 col-md-2" ng-show="MedCtrl.isEditableMedi($index)">
 						<select class="form-control" ng-model="medi.notificationtype"
-							ng-options="c.value for c in MedCtrl.options track by options.name"
+							ng-options="c.value for c in MedCtrl.options"
 							 required>
 							<option></option>
 						</select>

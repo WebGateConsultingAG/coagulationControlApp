@@ -36,7 +36,7 @@
 		};
 
 		return $resource('/coag/api/coag', defaultValues, methods);
-	};
+	}
 
 
 })();

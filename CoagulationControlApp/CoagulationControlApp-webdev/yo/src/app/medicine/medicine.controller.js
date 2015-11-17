@@ -47,6 +47,7 @@
 		self.msgLocked = null;
 		var currentMedi = null;
 		self.deleteSure = true;
+        
 		self.options = [ {
 			name : 'mon',
 			value : "Monday"
@@ -55,7 +56,7 @@
 			value : "Tuesday"
 		}, {
 			name : 'wen',
-			value : "Wendesday"
+			value : "Wednesday"
 		}, {
 			name : 'thu',
 			value : "Thursday"
@@ -87,7 +88,7 @@
 		self.updateMedicine = function(mediData, idx) {
 
 			if (mediData.medivalue !== "" && mediData.medivalue != null
-					&& mediData.mediname !== "" && mediData.mediname != null && mediData.notificationtype != null && mediData.notificationtype != "") {
+					&& mediData.mediname !== "" && mediData.mediname != null) {
 				medicine.update(mediData, function(promise) {
 					console.log("update success");
 					console.log(promise);
