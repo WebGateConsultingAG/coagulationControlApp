@@ -99,24 +99,13 @@
 							ng-disabled="!MedCtrl.isEditableMedi($index)" required>
 					</div>
                     <div class="col-xs-7 col-md-2" ng-show="!MedCtrl.isEditableMedi($index)">
-						<input type="text" class="form-control"
-							ng-model="medi.notificationtype"
-							ng-disabled="true">
+						{{MedCtrl.resolveNotification(medi.notificationtype)}}
 					</div>
-					<div class="col-xs-7 col-md-2" ng-show="MedCtrl.isEditableMedi($index)">
-						<select class="form-control" ng-model="medi.notificationtype"
-							ng-options="c.value for c in MedCtrl.options"
-							 required>
-							<option></option>
-						</select>
-					</div>
+				
 
 					<div class="col-xs-6 col-md-2">
 						<div class="btn-group" role="group">
-
-
-
-							<button class="btn btn-default"
+                            <button class="btn btn-default"
 								ng-click='MedCtrl.medDelete(medi.unid, $index)'>
 								<span class="glyphicon glyphicon-remove"> </span>
 							</button>
@@ -131,10 +120,9 @@
 								ng-hide="!MedCtrl.isEditableMedi($index)">
 								<span class="glyphicon glyphicon-ok"></span>
 							</button>
-
 						</div>
-
 					</div>
+                    
 				</div>
 				<div class="abstand"></div>
 			</form>

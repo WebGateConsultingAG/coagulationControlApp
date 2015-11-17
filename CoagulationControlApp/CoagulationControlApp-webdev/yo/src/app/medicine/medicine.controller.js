@@ -12,32 +12,9 @@
 		self.allMedis = [];
 		self.mediName = "";
 		self.mediMg = "";
-
 		self.editSave = false;
-
 		self.editableMedi = -1;
-
-		self.editMedi = function(index) {
-			if (self.editableMedi == -1) {
-				self.editableMedi = index;
-			} else {
-				// ein anderes medikament wird gerade bearbeitet, nicht
-				// umschalten
-				alert("da ist schon ein medi in bearbeitung");
-			}
-		};
-
-		self.lockMedi = function(index) {
-			if (index === self.editableMedi) {
-				self.editableMedi = -1;
-			} else {
-				// ein anderes medikament wird gerade bearbeitet, nicht
-				// umschalten
-				alert("da ist schon ein medi in bearbeitung");
-			}
-		};
-
-		self.isEditableMedi = function(index) {
+        self.isEditableMedi = function(index) {
 			return index === self.editableMedi;
 		};
 
@@ -83,6 +60,40 @@
 			value : "No notifications:"
 		} ];
 		self.defaultOption = self.options[10];
+        
+        
+        
+        
+        
+        
+         self.resolveNotification = function(name){
+              var result;
+             
+             for(var idx = 0; idx < self.options.length; idx++){
+                 var val = self.options[idx];
+                 if(val.name === name){
+                     result = val.value;
+                     break;
+                 }
+             }
+             /*
+             dasselbe wie for-loop aber nicht unterbrechbar
+             
+             self.options.forEach(function(val){
+                 if(val.name === name){
+                     result = val.value;
+                 }                                       
+             });
+             */
+             return result;
+         };
+        
+        
+        
+        
+        
+        
+        
 
 		// beispiel für update
 		self.updateMedicine = function(mediData, idx) {
@@ -100,7 +111,7 @@
 				self.lockMedi(idx);
 			} else {
 				// kann nicht updaten, felder sind leer
-				alert("no update: fields empty!");
+				alert("Some fields are empty!");
 			}
 		};
 
@@ -126,6 +137,35 @@
 
 			}
 		};
+        
+        
+        
+        		self.editMedi = function(index) {
+			if (self.editableMedi == -1) {
+				self.editableMedi = index;
+			} else {
+				// ein anderes medikament wird gerade bearbeitet, nicht
+				// umschalten
+				alert("da ist schon ein medi in bearbeitung");
+			}
+		};
+
+		self.lockMedi = function(index) {
+			if (index === self.editableMedi) {
+				self.editableMedi = -1;
+			} else {
+				// ein anderes medikament wird gerade bearbeitet, nicht
+				// umschalten
+				alert("da ist schon ein medi in bearbeitung");
+			}
+		};
+        
+        
+        
+       
+        
+        
+        
 		self.getOne = function() {
 			// valid id: 9194b8aa-2cb1-4bf4-9733-5060b154f7bb
 			medicine.get({
