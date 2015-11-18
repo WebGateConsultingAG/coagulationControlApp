@@ -30,13 +30,12 @@
 			update : {
 				method : 'POST',
 				params : {
-					action: 'update'
+					action : 'update'
 				}
 			}
 		};
 
 		return $resource('/coag/api/coag', defaultValues, methods);
 	}
-
 
 })();

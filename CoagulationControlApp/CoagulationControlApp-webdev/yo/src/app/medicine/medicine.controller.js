@@ -14,12 +14,7 @@
 		self.mediMg = "";
 		self.editSave = false;
 		self.editableMedi = -1;
-		self.isEditableMedi = function(index) {
-			return index === self.editableMedi;
-		};
-
-		self.notificationOptionTime = "";
-		self.notificationOptionDate = "";
+		self.notificationTime = "";
 		self.mediDate = "";
 		self.msgLocked = null;
 		var currentMedi = null;
@@ -53,14 +48,11 @@
 			name : 'tdy',
 			value : "Only today at"
 		}, {
-			name : 'oly',
-			value : "Only on:"
-		}, {
 			name : 'non',
-			value : "No notifications:"
+			value : "No notifications"
 		} ];
-		self.defaultOption = self.options[10];
-		self.editOption = self.options[10]
+		self.defaultOption = self.options[9];
+		self.editOption = self.options[9];
 
 		self.resolveNotification = function(name) {
 			var result;
@@ -81,6 +73,10 @@
 			return result;
 		};
 
+		self.isEditableMedi = function(index) {
+			return index === self.editableMedi;
+		};
+
 		self.editNotification = function(name) {
 			var result;
 			for (var idx = 0; idx < self.options.length; idx++) {
@@ -90,15 +86,15 @@
 				}
 			}
 			return result;
-		}
+		};
 
 		// beispiel für update
 		self.updateMedicine = function(mediData, idx) {
 
 			mediData.notificationtype = self.editOption.name;
 
-			if (mediData.medivalue !== "" && mediData.medivalue != null
-					&& mediData.mediname !== "" && mediData.mediname != null) {
+			if (mediData.medivalue !== "" && mediData.medivalue !== null
+					&& mediData.mediname !== "" && mediData.mediname !== null) {
 				medicine.update(mediData, function(promise) {
 					console.log("update success");
 					console.log(promise);
@@ -116,7 +112,7 @@
 
 		self.medDelete = function(unid, idx) {
 			var r = confirm("Do you really want to delete this entry?");
-			if (r == true) {
+			if (r === true) {
 				medicine.remove({
 					'unid' : unid
 				}, function() {
@@ -138,8 +134,8 @@
 		};
 
 		self.editMedi = function(medi, index) {
-			if (self.editableMedi == -1) {
-				self.editOption = self.editNotification(medi.notificationtype)
+			if (self.editableMedi === -1) {
+				self.editOption = self.editNotification(medi.notificationtype);
 				self.editableMedi = index;
 			} else {
 				// ein anderes medikament wird gerade bearbeitet, nicht
@@ -173,13 +169,14 @@
 				currentMedi = {
 					medivalue : this.mediMg,
 					mediname : this.mediName,
-					notificationday : this.notificationOptionDate,
 					notificationtype : this.defaultOption.name,
-					notificationdate : new Date()
+					notificationdate : new Date(),
+					notificationtime : this.notificationTime
 				};
 				this.mediName = "";
 				this.mediMg = "";
-				this.defaultOption = this.options[10];
+				this.notificationOptionTime = "";
+				this.defaultOption = this.options[9];
 				var _that = this;
 				medicine.save(currentMedi, function(promise) {
 					currentMedi.unid = promise.unid;

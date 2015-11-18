@@ -9,11 +9,11 @@
 		</div>
 	</div>
 	<div class="content">
-
+<form name="userForm">
 		<div class="abstand"></div>
 		<div class="row">
 			<div class="col-xs-7 col-md-1">
-				<select class="form-control" ng-model="UserCtrl.sex">
+				<select class="form-control" ng-model="UserCtrl.sex" id="box" required>
 					<option value="true">Mr.</option>
 					<option value="false">Mrs.</option>
 				</select>
@@ -21,11 +21,11 @@
 
 			<div class="col-xs-12 col-md-3">
 				<input type="text" class="form-control" ng-model="UserCtrl.surname"
-					placeholder="Surname Required" required>
+					placeholder="Surname Required" id="box" required>
 			</div>
 
 			<div class="col-xs-12 col-md-3">
-				<input type="text" class="form-control" ng-model="UserCtrl.name"
+				<input type="text" class="form-control" ng-model="UserCtrl.name" id="box"
 					placeholder="Name Required" required>
 
 			</div>
@@ -36,7 +36,7 @@
 				<span><p>Please enter your Birthdate here:</p></span>
 			</div>
 			<div class="col-xs-12 col-md-2">
-				<input type="date" class="form-control" ng-model="UserCtrl.bday"
+				<input type="date" class="form-control" ng-model="UserCtrl.bday" id="box"
 					placeholder="Birthdate" required>
 			</div>
 		</div>
@@ -48,11 +48,11 @@
 			</div>
 
 			<div class="col-xs-4 col-md-2">
-				<input class="form-control" type="number"
+				<input class="form-control" type="number" id="box"
 					ng-model="UserCtrl.norm.min" min="0" max="6">
 			</div>
 			<div class="col-xs-4 col-md-2">
-				<input class="form-control" type="number"
+				<input class="form-control" type="number" id="box"
 					ng-model="UserCtrl.norm.max" min="0" max="6">
 
 			</div>
@@ -66,8 +66,8 @@
 
 			</div>
 			<div class="col-xs-12 col-md-1">
-				<select class="form-control" name="des" ng-model="notification.des"
-					ng-dropdown required ng-change="ownname()">
+				<select class="form-control" name="des" ng-model="notification.des" id="box"
+					ng-dropdown required ng-change="ownname()" >
 					<option ng-option value="FuName">Full name</option>
 					<option ng-option value="FiName">First name</option>
 					<option ng-option value="OwnName">Own name:</option>
@@ -76,14 +76,29 @@
 
 			<div ng-if="notification.des == 'OwnName'">
 				<div class="col-xs-12 col-md-3">
-					<input class="form-control" type="text" placeholder="Alternative"
-						ng-model="ownName.own">
+					<input class="form-control" type="text" placeholder="Alternative" id="box"
+						ng-model="ownName.own" rerquired>
 				</div>
 			</div>
 		</div>
+    <div class="row">
+    
+ 	<button class="btn btn-default"
+								ng-click="MedCtrl.editMedi(medi, $index)"
+								type="submit">
+								<span class="glyphicon glyphicon-user"></span>
+							</button>
 
+							<button class="btn btn-default" type="submit">
+								
+								<span class="glyphicon glyphicon-ok"></span>
+							</button>
+    </div>
+    
+    
+    
 		<div class="abstand"></div>
-
+    </form>
 
 
 	</div>

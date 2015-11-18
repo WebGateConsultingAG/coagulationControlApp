@@ -13,14 +13,12 @@
 		$scope.labels = [];
 		$scope.data = [];
 
-		
 		$scope.$on('newInr', function(evt, data) {
 			console.log("new inr event!");
 			console.log(data);
 			addValue(data);
-			
-		});
 
+		});
 
 		$scope.update = function() {
 			inr.query({}, function(inrs) {
@@ -42,22 +40,22 @@
 			}
 			allInrs = inrArr;
 			displayInrs = inrArr.slice(0, dataDisplayCap).reverse();
-            
+
 			$scope.labels = displayInrs.map(function(val) {
 				return dateFormatter(new Date(val.measuredate));
 			});
-            
+
 			$scope.data[layer] = displayInrs.map(function(val) {
 				return val.inrvalue;
 			});
 		}
-		
+
 		$scope.update();
 		$scope.series = [ 'INR value' ];
-        
-        //TODO: Delete function if unused!
+
+		// TODO: Delete function if unused!
 		$scope.onClick = function(points, evt) {
-			
+
 			console.log(points, evt);
 		};
 
