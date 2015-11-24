@@ -19,6 +19,52 @@ public class UserEntry extends PojoBaseImpl {
 	private String lastname;
 	@JsonEntity(jsonProperty = "welcomemsg")
 	private int welcomemsg;
+	@JsonEntity(jsonProperty = "zip")
+	private int zip;
+	
+	@JsonEntity(jsonProperty = "city")
+	private String city;
+	
+	@JsonEntity(jsonProperty = "country")
+	private String country;
+	
+	@JsonEntity(jsonProperty = "address")
+	private String address;
+	
+	
+	
+
+	public int getZip() {
+		return zip;
+	}
+
+	public void setZip(int zip) {
+		this.zip = zip;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
 	public boolean isGender() {
 		return gender;

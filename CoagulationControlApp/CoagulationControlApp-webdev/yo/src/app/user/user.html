@@ -38,26 +38,27 @@
 			<div class="col-xs-12 col-md-2">
 				<input type="date" class="form-control" ng-model="UserCtrl.bday" id="box"
 					placeholder="Birthdate" required>
-			</div>
+			</div>	
 		</div>
-		<div class="abstand"></div>
+    <div class="abstand"></div>
 		<div class="row">
-			<div class="col-xs-12 col-md-3 ">
-				<span><p>Bitte geben Sie Die Bereiche von INR die Sie
-						für Norme halten:</p></span>
-			</div>
-
-			<div class="col-xs-4 col-md-2">
-				<input class="form-control" type="number" id="box"
-					ng-model="UserCtrl.norm.min" min="0" max="6">
-			</div>
-			<div class="col-xs-4 col-md-2">
-				<input class="form-control" type="number" id="box"
-					ng-model="UserCtrl.norm.max" min="0" max="6">
-
-			</div>
-		</div>
-
+            <div class="col-xs-4 col-md-2">
+            <input class="form-control" type="number" id="box"
+					ng-model="UserCtrl.zip" min="0" >
+            </div>
+                <div class="col-xs-4 col-md-2">
+            <input class="form-control" type="text" id="box"
+					ng-model="UserCtrl.country">
+                </div>
+                    <div class="col-xs-4 col-md-2">
+            <input class="form-control" type="text" id="box"
+					ng-model="UserCtrl.city">
+                    </div>
+                        <div class="col-xs-4 col-md-2">
+            <input class="form-control" type="text" id="box"
+					ng-model="UserCtrl.address" >
+                        </div>
+    </div>
 		<div class="abstand"></div>
 
 		<div class="row">
@@ -89,9 +90,8 @@
 								<span class="glyphicon glyphicon-user"></span>
 							</button>
 
-							<button class="btn btn-default" type="submit">
-								
-								<span class="glyphicon glyphicon-ok"></span>
+							<button class="btn btn-default" type="submit" ng-click="UserCtrl.saveUser()">
+								    <span class="glyphicon glyphicon-ok"></span>
 							</button>
     </div>
     

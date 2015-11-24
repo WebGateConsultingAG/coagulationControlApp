@@ -1,0 +1,76 @@
+<div navi-bar></div>
+<div class="container-fluid" id="indx">
+	<div class="row">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-10">
+			<h1>Shop</h1>
+			<p>Here you can buy stuff</p>
+		</div>
+	</div>
+	<div class="content">
+
+	<div class="row">
+		<form name="shopForm">	
+                    
+				<div class="col-xs-12 col-md-2">
+					<select class="form-control" ng-model="ShopCtrl.editOrder"
+							ng-options="o.value for o in ShopCtrl.orders" ng-required="true">
+						</select> 
+                </div>
+
+              <div class="col-xs-12 col-md-1">
+
+					<input type="number" class="form-control" id="box" placeholder="Quantity"
+						 ng-required="true" min="0" step="1" ng-model="ShopCtrl.orderQuantity">
+				</div>
+
+				<div class="col-xs-12 col-md-2"	>
+                    <div class="input-group">
+					<input type="number" class="form-control" id="box" ng-disabled="true">
+                        <div class="input-group-addon">CHF</div>
+						</div>
+				</div>
+            <div class="col-xs-12 col-md-2">
+            <button class="btn btn-default" type="submit" ng-click='ShopCtrl.newOrder()'>
+								<span class="glyphicon glyphicon-send"></span>
+							</button>
+</div>
+            </form>
+</div>
+	
+        
+        	<div ng-repeat="order in ShopCtrl.orderList">
+			<form name="formSave">
+				<div class="row">
+                    <div class="col-xs-12 col-md-3">
+						<input type="text" class="form-control" id="box"
+							ng-model="order.order"
+							ng-disabled="!MedCtrl.isEditableMedi($index)" required>
+					</div>
+                    
+
+					<div class="col-xs-12 col-md-2">
+						<div class="input-group">
+							<input type="number" class="form-control" id="box" placeholder=""
+								ng-model="order.quantity"
+								ng-disabled="!MedCtrl.isEditableMedi($index)" required>
+							<div class="input-group-addon">Mg</div>
+						</div>
+					</div>
+					
+									<div class="col-xs-7 col-md-2"
+						ng-show="MedCtrl.isEditableMedi($index)">
+						<select type="date" class="form-control" id="box"
+							ng-model="order.orderDate">
+						</select>
+					</div>
+        
+        
+        
+        
+		</div>
+		</div>
+
+
+</div>
+</div>

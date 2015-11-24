@@ -24,11 +24,12 @@ import com.darwino.jsonstore.meta._Store;
  */
 public class AppDatabaseDef extends DatabaseFactoryImpl {
 
-	public static final int DATABASE_VERSION = 4;
+	public static final int DATABASE_VERSION = 7;
 	public static final String DATABASE_NAME = "coag";
 	public static final String INR_STORE = "InrStore";
 	public static final String MEDI_STORE = "MediStore";
 	public static final String USER_STORE = "UserStore";
+	public static final String SHOP_STORE = "ShopStore";
 
 	@Override
 	public int getDatabaseVersion(String databaseName) throws JsonException {
@@ -52,6 +53,8 @@ public class AppDatabaseDef extends DatabaseFactoryImpl {
 		store1.setLabel("MEDI Store");
 		_Store store2 = db.addStore(USER_STORE);
 		store2.setLabel("USER Store");
+		_Store store3 = db.addStore(SHOP_STORE);
+		store3.setLabel("SHOP Store");
 		// store.setFtSearchEnabled(true);
 
 		// // Search the whole document (all fields)

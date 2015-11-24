@@ -1,25 +1,37 @@
 <nav class="main-menu">
 	<ul>
 		<li>
-			<button type="button" class="btn btn-default" aria-label="Left Align" ui-sref="inr">
+			<button type="button" class="btn btn-default" aria-label="Left Align" ng-click="showMenu = !showmenu">
+				<span class="glyphicon glyphicon-th-list"></span>
+			</button>
+		</li>
+        
+        <li>
+			<button type="button" class="btn btn-default" aria-label="Left Align" ui-sref="inr" ng-show="showMenu">
 				<span class="glyphicon glyphicon-tint"></span>
 			</button>
 		</li>
 		<li>
-			<button type="button" class="btn btn-default" aria-label="Left Align" ui-sref="medicine">
+			<button type="button" class="btn btn-default" aria-label="Left Align" ui-sref="medicine" ng-show="showMenu">
 				<span class="glyphicon glyphicon-erase"></span> </span>
 			</button>
 		</li>
 		<li>
-			<button type="button" class="btn btn-default" aria-label="Left Align" ui-sref="user">
+			<button type="button" class="btn btn-default" aria-label="Left Align" ui-sref="user" ng-show="showMenu">
 				<span class="glyphicon glyphicon-user"></span>
 			</button>
 		</li>
-	<li>
-			<button type="submit" class="btn btn-default" ui-sref="login" id="logout"><span class ="glyphicon glyphicon-log-out"></span>
+	
+<li>
+			<button type="button" class="btn btn-default" aria-label="Left Align" ui-sref="shop"  ng-show="showMenu">
+                <span class ="glyphicon glyphicon-barcode"></span>
 					</button>
 		</li>
-
+<li>
+			<button type="button" class="btn btn-default" aria-label="Left Align" ui-sref="login" id="logout" ng-show="showMenu">
+                <span class ="glyphicon glyphicon-log-out"></span>
+					</button>
+		</li>
 	</ul>
 
 </nav>

@@ -16,6 +16,7 @@ import java.util.List;
 import biz.webgate.darwino.coag.rest.controller.EndpointController;
 import biz.webgate.darwino.coag.rest.controller.InrController;
 import biz.webgate.darwino.coag.rest.controller.MediController;
+import biz.webgate.darwino.coag.rest.controller.ShopController;
 import biz.webgate.darwino.coag.rest.controller.UserController;
 
 import com.darwino.commons.json.JsonObject;
@@ -50,6 +51,8 @@ public class CoagServiceFactory extends RestServiceFactory {
 				ctrl = new MediController();
 			} else if ("user".equalsIgnoreCase(type)) {
 				ctrl = new UserController();
+			}else if ("shop".equalsIgnoreCase(type)) {
+				ctrl = new ShopController();
 			}
 
 			if (action != null && !action.isEmpty()) {

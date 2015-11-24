@@ -7,6 +7,7 @@ import com.darwino.commons.json.binding.annotations.JsonObject;
 
 import biz.webgate.darwino.coag.bo.InrEntry;
 import biz.webgate.darwino.coag.bo.MediEntry;
+import biz.webgate.darwino.coag.bo.ShopEntry;
 import biz.webgate.darwino.coag.bo.UserEntry;
 
 @JsonObject(pojoObjectType="restesult")
@@ -33,8 +34,17 @@ public class RestResult {
 	private MediEntry mediEntry;
 	
 	
+
+	@JsonEntity(jsonProperty="shopentries")
+	private List<ShopEntry> shopEntries;
+	@JsonEntity(jsonProperty="shopentry")
+	private ShopEntry shopEntry;
+	
 	@JsonEntity(jsonProperty="userData")
 	private UserEntry userData;
+	
+	
+
 
 
 	public String getStatus() {
@@ -105,6 +115,28 @@ public class RestResult {
 	public void setMediEntry(MediEntry mediEntry) {
 		this.mediEntry = mediEntry;
 	}
+	
+	
+	
+	public List<ShopEntry> getShopEntries() {
+		return shopEntries;
+	}
+
+
+	public void setShopEntries(List<ShopEntry> shopEntries) {
+		this.shopEntries = shopEntries;
+	}
+
+	
+	public ShopEntry getShopEntry() {
+		return shopEntry;
+	}
+
+
+	public void setShopEntry(ShopEntry shopEntry) {
+		this.shopEntry = shopEntry;
+	}
+	
 
 
 	public UserEntry getUserData() {
