@@ -19,8 +19,10 @@ public class ShopEntry extends PojoBaseImpl {
 	private int price;
 	@JsonEntity(jsonProperty = "address")
 	private String address;
+
 	
 	
+
 	public String getAddress() {
 		return address;
 	}

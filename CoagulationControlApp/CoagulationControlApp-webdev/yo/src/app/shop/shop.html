@@ -24,7 +24,7 @@
 						 ng-required="true" min="0" step="1" ng-model="ShopCtrl.orderQuantity">
 				</div>
 
-				<div class="col-xs-12 col-md-2"	>
+				<div class="col-xs-12 col-md-1"	>
                     <div class="input-group">
 					<input type="number" class="form-control" id="box" ng-disabled="true">
                         <div class="input-group-addon">CHF</div>
@@ -32,32 +32,107 @@
 				</div>
             <div class="col-xs-12 col-md-2">
             <button class="btn btn-default" type="submit" ng-click='ShopCtrl.newOrder()'>
-								<span class="glyphicon glyphicon-send"></span>
+								<span class="glyphicon glyphicon-plus"></span>
 							</button>
 </div>
             </form>
 </div>
 	
+
         
+         <div class="col-xs-12 col-md-3" > 
+             <div class="row">
+      		 <form class="form-horizontal">
+            <fieldset>
+                <!-- Address form -->
+         
+                <h2>Address</h2>
+         
+                <!-- address-line1 input-->
+                <div class="control-group">
+                    <label class="control-label">Address</label>
+                    <div class="controls">
+                        <input class="form-control" name="address-line1" type="text" ng-model="UserCtrl.address">
+                        <p class="help-block">Street address</p>
+                    </div>
+                </div>
+                
+                <!-- city input-->
+                <div class="control-group">
+                    <label class="control-label">City / Town</label>
+                    <div class="controls">
+                        <input class="form-control" name="city" type="text" ng-model="UserCtrl.city">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+         
+                <!-- postal-code input-->
+                <div class="control-group">
+                    <label class="control-label">Zip / Postal Code</label>
+                    <div class="controls">
+                        <input class="form-control" name="postal-code" type="text" ng-model="UserCtrl.zip" min="0">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+                <!-- country select -->
+                <div class="control-group">
+                    <label class="control-label">Country</label>
+                    <div class="controls">
+                        <select class="form-control" name="country" >
+                            <option value="" selected="selected">(please select a country)</option>
+                            <option value="AF">Afghanistan</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+              <div class="col-xs-5 col-md-3">
+           				    <button class="btn btn-default" type="submit" ng-click=''>
+								SAVE
+							</button>
+						</div>
+              <div class="col-xs-5 col-md-3">
+           				    <button class="btn btn-default" type="submit" ng-click=''>
+								EDIT
+							</button>
+						</div>
+        </form>
+	</div>
+	</div>
+        
+        
+        <div class="abstand"></div>
+        <div>
+            
         	<div ng-repeat="order in ShopCtrl.orderList">
 			<form name="formSave">
 				<div class="row">
                     <div class="col-xs-12 col-md-3">
 						<input type="text" class="form-control" id="box"
-							ng-model="order.order"
-							ng-disabled="!MedCtrl.isEditableMedi($index)" required>
+							ng-model="order.name"
+							required>
 					</div>
                     
 
 					<div class="col-xs-12 col-md-2">
-						<div class="input-group">
-							<input type="number" class="form-control" id="box" placeholder=""
+                        <input type="number" class="form-control" id="box" placeholder=""
 								ng-model="order.quantity"
-								ng-disabled="!MedCtrl.isEditableMedi($index)" required>
-							<div class="input-group-addon">Mg</div>
-						</div>
+								 required>
+							</div>
 					</div>
-					
+                <div class="abstand"></div>
+					</div>
+                <div class="col-xs-12 col-md-2">
+                    <p>Das gesamt price ist:</p>
+                </div>
+                <div class="col-xs-12 col-md-2">
+           				    <button class="btn btn-default" type="submit" ng-click=''>
+								BUY IT!
+							</button>
+						</div>
+           
+</div>
+           					
+           					
 									<div class="col-xs-7 col-md-2"
 						ng-show="MedCtrl.isEditableMedi($index)">
 						<select type="date" class="form-control" id="box"
@@ -70,7 +145,3 @@
         
 		</div>
 		</div>
-
-
-</div>
-</div>

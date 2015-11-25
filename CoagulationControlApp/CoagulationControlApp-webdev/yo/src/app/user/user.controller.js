@@ -83,6 +83,15 @@
       this.ownname = function() {
       };
       
+    	self.getAddress = function() {
+			user.get({
+				zip: 5727
+			}, function(addressResult) {
+				console.dir(addressResult);
+			});
+
+		};
+      self.getAddress();
        
     }
 })();

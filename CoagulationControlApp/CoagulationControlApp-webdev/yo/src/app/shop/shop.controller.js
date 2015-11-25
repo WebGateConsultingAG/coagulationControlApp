@@ -9,9 +9,11 @@
   function ShopController(shop){
       
 var self = this;
-		self.orderList =[];
+      self.orderList =[];           //Besteht aus mehrere Listen
+      self.orderListFE =[];         //Temporäre Liste wird nach dem absenden geleert
       self.orderQuantity = 0;
-		self.price ="";
+      self.price ="";
+      self.orderNr ="";
      
 self.orders = [ {
 			name : '1st',
@@ -28,32 +30,16 @@ self.orders = [ {
 		}, {
 		name : '4th',
 			value : "Order nr. 4",
-            price : "5"
+            price : "5",
+            
 		} ];
 		self.defaultOrder = self.orders[0];
       self.editOrder = self.orders[0];
-      
-      
-      self.resolvePrice = function(name) {
-			var result;
 
-			for (var idx = 0; idx < self.orders.length; idx++) {
-				var val = self.orders[idx];
-				if (val.name === name) {
-					result = val.price;
-					break;
-				}
-			}
-			/*
-			 * dasselbe wie for-loop aber nicht unterbrechbar
-			 * 
-			 * self.options.forEach(function(val){ if(val.name === name){ result =
-			 * val.value; } });
-			 */
-			return result;
-		};
+      
 
 		self.newOrder = function() {
+			           
              var myOrder = null;
          				myOrder = {
 					quantity : this.orderQuantity,
@@ -66,14 +52,15 @@ self.orders = [ {
 				shop.save(myOrder, function(promise) {
                     shop.unid = promise.unid;
                    _that.orderList.push(myOrder);
+                    _that.orderListFE.push(myOrder);                    
 					console.log(promise);
-				}, function() {
+        				}, function() {
 					console.log("EROR");
 				});
 			};
       
       
-      self.getMany = function() {
+      self.getOrder = function() {
 			shop.query({}, function(allOrders) {
 				console.dir(allOrders);
 				if (allOrders.shopentries !== void 0) {
@@ -85,6 +72,10 @@ self.orders = [ {
 
 		};
       
-      self.getMany();
+      self.getOrder();
+       
+     
+      
+      
 	 }
 })();
