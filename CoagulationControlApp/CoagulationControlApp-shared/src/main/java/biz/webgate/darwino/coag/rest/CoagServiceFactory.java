@@ -16,10 +16,12 @@ import java.util.List;
 import biz.webgate.darwino.coag.rest.controller.EndpointController;
 import biz.webgate.darwino.coag.rest.controller.InrController;
 import biz.webgate.darwino.coag.rest.controller.MediController;
-import biz.webgate.darwino.coag.rest.controller.ShopController;
+import biz.webgate.darwino.coag.rest.controller.ItemController;
 import biz.webgate.darwino.coag.rest.controller.UserController;
+import biz.webgate.darwino.coag.rest.controller.OrderController;
 
-import com.darwino.commons.json.JsonObject;
+
+
 import com.darwino.commons.json.binding.PojoBaseImpl;
 import com.darwino.commons.services.HttpService;
 import com.darwino.commons.services.HttpServiceContext;
@@ -51,9 +53,11 @@ public class CoagServiceFactory extends RestServiceFactory {
 				ctrl = new MediController();
 			} else if ("user".equalsIgnoreCase(type)) {
 				ctrl = new UserController();
-			}else if ("shop".equalsIgnoreCase(type)) {
-				ctrl = new ShopController();
-			}
+			}else if ("Item".equalsIgnoreCase(type)) {
+				ctrl = new ItemController();
+			}else if ("Order".equalsIgnoreCase(type)) {
+			ctrl = new OrderController();
+		}
 
 			if (action != null && !action.isEmpty()) {
 				if (action.equals("delete")) {

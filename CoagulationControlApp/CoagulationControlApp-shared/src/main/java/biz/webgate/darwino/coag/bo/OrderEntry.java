@@ -5,8 +5,8 @@ import java.util.Date;
 import com.darwino.commons.json.binding.PojoBaseImpl;
 import com.darwino.commons.json.binding.annotations.JsonEntity;
 import com.darwino.commons.json.binding.annotations.JsonObject;
-@JsonObject(pojoObjectType = "biz.webgate.darwino.coag.bo.ShopEntry")
-public class ShopEntry extends PojoBaseImpl {
+@JsonObject(pojoObjectType = "biz.webgate.darwino.coag.bo.OrderEntry")
+public class OrderEntry extends PojoBaseImpl {
 	@JsonEntity(jsonProperty = "order")
 	private String order;
 	@JsonEntity(jsonProperty = "orderDate")
@@ -15,13 +15,12 @@ public class ShopEntry extends PojoBaseImpl {
 	private String userid;
 	@JsonEntity(jsonProperty = "quantity")
 	private int quantity;
-	@JsonEntity(jsonProperty = "price")
-	private int price;
+	@JsonEntity(jsonProperty = "priceAll")
+	private int priceall;
 	@JsonEntity(jsonProperty = "address")
 	private String address;
-
-	
-	
+	@JsonEntity(jsonProperty = "status")
+	private Boolean status;
 
 	public String getAddress() {
 		return address;
@@ -53,11 +52,23 @@ public class ShopEntry extends PojoBaseImpl {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public int getPrice() {
-		return price;
+	public int getpriceAll() {
+		return priceall;
 	}
-	public void setPrice(int price) {
-		this.price = price;
+	public void setPrice(int priceall) {
+		this.priceall = priceall;
+	}
+	public int getPriceall() {
+		return priceall;
+	}
+	public void setPriceall(int priceall) {
+		this.priceall = priceall;
+	}
+	public Boolean getStatus() {
+		return status;
+	}
+	public void setStatus(Boolean status) {
+		this.status = status;
 	}
 	
 }

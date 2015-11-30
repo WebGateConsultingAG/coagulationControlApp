@@ -1,16 +1,15 @@
 (function() {
-	'use strict';
+	  'use strict';
 
-	angular
-    .module('coagulationControlAppWebdev')
-    .factory('medicine',
-			MedFactory);
+	  angular
+	      .module('coagulationControlAppWebdev')
+	      .factory('order', OrderFactory);
 
-	/** @ngInject */
-	function MedFactory($resource) {
+	  /** @ngInject */
+	 	function OrderFactory($resource) {
 
 		var defaultValues = {
-			type : "medi",
+			type : "order",
 		};
 
 		var removeProperties = {
@@ -40,4 +39,10 @@
 		return $resource('/coag/api/coag', defaultValues, methods);
 	}
 
-})();
+	})();
+
+
+
+
+
+

@@ -3,13 +3,13 @@
 
 	  angular
 	      .module('coagulationControlAppWebdev')
-	      .factory('shop', ShopFactory);
+	      .factory('item', ItemFactory);
 
 	  /** @ngInject */
-	 	function ShopFactory($resource) {
+	 	function ItemFactory($resource) {
 
 		var defaultValues = {
-			type : "shop",
+			type : "item",
 		};
 
 		var removeProperties = {

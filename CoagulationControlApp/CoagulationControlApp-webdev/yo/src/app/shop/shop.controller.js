@@ -6,53 +6,49 @@
     .controller('ShopController', ShopController);
 
   /** @ngInject */
-  function ShopController(shop){
+  function ShopController(item){
       
 var self = this;
-      self.orderList =[];           //Besteht aus mehrere Listen
-      self.orderListFE =[];         //Temporäre Liste wird nach dem absenden geleert
-      self.orderQuantity = 0;
-      self.price ="";
+      self.itemList =[];           
+      self.itemQuantity = 0;
+      self.itemPrice ="";
       self.orderNr ="";
      
-self.orders = [ {
+self.items = [ {
 			name : '1st',
-			value : "Order nr. 1",
-            price : "20"
-		}, {
+			value : "Item nr. 1"
+  		}, {
 			name : '2nd',
-			value : "Order nr. 2",
-            price : "25"
+			value : "Item nr. 2"
 		}, {
 		name : '3rd',
-			value : "Order nr. 3",
-            price : "120"
+			value : "Item nr. 3"
 		}, {
 		name : '4th',
-			value : "Order nr. 4",
-            price : "5",
+			value : "Item nr. 4"
             
 		} ];
-		self.defaultOrder = self.orders[0];
-      self.editOrder = self.orders[0];
+		self.defaultItem = self.items[0];
+      self.editItem = self.items[0];
 
       
 
-		self.newOrder = function() {
-			           
-             var myOrder = null;
-         				myOrder = {
-					quantity : this.orderQuantity,
-					order : this.defaultOrder.name,
-					orderDate : new Date(),
+		self.newItem = function() {
+			           console.log("Hehey, function geht!");
+             var myItem = null;
+         				myItem = {
+					quantity : this.itemQuantity,
+					item : this.editItem.name,
+					itemDate : new Date(),
 					};
-				self.orderQuantity = 0;
-             self.editOrder = self.orders[0];
+				self.itemQuantity = 0;
+             self.editItem = self.items[0];
              var _that = this;
-				shop.save(myOrder, function(promise) {
-                    shop.unid = promise.unid;
-                   _that.orderList.push(myOrder);
-                    _that.orderListFE.push(myOrder);                    
+             console.log("Hehey, fast beim save!");
+				item.save(myItem, function(promise) {
+                   console.log("Hehey, BIN IN SAVE BOOOAH"); 
+                   myItem.unid = promise.unid;
+                   _that.itemList.push(myItem);
 					console.log(promise);
         				}, function() {
 					console.log("EROR");
@@ -60,19 +56,41 @@ self.orders = [ {
 			};
       
       
-      self.getOrder = function() {
-			shop.query({}, function(allOrders) {
-				console.dir(allOrders);
-				if (allOrders.shopentries !== void 0) {
-					self.orderList = allOrders.shopentries;
+      self.getItem = function() {
+          console.log("Hehey, Hole alles ab");
+			item.query({}, function(allitems) {
+				console.dir(allitems);
+				if (allitems.itementries !== void 0) {
+					self.itemList = allitems.itementries;
 				}
 			}, function(err) {
 				console.log(err);
 			});
 
 		};
+      self.getItem();
       
-      self.getOrder();
+      self.deleteItem = function(){
+      var r = confirm("Do you really want to remove this item?");
+			if (r === true) {
+				item.remove({
+                    'unid' : unid
+				}, function() {
+					// löschen erfolgreich, aus anzeige löschen
+					self.itemList.splice(idx, 1);
+				}, function(error) {
+					// error handler 1
+					console.dir(error);
+				}, function(error) {
+					// error handler 2
+					console.dir(error);
+				}
+
+				);
+			} else {
+
+			}
+		};
        
      
       
