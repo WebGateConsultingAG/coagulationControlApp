@@ -1,7 +1,6 @@
 package biz.webgate.darwino.coag.bo;
 
 import java.util.Date;
-
 import com.darwino.commons.json.binding.PojoBaseImpl;
 import com.darwino.commons.json.binding.annotations.JsonEntity;
 import com.darwino.commons.json.binding.annotations.JsonObject;
@@ -11,6 +10,8 @@ public class OrderEntry extends PojoBaseImpl {
 	private String order;
 	@JsonEntity(jsonProperty = "orderDate")
 	private Date orderdate;
+	@JsonEntity(jsonProperty = "creationDate")
+	private Date creationdate;
 	@JsonEntity(jsonProperty = "userId")
 	private String userid;
 	@JsonEntity(jsonProperty = "quantity")
@@ -21,6 +22,16 @@ public class OrderEntry extends PojoBaseImpl {
 	private String address;
 	@JsonEntity(jsonProperty = "status")
 	private Boolean status;
+	
+	
+
+
+	public Date getCreationdate() {
+		return creationdate;
+	}
+	public void setCreationdate(Date creationdate) {
+		this.creationdate = creationdate;
+	}
 
 	public String getAddress() {
 		return address;

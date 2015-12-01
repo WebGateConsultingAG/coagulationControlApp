@@ -31,6 +31,9 @@ public abstract class EndpointController<T> {
 
 		JsonPojoDeserializer jsonPojoDeserializer = new JsonPojoDeserializer( new PojoJsonIntrospectorAnotationImpl());
 
+		
+		jsonObject.get("creationdate");
+		
 		jsonPojoDeserializer.processJson2Object(jsonObject, targetObject, JsonEntityScope.WEB);
 
 		return targetObject;
