@@ -9,7 +9,8 @@
   function ShopController(item, order){
       
 var self = this;
-      self.itemList =[];           
+      self.itemList =[];  
+      self.orderList =[];  
       self.itemQuantity = 0;
       self.itemPrice ="";
       self.orderPrice ="";
@@ -36,6 +37,9 @@ self.items = [ {
 		self.defaultItem = self.items[0];
       self.editItem = self.items[0];
 
+      
+              
+   
 
 		self.newItem = function() {
              var myItem = null;
@@ -59,8 +63,7 @@ self.items = [ {
       
      
       self.getItem = function() {
-      
-               item.query({}, function(allitems, order) {
+               item.query({}, function(allitems) {
 				console.dir(allitems);
 				if (allitems.itementries !== void 0) {
 					self.itemList = allitems.itementries;
@@ -70,7 +73,26 @@ self.items = [ {
 			});
 
 		};
+      
+      
+      
+         self.getOrders = function() {
+               item.query({}, function(allorders) {
+				console.dir(allorders);
+				if (allorders.orderentries !== void 0) {
+					self.orderList = allorders.orderentries;
+				}
+			}, function(err) {
+				console.log(err);
+			});
+
+		};
+      
+      
+      
+        self.getOrders();
       self.getItem();
+      
       
       self.deleteItem = function(unid, idx){
       var r = confirm("Do you really want to remove this item?");
@@ -94,7 +116,6 @@ self.items = [ {
 		};
       
       self.newOrder = function(){
-     
               console.dir("Order abschicken?");
               self.myOrder = {
                     order: "One shot kill",
@@ -130,7 +151,15 @@ self.items = [ {
                    alert("Thank you!"); 
                    console.log(self.myOrder);
       };
-       self.newOrder();
+      
+      	self.getOne = function() {
+			order.get({
+				status : 'In prozess'
+			}, function(orderResult) {
+				console.dir(orderResult);
+			});
+
+		};
       
           
 	 }
