@@ -14,7 +14,6 @@ var self = this;
       self.itemPrice ="";
       self.orderPrice ="";
       self.orderNr ="";
-      self.ordered = false;
       self.inEdit = false;
       self.myOrder = null;
       self.userId = "1";
@@ -58,22 +57,18 @@ self.items = [ {
 				});
 			};
       
-      
+     
       self.getItem = function() {
-          if(order.get({
-				status : "false"
-			})){
-  			item.query({}, function(allitems, order) {
+      
+               item.query({}, function(allitems, order) {
 				console.dir(allitems);
 				if (allitems.itementries !== void 0) {
 					self.itemList = allitems.itementries;
 				}
 			}, function(err) {
 				console.log(err);
-			})
-}else{
-    
-}
+			});
+
 		};
       self.getItem();
       
@@ -99,17 +94,17 @@ self.items = [ {
 		};
       
       self.newOrder = function(){
-          if(self.ordered === false){
-              console.dir("Order abschicken?")
+     
+              console.dir("Order abschicken?");
               self.myOrder = {
-                    order: "hallo",
-					orderDate: new Date(),
+                    order: "One shot kill",
 					creationDate: new Date(),
                     userid: this.userId,
                     quantity: this.itemList.length,
-                    priceall: this.orderPrice,
-                    address: "muster",
-                    status : this.ordered
+                    address: "123 sunrise Street",
+                    status : "In prozess",
+                    orderDate: new Date() ,
+                    priceall: this.orderPrice, 
 					};
               
 				order.save(self.myOrder, function(promise) {
@@ -118,28 +113,24 @@ self.items = [ {
         				}, function() {
 					console.log("EROR");
 				});
-          }else{
               self.ordered = false;
-
-      }
           console.dir(self.myOrder);		
       };
-
-self.newOrder();
       
       
-      self.buyOrder = function(orderData){
-          self.ordered = true;
-          order.update(orderData, function(promise){        
-          }, function(error) {
+      self.buyOrder = function(){
+          self.myOrder.status = "Done";
+                   order.update(self.myOrder, function(promise){  
+                }, function(error) {
 					console.log(error);
 				}, function() {
 					console.log("error");
 				});
                  self.itemList =[];            
-                   alert("Thank you!")             
+                   alert("Thank you!"); 
+                   console.log(self.myOrder);
       };
-      
+       self.newOrder();
       
           
 	 }
