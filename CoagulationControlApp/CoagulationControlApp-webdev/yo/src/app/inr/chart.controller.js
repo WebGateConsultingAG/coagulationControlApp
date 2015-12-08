@@ -39,8 +39,9 @@
 				layer = 0;
 			}
 			allInrs = inrArr;
-			displayInrs = inrArr.slice(0, dataDisplayCap).reverse();
 
+			displayInrs = inrArr.slice(0, dataDisplayCap).reverse();
+			
 			$scope.labels = displayInrs.map(function(val) {
 				return dateFormatter(new Date(val.measuredate));
 			});

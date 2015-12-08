@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import biz.webgate.darwino.coag.app.AppManifest;
-import biz.webgate.darwino.coag.bo.InrEntry;
 import biz.webgate.darwino.coag.bo.OrderEntry;
 import biz.webgate.darwino.coag.dao.OrderStorageService;
 import biz.webgate.darwino.coag.rest.RestResult;
@@ -139,12 +138,11 @@ public class OrderController extends EndpointController<OrderEntry> {
 
 	}
 	
-	
-	
+
 	
 	public void getOpenOrder(HttpServiceContext context, String unid) {
 		try {
-
+			
 			OrderEntry entry = new OrderEntry();
 			RestResult result = new RestResult();
 

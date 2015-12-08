@@ -63,14 +63,18 @@ self.items = [ {
       
      
       self.getItem = function() {
-               item.query({}, function(allitems) {
-				console.dir(allitems);
-				if (allitems.itementries !== void 0) {
-					self.itemList = allitems.itementries;
-				}
-			}, function(err) {
-				console.log(err);
-			});
+            if ( self.myOrder != null){
+                item.query({orderId: self.myOrder.unid}, function(allitems) {
+                    console.dir(allitems);
+                    if (allitems.itementries !== void 0) {
+                        self.itemList = allitems.itementries;
+                    }
+                }, function(err) {
+                    console.log(err);
+                });
+                } else {
+                    console.log("no order to retrieve items");
+                }
 
 		};
       
@@ -78,21 +82,23 @@ self.items = [ {
       
          self.getOrders = function() {
                item.query({}, function(allorders) {
-				console.dir(allorders);
+                   if(item.status == "In prozess"){
 				if (allorders.orderentries !== void 0) {
 					self.orderList = allorders.orderentries;
 				}
+            }
+console.dir(allorders);
 			}, function(err) {
 				console.log(err);
 			});
+            
 
 		};
+  
       
+      self.getOrders();  
       
-      
-        self.getOrders();
       self.getItem();
-      
       
       self.deleteItem = function(unid, idx){
       var r = confirm("Do you really want to remove this item?");
@@ -118,7 +124,7 @@ self.items = [ {
       self.newOrder = function(){
               console.dir("Order abschicken?");
               self.myOrder = {
-                    order: "One shot kill",
+                    order: "One more order",
 					creationDate: new Date(),
                     userid: this.userId,
                     quantity: this.itemList.length,
@@ -138,9 +144,9 @@ self.items = [ {
           console.dir(self.myOrder);		
       };
       
-      
+
       self.buyOrder = function(){
-          self.myOrder.status = "Done";
+                self.myOrder.status = "Done";
                    order.update(self.myOrder, function(promise){  
                 }, function(error) {
 					console.log(error);
@@ -150,17 +156,21 @@ self.items = [ {
                  self.itemList =[];            
                    alert("Thank you!"); 
                    console.log(self.myOrder);
+            self.myOrder = null;
       };
       
-      	self.getOne = function() {
-			order.get({
-				status : 'In prozess'
-			}, function(orderResult) {
-				console.dir(orderResult);
-			});
+
+            self.getCurrent = function(){
+                order.get({
+			}, function(CurrentResult) {
+				console.dir(CurrentResult);
+			}, function(error){
+                    
+                });
 
 		};
-      
+                    
+             self.getCurrent();
           
 	 }
 })();
