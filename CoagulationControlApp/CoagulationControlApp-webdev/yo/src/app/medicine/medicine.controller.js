@@ -93,8 +93,7 @@
 
 			mediData.notificationtype = self.editOption.name;
 
-			if (mediData.medivalue !== "" && mediData.medivalue !== null
-					&& mediData.mediname !== "" && mediData.mediname !== null) {
+			if (mediData.medivalue !== "" && mediData.medivalue !== null&& mediData.mediname !== "" && mediData.mediname !== null) {
 				medicine.update(mediData, function(promise) {
 					console.log("update success");
 					console.log(promise);

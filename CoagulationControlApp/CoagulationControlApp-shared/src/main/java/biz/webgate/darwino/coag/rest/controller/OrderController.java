@@ -56,8 +56,8 @@ public class OrderController extends EndpointController<OrderEntry> {
 
 				OrderList = service.selectObject(AppManifest.getDatabase(), query, null, 200);
 
-				result.setStatus("ok");
 				result.setOrderEntries(OrderList);
+				result.setStatus("ok");
 
 			} catch (JsonException jex) {
 				jex.printStackTrace();

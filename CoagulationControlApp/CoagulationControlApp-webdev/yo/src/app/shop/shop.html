@@ -50,7 +50,7 @@
             
 				<div class="col-xs-12 col-md-4">
 			
-                    <select class="form-control" ng-model="ShopCtrl.editItem"
+                    <select class="form-control" ng-model="ShopCtrl.orderList"
 							ng-options="o.value for o in ShopCtrl.items" ng-required="true">
 						</select> 
                 </div>
@@ -130,22 +130,35 @@
 							</button>
 						</div>
                     
-                    <div class="col-xs-12 col-md-4">
-           				    <button class="btn btn-default" type="submit">
-								Get order
-							</button>
-
-						</div>
+                
 						</div>
              </div>
         
         
-<div class="row">
 
-           	<h2> My last Orders</h2>		
-        
-		</div>
+           	<h3> My last Orders</h3>
+<div class="row" ng-repeat="order in ShopCtrl.orderList">
+            
+                       <div class="row">
 
+          
+            <div class="col-xs-12 col-md-4">
+              <button class="btn btn-default" type="submit" ng-click="ShopCtrl.showItems()">
+								Show items
+							</button>
+        </div>
+     <div class="col-xs-12 col-md-4" >
+         Order Date </br>
+            <input type="text" ng-disabled="true" ng-model="order.orderDate">
+        </div>
+            
+             <div class="col-xs-12 col-md-4">
+                 Order quantity </br>
+                 <input type="number" ng-disabled="true" ng-model="order.quantity">
+        </div>
+            
+                   </div>
+     </div>
     
     
     

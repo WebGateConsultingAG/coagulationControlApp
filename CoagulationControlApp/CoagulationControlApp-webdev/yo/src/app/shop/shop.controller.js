@@ -17,7 +17,8 @@ var self = this;
       self.orderNr ="";
       self.inEdit = false;
       self.myOrder = null;
-      self.userId = "1";
+      self.Ordered = null;
+      self.userId = 1;
       
      
 self.items = [ {
@@ -37,9 +38,6 @@ self.items = [ {
 		self.defaultItem = self.items[0];
       self.editItem = self.items[0];
 
-      
-              
-   
 
 		self.newItem = function() {
              var myItem = null;
@@ -56,49 +54,12 @@ self.items = [ {
                    myItem.unid = promise.unid;
                    _that.itemList.push(myItem);
 					console.log(promise);
+					console.log(myItem);
         				}, function() {
 					console.log("EROR");
 				});
 			};
-      
-     
-      self.getItem = function() {
-            if ( self.myOrder != null){
-                item.query({orderId: self.myOrder.unid}, function(allitems) {
-                    console.dir(allitems);
-                    if (allitems.itementries !== void 0) {
-                        self.itemList = allitems.itementries;
-                    }
-                }, function(err) {
-                    console.log(err);
-                });
-                } else {
-                    console.log("no order to retrieve items");
-                }
-
-		};
-      
-      
-      
-         self.getOrders = function() {
-               item.query({}, function(allorders) {
-                   if(item.status == "In prozess"){
-				if (allorders.orderentries !== void 0) {
-					self.orderList = allorders.orderentries;
-				}
-            }
-console.dir(allorders);
-			}, function(err) {
-				console.log(err);
-			});
             
-
-		};
-  
-      
-      self.getOrders();  
-      
-      self.getItem();
       
       self.deleteItem = function(unid, idx){
       var r = confirm("Do you really want to remove this item?");
@@ -121,17 +82,19 @@ console.dir(allorders);
 			}
 		};
       
+      
+      
+      
       self.newOrder = function(){
               console.dir("Order abschicken?");
               self.myOrder = {
                     order: "One more order",
 					creationDate: new Date(),
                     userid: this.userId,
-                    quantity: this.itemList.length,
                     address: "123 sunrise Street",
                     status : "In prozess",
                     orderDate: new Date() ,
-                    priceall: this.orderPrice, 
+                    priceall: this.orderPrice
 					};
               
 				order.save(self.myOrder, function(promise) {
@@ -141,13 +104,15 @@ console.dir(allorders);
 					console.log("EROR");
 				});
               self.ordered = false;
-          console.dir(self.myOrder);		
+          console.dir(self.myOrder);	
       };
+      
+      
       
 
       self.buyOrder = function(){
                 self.myOrder.status = "Done";
-                   order.update(self.myOrder, function(promise){  
+                   order.update(self.myOrder, function(){  
                 }, function(error) {
 					console.log(error);
 				}, function() {
@@ -159,18 +124,69 @@ console.dir(allorders);
             self.myOrder = null;
       };
       
-
+      
+      
+      
+ self.getItem = function() {
+            if ( self.myOrder !== null){
+                item.query({orderId: self.myOrder.unid}, function(allitems) {
+                    console.dir(allitems);
+                    if (allitems.itementries !== void 0) {
+                        self.itemList = allitems.itementries;
+                    }
+                }, function(err) {
+                    console.log(err);
+                });
+                } else {
+                    console.log("no order to retrieve items");
+                }
+		};
+      
+      
+      
+      
             self.getCurrent = function(){
                 order.get({
+                status : 'In prozess'
 			}, function(CurrentResult) {
-				console.dir(CurrentResult);
-			}, function(error){
-                    
-                });
-
+                self.myOrder = CurrentResult.orderentries[0];    
+                self.getItem();
+			}, function(CurrentResult){
+                console.log("Keine Bestellungen");
+                console.log(CurrentResult.orderentries);
+                });   
 		};
                     
-             self.getCurrent();
+        
+      
+      self.getBought = function(){
+                order.get({
+                status : 'Done'
+			}, function(CurrentResult) {
+                   self.orderList = CurrentResult.orderentries;
+                   
+			}, function(CurrentResult){
+                console.log("Keine Bestellungen");
+                });      
+		};
+      
+//self.showItems = function(itemData, idx) {
+
+		//	 item.get({
+  //              orderID : unid
+	//		},function() {
+    //            });   
+	//	};
+      
+  
+
+      
+      
+      self.getCurrent();
+self.getBought();
+      
+      
+           
           
 	 }
 })();

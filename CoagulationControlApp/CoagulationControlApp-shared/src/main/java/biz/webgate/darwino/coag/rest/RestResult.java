@@ -21,7 +21,7 @@ public class RestResult {
 	@JsonEntity(jsonProperty = "trace")
 	private String trace;
 
-	@JsonEntity(jsonProperty = "inrentries", showEmptyValue = true)
+	@JsonEntity(jsonProperty = "inrentries")
 	private List<InrEntry> inrEntries;
 
 	@JsonEntity(jsonProperty = "inrentry")
@@ -35,7 +35,7 @@ public class RestResult {
 
 	@JsonEntity(jsonProperty = "userData")
 	private UserEntry userData;
-
+ 
 	@JsonEntity(jsonProperty = "itementries")
 	private List<ItemEntry> itemEntries;
 

@@ -15,7 +15,9 @@ p {
 h1 {
 	color: black;
 }
-
+h3{
+    text-align: center;
+}
 
 nav ul, nav li {
 	padding: 1%;
