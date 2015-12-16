@@ -138,42 +138,38 @@
 			<div class="row">
 
 
-				<div class="col-xs-12 col-md-5">
-					<button class="btn btn-default"
-						ng-click="ShopCtrl.showItems(order.unid, orderIndex)">
-                        Show items
-                    </button>
-					<div class="col-xs-12 col-md-12" ng-repeat="item in ShopCtrl.orderItems" ng-show="ShopCtrl.OrderedCurrent(orderIndex)">
-						<div class="col-xs-12 col-md-3">
-							Item Name </br> 
-                        <input class="form-control"  ng-disabled="true"
-							placeholder="{{ShopCtrl.itemVal(item.item)}}"
-							required>
-						</div>
-						<div class="col-xs-12 col-md-3">
-							Item Date </br> <input type="text" class="form-control" ng-disabled="true"
-								ng-model="item.itemDate">
-						</div>
-						<div class="col-xs-12 col-md-3">
-							Item Quantity </br> <input type="text" class="form-control" ng-disabled="true"
-								ng-model="item.quantity">
-						</div>
-						<div class="col-xs-12 col-md-3">
-							Item Preis </br> <input type="text" class="form-control" ng-disabled="true"
-								ng-model="item.itemPreis">
-						</div>
-					</div>
-				</div>
 				<div class="col-xs-12 col-md-3">
 					Order Date </br> <input type="text" class="form-control" ng-disabled="true"
 						ng-model="order.orderDate">
 				</div>
 
 				<div class="col-xs-12 col-md-3">
-					Order quantity </br> <input type="number" class="form-control" ng-disabled="true"
+					Ordered Items </br> <input type="number" class="form-control" ng-disabled="true"
 						ng-model="order.quantity">
 				</div>
-
+        
+				<div class="col-xs-12 col-md-5">
+					<button class="btn btn-default"
+						ng-click="ShopCtrl.showItems(order.unid, orderIndex)">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                    </div>
+                    </div>
+                    <div class="row">
+					<div class="col-xs-12 col-md-12" ng-repeat="item in ShopCtrl.orderItems" ng-show="ShopCtrl.OrderedCurrent(orderIndex)">
+						<div class="col-xs-12 col-md-4" id="items">
+							Item Name </br> 
+                        {{ShopCtrl.itemVal(item.item)}}
+							
+						</div>
+								<div class="col-xs-12 col-md-4" id="items">
+							Item Quantity </br> {{item.quantity}}
+						</div>
+						<div class="col-xs-12 col-md-4" id="items">
+							Item Preis </br> {{item.itemPreis}}
+						</div>
+				</div>
+    
 			</div>
 		</div>
 
