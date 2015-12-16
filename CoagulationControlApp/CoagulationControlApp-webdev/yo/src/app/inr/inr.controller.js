@@ -97,9 +97,12 @@
 			self.searchOutcome = !self.searchOutcome;
 			inr.query({
 				inrvalue : self.inrSearch
-			}, function(inrs) { // schickt die funktion ins Chart.controller
-								// update();
+			}, function(inrs) { 
+                if(inrs.inrentries.length > 0){
 				self.inrList = inrs.inrentries;
+                }else{
+                    console.log("no values");
+                }
 			}, function(err) {
 				console.log(err);
 			});

@@ -8,159 +8,176 @@
 		</div>
 	</div>
 	<div class="content">
-	<div class="row">   
-        
-         <div class="col-xs-12 col-md-4" > 
-      		 <form>
-                <h2>Address</h2>
+		<div class="row">
 
-                    <label class="control-label">Address</label>
-                        <input class="form-control"  type="text" ng-model="UserCtrl.address">
-                     <label class="control-label">City / Town</label>
-                        <input class="form-control" type="text" ng-model="UserCtrl.city">
-                        <p class="help-block"></p>
-                    <label class="control-label">Zip / Postal Code</label>
-                             <input class="form-control"  type="number" ng-model="UserCtrl.zip" min="0">
-                    <label class="control-label">Country</label>
-                           <select class="form-control" >
-                            <option value="" selected="selected">(please select a country)</option>
-                            <option value="AF">Afghanistan</option>
-                        </select>
-                 <div class="abstand"></div>
-              <div class="col-xs-5 col-md-6">
-           				    <button class="btn btn-default" type="submit" ng-click=''>
-								SAVE
-							</button>
-						</div>
-              <div class="col-xs-5 col-md-6">
-           				    <button class="btn btn-default" type="submit" ng-click=''>
-								EDIT
-							</button>
-						</div>
-        </form>
-	</div>
+			<div class="col-xs-12 col-md-4">
+				<form>
+					<h2>Address</h2>
 
-        
-        
-        
-        <div class="col-xs-12 col-md-7" ng-show="ShopCtrl.myOrder !== null">
-            
-		<form name="shopForm">	
-            <h2>Current Order</h2>
-            
-				<div class="col-xs-12 col-md-4">
-			
-                    <select class="form-control" ng-model="ShopCtrl.orderList"
+					<label class="control-label">Address</label> <input
+						class="form-control" type="text" ng-model="UserCtrl.address">
+					<label class="control-label">City / Town</label> <input
+						class="form-control" type="text" ng-model="UserCtrl.city">
+					<p class="help-block"></p>
+					<label class="control-label">Zip / Postal Code</label> <input
+						class="form-control" type="number" ng-model="UserCtrl.zip" min="0">
+					<label class="control-label">Country</label> <select
+						class="form-control">
+						<option value="" selected="selected">(please select a
+							country)</option>
+						<option value="AF">Afghanistan</option>
+					</select>
+					<div class="abstand"></div>
+					<div class="col-xs-5 col-md-6">
+						<button class="btn btn-default" type="submit" ng-click=''>
+							SAVE</button>
+					</div>
+					<div class="col-xs-5 col-md-6">
+						<button class="btn btn-default" type="submit" ng-click=''>
+							EDIT</button>
+					</div>
+				</form>
+			</div>
+
+
+
+
+			<div class="col-xs-12 col-md-7" ng-show="ShopCtrl.myOrder !== null">
+
+				<form name="shopForm">
+					<h2>Current Order</h2>
+
+					<div class="col-xs-12 col-md-4">
+
+						<select class="form-control" ng-model="ShopCtrl.orderList"
 							ng-options="o.value for o in ShopCtrl.items" ng-required="true">
-						</select> 
-                </div>
-
-              <div class="col-xs-12 col-md-2">
-
-					<input type="number" class="form-control"  placeholder="Quantity"
-						 ng-required="true" min="0" step="1" ng-model="ShopCtrl.itemQuantity">
-				</div>
-
-				<div class="col-xs-12 col-md-3"	>
-                    <div class="input-group">
-					<input type="number" class="form-control"  ng-disabled="true">
-                        <div class="input-group-addon">CHF</div>
-						</div>
-				</div>
-            <div class="col-xs-12 col-md-1">
-            <button class="btn btn-default" type="submit" ng-click='ShopCtrl.newItem()'>
-								<span class="glyphicon glyphicon-plus"></span>
-							</button>
-</div>
-<div class="abstand"></div>
-            </form>
-            
-
-          	<div ng-repeat="item in ShopCtrl.itemList" >
-		                    <div class="col-xs-12 col-md-6">
-						<input type="text" class="form-control"  placeholder=""
-								ng-model="item.item" 
-								 disabled>
+						</select>
 					</div>
-                    
+
+					<div class="col-xs-12 col-md-2">
+
+						<input type="number" class="form-control" placeholder="Quantity"
+							ng-required="true" min="0" step="1"
+							ng-model="ShopCtrl.itemQuantity">
+					</div>
+
 					<div class="col-xs-12 col-md-3">
-                        <input type="number" class="form-control"  placeholder=""
-								ng-model="item.quantity"
-								 disabled>
-                         
-							</div>
-                
-                     <div class="col-xs-12 col-md-2">
-            <button class="btn btn-default" type="submit" ng-click='ShopCtrl.deleteItem(item.unid, $index)'>  
-								<span class="glyphicon glyphicon-minus"></span>
-							</button>
-</div>
-                
-                
-                   <div class="abstand"></div>
+						<div class="input-group">
+							<input type="number" class="form-control" ng-disabled="true">
+							<div class="input-group-addon">CHF</div>
+						</div>
 					</div>
-                </div>
-        
-        <div class="col-xs-12 col-md-7" ng-show="ShopCtrl.myOrder === null">
-            <h2>Make a new order!</h2>
-            <div class="col-xs-12 col-md-5"></div>
-            
-                   				    <button class="btn btn-default" type="submit" ng-click="ShopCtrl.newOrder()" >
-								New order!
-							</button>
-                        
-                       
-						</div>
-             </div>       
-             
-                <div class="abstand"></div>
-					
-        <div class="row">
+					<div class="col-xs-12 col-md-1">
+						<button class="btn btn-default" type="submit"
+							ng-click='ShopCtrl.newItem()'>
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+					</div>
+					<div class="abstand"></div>
+				</form>
 
-                <div class="col-xs-12 col-md-4">
-                    
-                </div>
-                <div class="col-xs-12 col-md-12">
-                    <div class="col-xs-12 col-md-4">
-                    <p>Das gesamt price ist:</p>
-                        </div>
-                    <div class="col-xs-12 col-md-4">
-           				    <button class="btn btn-default" type="submit" ng-click="ShopCtrl.buyOrder()">
-								BUY IT!
-							</button>
-						</div>
-                    
-                
-						</div>
-             </div>
-        
-        
 
-           	<h3> My last Orders</h3>
-<div class="row" ng-repeat="order in ShopCtrl.orderList">
-            
-                       <div class="row">
+				<div ng-repeat="item in ShopCtrl.itemList">
+					<div class="col-xs-12 col-md-6">
+						<input type="text" class="form-control" placeholder=""
+							ng-model="item.item" disabled>
+					</div>
 
-          
-            <div class="col-xs-12 col-md-4">
-              <button class="btn btn-default" type="submit" ng-click="ShopCtrl.showItems()">
-								Show items
-							</button>
-        </div>
-     <div class="col-xs-12 col-md-4" >
-         Order Date </br>
-            <input type="text" ng-disabled="true" ng-model="order.orderDate">
-        </div>
-            
-             <div class="col-xs-12 col-md-4">
-                 Order quantity </br>
-                 <input type="number" ng-disabled="true" ng-model="order.quantity">
-        </div>
-            
-                   </div>
-     </div>
-    
-    
-    
-    </div>
+					<div class="col-xs-12 col-md-3">
+						<input type="number" class="form-control" placeholder=""
+							ng-model="item.quantity" disabled>
+
+					</div>
+
+					<div class="col-xs-12 col-md-2">
+						<button class="btn btn-default" type="submit"
+							ng-click='ShopCtrl.deleteItem(item.unid, $index)'>
+							<span class="glyphicon glyphicon-minus"></span>
+						</button>
+					</div>
+
+
+					<div class="abstand"></div>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-md-7" ng-show="ShopCtrl.myOrder === null">
+				<h2>Make a new order!</h2>
+				<div class="col-xs-12 col-md-5"></div>
+
+				<button class="btn btn-default" type="submit"
+					ng-click="ShopCtrl.newOrder()">New order!</button>
+
+
+			</div>
 		</div>
+
+		<div class="abstand"></div>
+
+		<div class="row">
+
+			<div class="col-xs-12 col-md-4"></div>
+			<div class="col-xs-12 col-md-12">
+				<div class="col-xs-12 col-md-4">
+					<p>Das gesamt price ist:</p>
+				</div>
+				<div class="col-xs-12 col-md-4">
+					<button class="btn btn-default" type="submit"
+						ng-click="ShopCtrl.buyOrder()">BUY IT!</button>
+				</div>
+
+
+			</div>
+		</div>
+
+
+
+		<h3>My last Orders</h3>
+		<div class="row" ng-repeat="(orderIndex, order) in ShopCtrl.orderList">
+
+			<div class="row">
+
+
+				<div class="col-xs-12 col-md-5">
+					<button class="btn btn-default"
+						ng-click="ShopCtrl.showItems(order.unid, orderIndex)">
+                        Show items
+                    </button>
+					<div class="col-xs-12 col-md-12" ng-repeat="item in ShopCtrl.orderItems" ng-show="ShopCtrl.OrderedCurrent(orderIndex)">
+						<div class="col-xs-12 col-md-3">
+							Item Name </br> 
+                        <input class="form-control"  ng-disabled="true"
+							placeholder="{{ShopCtrl.itemVal(item.item)}}"
+							required>
+						</div>
+						<div class="col-xs-12 col-md-3">
+							Item Date </br> <input type="text" class="form-control" ng-disabled="true"
+								ng-model="item.itemDate">
+						</div>
+						<div class="col-xs-12 col-md-3">
+							Item Quantity </br> <input type="text" class="form-control" ng-disabled="true"
+								ng-model="item.quantity">
+						</div>
+						<div class="col-xs-12 col-md-3">
+							Item Preis </br> <input type="text" class="form-control" ng-disabled="true"
+								ng-model="item.itemPreis">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-3">
+					Order Date </br> <input type="text" class="form-control" ng-disabled="true"
+						ng-model="order.orderDate">
+				</div>
+
+				<div class="col-xs-12 col-md-3">
+					Order quantity </br> <input type="number" class="form-control" ng-disabled="true"
+						ng-model="order.quantity">
+				</div>
+
+			</div>
+		</div>
+
+
+
+	</div>
+</div>
