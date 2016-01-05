@@ -64,7 +64,6 @@ public class AppManifest extends DarwinoManifest {
 		};
 	}
 	
-	@Override
 	public DatabaseFactory getDatabaseFactory(String dbName) {
 		if(dbName.equals(AppDatabaseDef.DATABASE_NAME)) { 
 			return new AppDatabaseDef();

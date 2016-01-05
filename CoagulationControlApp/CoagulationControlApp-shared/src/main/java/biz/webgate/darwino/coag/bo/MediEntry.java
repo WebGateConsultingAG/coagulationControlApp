@@ -13,7 +13,7 @@ public class MediEntry extends PojoBaseImpl {
 	@JsonEntity(jsonProperty = "medivalue")
 	private double medivalue;
 	@JsonEntity(jsonProperty = "notificationtime")
-	private Time notificationtime;
+	private Date notificationtime;
 	@JsonEntity(jsonProperty = "notificationdate")
 	private Date notificationdate;
 	@JsonEntity(jsonProperty = "mediname")
@@ -31,11 +31,11 @@ public class MediEntry extends PojoBaseImpl {
 		this.medivalue = medivalue;
 	}
 
-	public Time getNotificationtime() {
+	public Date getNotificationtime() {
 		return notificationtime;
 	}
 
-	public void setNotificationtime(Time notificationtime) {
+	public void setNotificationtime(Date notificationtime) {
 		this.notificationtime = notificationtime;
 	}
 

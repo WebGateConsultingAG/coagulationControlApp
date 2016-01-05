@@ -94,10 +94,14 @@
 					</div>
 
 					<div class="col-xs-5 col-md-1"
-						ng-show="MedCtrl.isEditableMedi($index)">
-						<input type="time" class="form-control" 
-							ng-model="medi.notificationtime"
-							ng-disabled="!MedCtrl.isEditableMedi($index)" required>
+						ng-disabled="!MedCtrl.isEditableMedi($index)" id="items">
+						
+                        
+                        <input type="time" class="form-control"  ng-disabled="true"
+							placeholder="{{medi.notificationtime|date: 'HH:mm'}}"
+                               ng-model="MedCtrl.notificationTime"
+							required>
+
 					</div>
 
 					<div class="col-xs-6 col-md-2">
@@ -111,7 +115,6 @@
 								ng-hide="MedCtrl.isEditableMedi($index)" type>
 								<span class="glyphicon glyphicon-pencil"></span>
 							</button>
-
 							<button class="btn btn-default" type="submit"
 								ng-click='MedCtrl.updateMedicine(medi, $index)'
 								ng-hide="!MedCtrl.isEditableMedi($index)">
@@ -119,7 +122,6 @@
 							</button>
 						</div>
 					</div>
-
 				</div>
 				<div class="abstand"></div>
 			</form>

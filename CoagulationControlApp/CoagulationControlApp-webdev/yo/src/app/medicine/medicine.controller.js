@@ -14,7 +14,7 @@
 		self.mediMg = "";
 		self.editSave = false;
 		self.editableMedi = -1;
-		self.notificationTime = "";
+		self.notificationTime = Date();
 		self.mediDate = "";
 		self.msgLocked = null;
 		var currentMedi = null;
@@ -174,8 +174,8 @@
 				};
 				this.mediName = "";
 				this.mediMg = "";
-				this.notificationOptionTime = "";
-				this.defaultOption = this.options[9];
+                this.notificationTime = new Date();
+          		this.defaultOption = this.options[9];
 				var _that = this;
 				medicine.save(currentMedi, function(promise) {
 					currentMedi.unid = promise.unid;
