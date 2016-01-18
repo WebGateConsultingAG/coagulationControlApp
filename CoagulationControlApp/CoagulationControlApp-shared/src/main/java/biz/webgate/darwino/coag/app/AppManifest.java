@@ -16,6 +16,7 @@ import com.darwino.jsonstore.Database;
 import com.darwino.jsonstore.Session;
 import com.darwino.jsonstore.extensions.ExtensionRegistry;
 import com.darwino.jsonstore.meta.DatabaseFactory;
+import com.darwino.jsonstore.meta._Database;
 import com.darwino.platform.DarwinoContext;
 import com.darwino.platform.DarwinoManifest;
 
@@ -64,15 +65,14 @@ public class AppManifest extends DarwinoManifest {
 		};
 	}
 	
-	public DatabaseFactory getDatabaseFactory(String dbName) {
-		if(dbName.equals(AppDatabaseDef.DATABASE_NAME)) { 
-			return new AppDatabaseDef();
-		}
-		return null;
-	}
+
 	
 	@Override
 	public ExtensionRegistry getExtensionRegistry() {
 		return new AppDBBusinessLogic();
+	}
+	
+	public DatabaseFactory getDatabaseFactory() {
+		return new AppDatabaseDef();
 	}
 }

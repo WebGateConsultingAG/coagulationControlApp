@@ -25,7 +25,14 @@
 				method : 'POST'
 			},
 			query : {
-				isArray : false
+				isArray : false,
+				transformResponse : [angular.fromJson, function(data){
+					data.medientries = data.medientries.map(function(val){
+						val.notificationtime = new Date(val.notificationtime);
+						return val;
+					});
+					return data;
+				}]
 			},
 			remove : removeProperties,
 			'delete' : removeProperties,

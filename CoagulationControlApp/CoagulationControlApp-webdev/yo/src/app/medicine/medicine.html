@@ -95,11 +95,8 @@
 
 					<div class="col-xs-5 col-md-1"
 						ng-disabled="!MedCtrl.isEditableMedi($index)" id="items">
-						
                         
-                        <input type="time" class="form-control"  ng-disabled="true"
-							placeholder="{{medi.notificationtime|date: 'HH:mm'}}"
-                               ng-model="MedCtrl.notificationTime"
+                        <input type="time" ng-model="medi.notificationtime" class="form-control"  ng-disabled="!MedCtrl.isEditableMedi($index)"
 							required>
 
 					</div>

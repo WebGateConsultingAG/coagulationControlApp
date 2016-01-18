@@ -78,7 +78,6 @@ public class OrderController extends EndpointController<OrderEntry> {
 		try {
 			entry = (OrderEntry) processFromJson(context, entry);
 			entry.initUnid();
-
 			service.saveObject(entry, AppManifest.getDatabase());
 			result.put("status", "ok");
 			result.put("unid", entry.getUnid());

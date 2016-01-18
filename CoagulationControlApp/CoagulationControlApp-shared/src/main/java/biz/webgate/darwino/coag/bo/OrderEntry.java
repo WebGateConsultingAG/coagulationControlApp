@@ -22,8 +22,10 @@ public class OrderEntry extends PojoBaseImpl {
 	private String address;
 	@JsonEntity(jsonProperty = "status")
 	private String status;
+
+
 	
-	
+
 
 
 	public Date getCreationdate() {

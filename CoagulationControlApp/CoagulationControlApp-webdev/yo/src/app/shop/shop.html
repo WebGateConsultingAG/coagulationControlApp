@@ -45,7 +45,7 @@
 					<div class="abstand"></div>
 				</form>
 
-				<div ng-repeat="item in ShopCtrl.itemList | orderBy:'orderDate'" >
+				<div ng-repeat="item in ShopCtrl.itemList | orderBy:'date'" >
 					<div class="col-xs-12 col-md-6">
 						<input type="text" class="form-control" placeholder=""
 							ng-model="item.item" disabled>
@@ -143,7 +143,7 @@
 					{{order.orderDate|date:'yyyy-MM-dd'}}
 				</div>
 				<div class="col-xs-12 col-md-3">
-                    {{order.quantity}}
+                    {{order.ordereditemquantity}}
 				</div>
 				</br>
 				<div class="col-xs-12 col-md-2">

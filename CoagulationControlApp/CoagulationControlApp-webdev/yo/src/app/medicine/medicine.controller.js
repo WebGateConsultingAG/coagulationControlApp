@@ -14,7 +14,7 @@
 		self.mediMg = "";
 		self.editSave = false;
 		self.editableMedi = -1;
-		self.notificationTime = Date();
+		self.notificationTime;
 		self.mediDate = "";
 		self.msgLocked = null;
 		var currentMedi = null;

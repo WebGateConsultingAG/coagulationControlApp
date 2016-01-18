@@ -12,6 +12,7 @@
 		self.orderItems = [];
 		self.orderList = [];
 		self.itemQuantity = 0;
+		self.OrderedItemQuantity;
 		self.itemPrice = "";
 		self.orderPrice = "";
 		self.orderNr = "";
@@ -46,8 +47,8 @@
 				itemDate : new Date(),
 				orderId : this.myOrder.unid,
 			};
-			self.itemQuantity = 0;
 			self.editItem = self.items[0];
+            self.itemQuantity = 0;
 			var _that = this;
 			item.save(myItem, function(promise) {
 				myItem.unid = promise.unid;
@@ -58,6 +59,8 @@
 				console.log("EROR");
 			});
 		};
+        
+        
 
 		self.deleteItem = function(unid, idx) {
 			var r = confirm("Do you really want to remove this item?");
@@ -79,6 +82,8 @@
 
 			}
 		};
+        
+       
 
 		self.newOrder = function() {
 			console.dir("Order abschicken?");
@@ -150,7 +155,7 @@
 				status : 'Done'
 			}, function(CurrentResult) {
 				self.orderList = CurrentResult.orderentries;
-                
+             
 			}, function(CurrentResult) {
 				console.log("Keine Bestellungen");
 			});
@@ -163,13 +168,13 @@
 				orderId : unid
 			}, function(items) {
 		self.orderItems = items.itementries;
-				
+        
 			}, function(err) {
 				console.log(err);
 			});
             self.OrderedCurrent(idx);
 		};
-       
+     
         
         self.itemVal = function(name){
             		var result;
@@ -183,12 +188,9 @@
 			return result;
 		};
         
-
          self.OrderedCurrent = function(idx){
         return self.activeOrderIndex === idx;
     };
-        
-
 		self.getCurrent();
 		self.getBought();
 
